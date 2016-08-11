@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="MonitorWindows.Controls.IPTextBoxCtrl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
+    <Viewbox>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
+            <TextBox Name="tbFirstIP" TabIndex="1" MaxLength="3"  TextAlignment="Center" Background="Transparent"  BorderThickness="0" Height="20" Width="25"   HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" VerticalAlignment="Stretch" TextChanged="TextBoxTextChanged" KeyDown="TextBoxKeyDown" GotFocus="TextBoxGotFocus" PreviewKeyDown="TextBoxPreviewKeyDown">
+                <TextBox.Foreground>
+                    <Binding Path="Foreground">
+                        <Binding.RelativeSource>
+                            <RelativeSource Mode="FindAncestor" AncestorType="{x:Type UserControl}" />
+                        </Binding.RelativeSource>
+                    </Binding>
+                </TextBox.Foreground>
+            </TextBox>
+            <Label Content="." Background="{Binding Background, ElementName=tbFirstIP}" Width="12">
+                <Label.Foreground>
+                    <Binding Path="Foreground">
+                        <Binding.RelativeSource>
+                            <RelativeSource Mode="FindAncestor" AncestorType="{x:Type UserControl}" />
+                        </Binding.RelativeSource>
+                    </Binding>
+                </Label.Foreground>
+            </Label>
+            <TextBox Name="tbSecondIP" TabIndex="2" MaxLength="3"   TextAlignment="Center" Background="Transparent" BorderThickness="0"  Height="20" Width="25"   HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" VerticalAlignment="Stretch" TextChanged="TextBoxTextChanged" KeyDown="TextBoxKeyDown" GotFocus="TextBoxGotFocus" PreviewKeyDown="TextBoxPreviewKeyDown">
+                <TextBox.Foreground>
+                    <Binding Path="Foreground">
+                        <Binding.RelativeSource>
+                            <RelativeSource Mode="FindAncestor" AncestorType="{x:Type UserControl}" />
+                        </Binding.RelativeSource>
+                    </Binding>
+                </TextBox.Foreground>
+            </TextBox>
+            <Label Background="{Binding Background, ElementName=tbFirstIP}" Width="12" Content=".">
+                <Label.Foreground>
+                    <Binding Path="Foreground">
+                        <Binding.RelativeSource>
+                            <RelativeSource Mode="FindAncestor" AncestorType="{x:Type UserControl}" />
+                        </Binding.RelativeSource>
+                    </Binding>
+                </Label.Foreground>
+            </Label>
+            <TextBox Name="tbThirdIP" TabIndex="3" MaxLength="3"   TextAlignment="Center" Background="Transparent" BorderThickness="0"  Height="20" Width="25"   HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" VerticalAlignment="Stretch" GotFocus="TextBoxGotFocus" KeyDown="TextBoxKeyDown" TextChanged="TextBoxTextChanged" PreviewKeyDown="TextBoxPreviewKeyDown">
+                <TextBox.Foreground>
+                    <Binding Path="Foreground">
+                        <Binding.RelativeSource>
+                            <RelativeSource Mode="FindAncestor" AncestorType="{x:Type UserControl}" />
+                        </Binding.RelativeSource>
+                    </Binding>
+                </TextBox.Foreground>
+            </TextBox>
+            <Label Background="{Binding Background, ElementName=tbFirstIP}" Width="12" Content=".">
+                <Label.Foreground>
+                    <Binding Path="Foreground">
+                        <Binding.RelativeSource>
+                            <RelativeSource Mode="FindAncestor" AncestorType="{x:Type UserControl}" />
+                        </Binding.RelativeSource>
+                    </Binding>
+                </Label.Foreground>
+            </Label>
+            <TextBox Name="tbForthIP" TabIndex="4" MaxLength="3"   TextAlignment="Center" Background="Transparent" BorderThickness="0" Height="20" Width="25"   HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" VerticalAlignment="Stretch" GotFocus="TextBoxGotFocus" KeyDown="TextBoxKeyDown" TextChanged="TextBoxTextChanged" PreviewKeyDown="TextBoxPreviewKeyDown">
+                <TextBox.Foreground>
+                    <Binding Path="Foreground">
+                        <Binding.RelativeSource>
+                            <RelativeSource Mode="FindAncestor" AncestorType="{x:Type UserControl}" />
+                        </Binding.RelativeSource>
+                    </Binding>
+                </TextBox.Foreground>
+            </TextBox>
+        </StackPanel>
+    </Viewbox>
+</UserControl>

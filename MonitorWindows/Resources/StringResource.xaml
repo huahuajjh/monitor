@@ -1,0 +1,40 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="MainWin_Title">分布式可视化综合应用平台</sys:String>
+    <sys:String x:Key="MainWin_Ip">IP</sys:String>
+    <sys:String x:Key="MainWin_User">用户</sys:String>
+    <sys:String x:Key="MainWin_Password">密码</sys:String>
+    <sys:String x:Key="MainWin_Login">登录</sys:String>
+    <sys:String x:Key="MainWin_Out">退出</sys:String>
+
+    <sys:String x:Key="IndexWin_Title">分布式可视化综合应用平台</sys:String>
+    <sys:String x:Key="IndexWin_LoginState_True">在线</sys:String>
+    <sys:String x:Key="IndexWin_LoginState_False">离线</sys:String>
+    <sys:String x:Key="IndexWin_LoginBtn_Title">登录信息</sys:String>
+    <sys:String x:Key="IndexWin_LoginInfo_Title_IP">IP：</sys:String>
+    <sys:String x:Key="IndexWin_LoginInfo_Title_User">登录用户：</sys:String>
+    <sys:String x:Key="IndexWin_LoginInfo_User">匿名</sys:String>
+    <sys:String x:Key="IndexWin_TopMenuTitle_FacilityConfigure">设备配置</sys:String>
+    <sys:String x:Key="IndexWin_TopMenuTitle_userManage">用户管理</sys:String>
+    <sys:String x:Key="IndexWin_TopMenuTitle_uiConfig">界面设置</sys:String>
+    <sys:String x:Key="IndexWin_TopMenuTitle_preview">预览监视</sys:String>
+    <sys:String x:Key="IndexWin_TopMenuTitle_winOne">屏幕墙1</sys:String>
+    <sys:String x:Key="IndexWin_TopMenuTitle_winTwo">屏幕墙2</sys:String>
+    <sys:String x:Key="IndexWin_TopMenuTitle_winThree">屏幕墙3</sys:String>
+    <sys:String x:Key="IndexWin_TopMenuTitle_winFour">屏幕墙4</sys:String>
+    <sys:String x:Key="IndexWin_TopMenuTitle_wintoggle">多屏幕切换</sys:String>
+    <sys:String x:Key="IndexWin_TopMenuTitle_detection">系统检测</sys:String>
+    <sys:String x:Key="IndexWin_TopMenuTitle_img">高清底图</sys:String>
+    <sys:String x:Key="IndexWin_TopMenuTitle_subtitle">字幕</sys:String>
+    <sys:String x:Key="IndexWin_TopMenuTitle_on">开屏</sys:String>
+    <sys:String x:Key="IndexWin_TopMenuTitle_off">关屏</sys:String>
+    <sys:String x:Key="IndexWin_TopMenuTitle_extend">扩展选项</sys:String>
+    <sys:String x:Key="IndexWin_TopMenuTitle_extendWin">扩展平台</sys:String>
+    <sys:String x:Key="IndexWin_TopMenuTitle_help">帮助</sys:String>
+    
+    <sys:String x:Key="Alert_Title">提示</sys:String>
+    <sys:String x:Key="Alert_Btn_OK">确定</sys:String>
+    <sys:String x:Key="Alert_Btn_NO">取消</sys:String>
+    <sys:String x:Key="Alert_Login_Hint">你登录信息错误,是否启用离线模式?</sys:String>
+</ResourceDictionary>

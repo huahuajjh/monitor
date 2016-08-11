@@ -1,0 +1,226 @@
+﻿<Window x:Class="MonitorWindows.IndexWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:cvt="clr-namespace:MonitorWindows.Converter"
+        Title="{DynamicResource IndexWin_Title}"        
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent" ResizeMode="CanResizeWithGrip" StateChanged="Window_StateChanged"
+        Width="1458"
+        MinWidth="1458">
+    <Window.Resources>
+        <cvt:VisibilityAsBooleanConverter x:Key="cvtVisibility"/>
+    </Window.Resources>
+    <Border BorderThickness="0" BorderBrush="DarkGreen" Margin="5" CornerRadius="5">
+        <Border.Background>
+            <ImageBrush ImageSource="Resources/img/background.png" />
+        </Border.Background>
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0" />
+        </Border.Effect>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="85"></RowDefinition>
+                <RowDefinition Height="106"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="0"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Height="85" MouseMove="Win_MouseMove" Panel.ZIndex="9999">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image DockPanel.Dock="Left" Source="Resources/img/LOGO.png"  />
+                <Label Grid.Column="1" Content="{DynamicResource IndexWin_Title}" Foreground="White" FontFamily="Resources/font/#方正综艺简体" FontSize="20" HorizontalContentAlignment="Center" Height="30" FontWeight="ExtraBlack" />
+                <StackPanel Grid.Column="2">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5,0,10">
+                        <Button Style="{StaticResource Minimize_Btn}" Margin="0,0,5,0" Click="Minimize_Win" />
+                        <Button Name="Maximize_Btn" Style="{StaticResource Maximize_Btn}" Margin="0,0,5,0" Click="Maximize_Win" />
+                        <Button Style="{StaticResource Close_Btn}" Margin="0,0,5,0" Click="Close_Win" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,10,0">
+                        <Label Style="{StaticResource Login_Normal}" ToolTip="{DynamicResource IndexWin_LoginState_False}" />
+                        <Label Name="LoginInfoBtn" Style="{StaticResource UserInfo_Btn}" Content="{DynamicResource IndexWin_LoginBtn_Title}" />
+                    </StackPanel>
+                    <Canvas Margin="11,0,0,0">
+                        <Border BorderThickness="1" Margin="2" Height="96" Width="115" Canvas.Right="10" Visibility="{Binding ElementName=LoginInfoBtn,Path=IsMouseOver,Mode=Default,Converter={StaticResource cvtVisibility}}">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="1" />
+                            </Border.Effect>
+                            <Border.Background>
+                                <ImageBrush ImageSource="Resources/img/login_info.png" />
+                            </Border.Background>
+                            <StackPanel>
+                                <Label Content="{DynamicResource IndexWin_LoginInfo_Title_IP}" FontWeight="Bold" Foreground="White" Padding="10,8,0,0" />
+                                <Label Content="192.168.1.1" Foreground="#cccccc" Padding="20,3,0,5" />
+                                <Label Content="{DynamicResource IndexWin_LoginInfo_Title_User}" FontWeight="Bold" Foreground="White" Padding="10,5,0,0" />
+                                <Label Content="{DynamicResource IndexWin_LoginInfo_User}" Foreground="#cccccc" Padding="20,3,0,5" />
+                            </StackPanel>
+                        </Border>
+                    </Canvas>
+                </StackPanel>
+            </Grid>
+            <Border Grid.Row="1" Margin="10,5" Height="96">
+                <Border.Background>
+                    <ImageBrush ImageSource="Resources/img/top_menu_background.png" />
+                </Border.Background>
+                <StackPanel Margin="10,1" Orientation="Horizontal" HorizontalAlignment="Left" Width="1404" Height="90">
+                    <StackPanel.Background>
+                        <ImageBrush ImageSource="Resources/img/menuICO/background.png" />
+                    </StackPanel.Background>
+                    <Button Width="108" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                        <StackPanel>
+                            <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/configure.png"  />
+                            <Label Content="{DynamicResource IndexWin_TopMenuTitle_FacilityConfigure}" Style="{StaticResource Top_Menu_Title}" />
+                        </StackPanel>
+                    </Button>
+                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                        <StackPanel>
+                            <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/userManage.png"  />
+                            <Label Content="{DynamicResource IndexWin_TopMenuTitle_userManage}" Style="{StaticResource Top_Menu_Title}" />
+                        </StackPanel>
+                    </Button>
+                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                        <StackPanel>
+                            <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/uiConfig.png"  />
+                            <Label Content="{DynamicResource IndexWin_TopMenuTitle_uiConfig}" Style="{StaticResource Top_Menu_Title}" />
+                        </StackPanel>
+                    </Button>
+                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                        <StackPanel>
+                            <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/preview.png"  />
+                            <Label Content="{DynamicResource IndexWin_TopMenuTitle_preview}" Style="{StaticResource Top_Menu_Title}" />
+                        </StackPanel>
+                    </Button>
+                    <StackPanel Width="301">
+                        <Grid Height="67">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Button Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                                <StackPanel>
+                                    <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/win.png"  />
+                                    <Label Content="{DynamicResource IndexWin_TopMenuTitle_winOne}" Style="{StaticResource Top_Menu_Title}" />
+                                </StackPanel>
+                            </Button>
+                            <Button Grid.Column="1" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                                <StackPanel>
+                                    <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/win.png"  />
+                                    <Label Content="{DynamicResource IndexWin_TopMenuTitle_winTwo}" Style="{StaticResource Top_Menu_Title}" />
+                                </StackPanel>
+                            </Button>
+                            <Button Grid.Column="2" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                                <StackPanel>
+                                    <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/win.png"  />
+                                    <Label Content="{DynamicResource IndexWin_TopMenuTitle_winThree}" Style="{StaticResource Top_Menu_Title}" />
+                                </StackPanel>
+                            </Button>
+                            <Button Grid.Column="3" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                                <StackPanel>
+                                    <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/win.png"  />
+                                    <Label Content="{DynamicResource IndexWin_TopMenuTitle_winFour}" Style="{StaticResource Top_Menu_Title}" />
+                                </StackPanel>
+                            </Button>
+                        </Grid>
+                        <Label Height="23" Padding="2" HorizontalContentAlignment="Center" Content="{DynamicResource IndexWin_TopMenuTitle_wintoggle}" Foreground="Gray" />
+                    </StackPanel>
+                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                        <StackPanel>
+                            <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/detection.png"  />
+                            <Label Content="{DynamicResource IndexWin_TopMenuTitle_detection}" Style="{StaticResource Top_Menu_Title}" />
+                        </StackPanel>
+                    </Button>
+                    <Button Width="106" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                        <StackPanel>
+                            <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/img.png"  />
+                            <Label Content="{DynamicResource IndexWin_TopMenuTitle_img}" Style="{StaticResource Top_Menu_Title}" />
+                        </StackPanel>
+                    </Button>
+                    <Button Width="63" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                        <StackPanel>
+                            <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/subtitle.png"  />
+                            <Label Content="{DynamicResource IndexWin_TopMenuTitle_subtitle}" Style="{StaticResource Top_Menu_Title}" />
+                        </StackPanel>
+                    </Button>
+                    <Grid Width="123">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                            <StackPanel>
+                                <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/on.png"  />
+                                <Label Content="{DynamicResource IndexWin_TopMenuTitle_on}" Style="{StaticResource Top_Menu_Title}" />
+                            </StackPanel>
+                        </Button>
+                        <Button Grid.Column="1" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                            <StackPanel>
+                                <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/off.png"  />
+                                <Label Content="{DynamicResource IndexWin_TopMenuTitle_off}" Style="{StaticResource Top_Menu_Title}" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                        <StackPanel>
+                            <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/extend.png"  />
+                            <Label Content="{DynamicResource IndexWin_TopMenuTitle_extend}" Style="{StaticResource Top_Menu_Title}" />
+                        </StackPanel>
+                    </Button>
+                    <Button Width="105" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                        <StackPanel>
+                            <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/extendWin.png"  />
+                            <Label Content="{DynamicResource IndexWin_TopMenuTitle_extendWin}" Style="{StaticResource Top_Menu_Title}" />
+                        </StackPanel>
+                    </Button>
+                    <Button Width="63" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                        <StackPanel>
+                            <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/help.png"  />
+                            <Label Content="{DynamicResource IndexWin_TopMenuTitle_help}" Style="{StaticResource Top_Menu_Title}" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Border>
+            <StackPanel Grid.Row="2">
+                <Expander Style="{StaticResource ExpanderStyle}">
+                    <Expander.Header>123</Expander.Header>
+                    <Expander.Content>
+                        <StackPanel>
+                            <Button Content="123" />
+                            <Button Content="123" />
+                            <Button Content="123" />
+                            <Button Content="123" />
+                        </StackPanel>
+                    </Expander.Content>
+                </Expander>
+                <Expander Style="{StaticResource ExpanderStyle}">
+                    <Expander.Header>123</Expander.Header>
+                    <Expander.Content>
+                        <StackPanel>
+                            <Button Content="123" />
+                            <Button Content="123" />
+                            <Button Content="123" />
+                            <Button Content="123" />
+                        </StackPanel>
+                    </Expander.Content>
+                </Expander>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
