@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MonitorWindows.Windows.BgImgSetting;
+using MonitorWindows.Windows.DeviceSettting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +22,7 @@ namespace MonitorWindows
     public partial class IndexWindow : Window
     {
         public IndexWindow()
-        {
+        {            
             InitializeComponent();
         }
 
@@ -47,12 +49,10 @@ namespace MonitorWindows
             }
         }
 
-        private void Win_MouseMove(object sender, MouseEventArgs e)
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                this.DragMove();
-            }
+            base.OnMouseLeftButtonDown(e);
+            this.DragMove();
         }
 
         private void Window_StateChanged(object sender, EventArgs e)
@@ -63,8 +63,20 @@ namespace MonitorWindows
             }
             else
             {
-                ((Button)Maximize_Btn).Style = this.FindResource("Narrow_Btn") as Style;
+                ((Button)Maximize_Btn).Style = this.FindResource("Narrow_Btn") as Style;                
             }
         }
+
+        /*打开设备设置窗口*/
+        private void OpenDeviceSettingWindow(object sender, MouseButtonEventArgs e)
+        {
+            new DeviceSettingWindow().Show();
+        }
+
+        private void OpenBgImgSettingWindow(object sender, RoutedEventArgs e)
+        {
+            new BgImgSettingWindow().Show();
+        }
+
     }
 }
