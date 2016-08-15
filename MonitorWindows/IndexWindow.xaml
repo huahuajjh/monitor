@@ -200,6 +200,8 @@
             </Border>
             <DockPanel Grid.Row="2">
                 <DockPanel DockPanel.Dock="Left" Width="181" Margin="10,5">
+                    <Button Style="{StaticResource ToolBtn}" DockPanel.Dock="Bottom" Content="{DynamicResource IndexWin_LeftMenuTitle_Arranged}" />
+                    <ComboBox Style="{StaticResource ColorComboBox}" DockPanel.Dock="Top"></ComboBox>
                     <TabControl Style="{StaticResource TabControlStyle}">
                         <TabItem Header="{DynamicResource IndexWin_LeftMenuTitle_Signal}" Style="{StaticResource listTabItemStyle}">
                             <StackPanel Background="Transparent">
@@ -279,7 +281,8 @@
                                             <MenuItem Header="删除"/>
                                         </ContextMenu>
                                     </ListViewItem.ContextMenu>
-                                    A ListView</ListViewItem>
+                                    A ListView
+                                </ListViewItem>
                                 <ListViewItem>
                                     <ListViewItem.ContextMenu>
                                         <ContextMenu>
@@ -289,13 +292,9 @@
                                             <Separator />
                                             <MenuItem Header="删除"/>
                                         </ContextMenu>
-                                    </ListViewItem.ContextMenu> A ListView</ListViewItem>
+                                    </ListViewItem.ContextMenu> A ListView
+                                </ListViewItem>
                             </ListView>
-                        </TabItem>
-                        <TabItem Header="{DynamicResource IndexWin_LeftMenuTitle_Arranged}" Style="{StaticResource listTabItemStyle}">
-                            <Grid>
-                                <TextBlock Text="Page 3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            </Grid>
                         </TabItem>
                     </TabControl>
                 </DockPanel>
