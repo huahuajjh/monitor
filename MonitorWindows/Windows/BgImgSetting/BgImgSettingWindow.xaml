@@ -1,12 +1,15 @@
 ﻿<Window x:Class="MonitorWindows.Windows.BgImgSetting.BgImgSettingWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="sub" Height="312" Width="620"
+        Title="sub" Height="326" Width="640"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
     
-    <Border>
+    <Border Margin="10">
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="1"/>
+        </Border.Effect>
         <Border.Background>
             <ImageBrush ImageSource="../../Resources/img/bg_img_setting/bg.png"/>
         </Border.Background>
@@ -21,8 +24,59 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             
-            <Label Grid.Column="0" Grid.Row="0" Content="{DynamicResource bisw_title}" Foreground="Gray" FontWeight="Bold" FontSize="15" VerticalAlignment="Center" Margin="10,0,0,0"></Label>
-            <Button Grid.Row="0" Grid.Column="1" Style="{StaticResource share_close}" Margin="0,8,-255,0"></Button>
+            <Label Grid.Column="0" Grid.Row="0" Content="{DynamicResource bisw_title}" Foreground="Black" FontWeight="Bold" FontSize="15" VerticalAlignment="Center" Margin="10,0,0,0"></Label>
+            <Button Grid.Row="0" Grid.Column="1" Style="{StaticResource share_close}" Margin="0,5,-255,0" Click="CloseWindow"/>
+
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                
+                <Label Content="{DynamicResource bisw_set_img}" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label Content="{DynamicResource bisw_pick_img}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="1" Height="30" Background="White">
+                    <Label.Effect>
+                        <DropShadowEffect ShadowDepth="0"/>
+                    </Label.Effect>
+                </Label>
+                <Button Content="{DynamicResource bisw_pick_img_btn}" Grid.Row="1" Grid.Column="2" Height="30" Background="#FFFFFF" BorderThickness="0" Cursor="Hand" Click="OpenFile">
+                    <Button.Effect>
+                        <DropShadowEffect ShadowDepth="0"/>
+                    </Button.Effect>
+                </Button>
+                <Label Content="{DynamicResource bisw_lb_display_way}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <RadioButton GroupName="display_way" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"  Content="{DynamicResource bisw_rb_single_scr}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <RadioButton GroupName="display_way" Grid.Row="2" Grid.Column="2" Content="{DynamicResource bisw_rb_double_scr}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Content="{DynamicResource bisw_lb_bg_color}" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="1" Height="30" Background="White">
+                    <Label.Effect>
+                        <DropShadowEffect ShadowDepth="0"/>
+                    </Label.Effect>
+                </Label>
+                <Button Content="{DynamicResource bisw_btn_pick_color}" Grid.Row="3" Grid.Column="2" Height="30" Background="#FFFFFF" BorderThickness="0" Cursor="Hand">
+                    <Button.Effect>
+                        <DropShadowEffect ShadowDepth="0"/>
+                    </Button.Effect>
+                </Button>
+            </Grid>
+
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Border Background="#CADFEA" Width="200" Height="200">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="0"/>
+                    </Border.Effect>
+                    <Image Name="img"/>
+                </Border>
+            </StackPanel>
+            <WrapPanel Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="482,174,-272,-1" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
         </Grid>        
     </Border>
     </Window>

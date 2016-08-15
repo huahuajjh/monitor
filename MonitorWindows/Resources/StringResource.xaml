@@ -62,6 +62,16 @@
     <sys:String x:Key="dsw_node">节点</sys:String>
     <sys:String x:Key="dsw_com_port">COM端口：</sys:String>
     <sys:String x:Key="dsw_baud_rate">波特率：</sys:String>
+    <sys:String x:Key="dsw_save">保存</sys:String>
     
+    <!--background image setting-->
     <sys:String x:Key="bisw_title">底图设置</sys:String>
+    <sys:String x:Key="bisw_set_img">设置图片：</sys:String>
+    <sys:String x:Key="bisw_pick_img">选择图片：</sys:String>
+    <sys:String x:Key="bisw_pick_img_btn">选择图片</sys:String>
+    <sys:String x:Key="bisw_lb_display_way">显示方式：</sys:String>
+    <sys:String x:Key="bisw_rb_single_scr">单屏</sys:String>
+    <sys:String x:Key="bisw_rb_double_scr">双屏</sys:String>
+    <sys:String x:Key="bisw_lb_bg_color">背景色：</sys:String>
+    <sys:String x:Key="bisw_btn_pick_color">选择颜色</sys:String>
 </ResourceDictionary>

@@ -70,12 +70,14 @@ namespace MonitorWindows
         /*打开设备设置窗口*/
         private void OpenDeviceSettingWindow(object sender, MouseButtonEventArgs e)
         {
-            new DeviceSettingWindow().Show();
+            new DeviceSettingWindow().ShowDialog();
         }
 
         private void OpenBgImgSettingWindow(object sender, RoutedEventArgs e)
         {
-            new BgImgSettingWindow().Show();
+            BgImgSettingWindow bg_setting_win = new BgImgSettingWindow();
+            bg_setting_win.Owner = this;
+            bg_setting_win.ShowDialog();
         }
 
     }

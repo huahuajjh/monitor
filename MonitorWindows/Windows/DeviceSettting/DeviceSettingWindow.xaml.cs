@@ -30,5 +30,10 @@ namespace MonitorWindows.Windows.DeviceSettting
             this.DragMove();
         }
 
+        private void CloseWindow(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }
