@@ -1,0 +1,23 @@
+﻿<Window x:Class="MonitorWindows.winTest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:my="clr-namespace:MonitorWindows.Components"
+        Title="winTest" Height="648" Width="973" Background="Black">
+    <Canvas>
+        <my:CustomWindows></my:CustomWindows>
+        <ListView  x:Name="listView1" Grid.Column="0" AllowDrop="True">
+            <ListViewItem>
+                <Image Source="Resources/img/b_down.png"></Image>
+            </ListViewItem>
+            <ListViewItem>
+                <Image Source="Resources/img/menuICO/background.png"></Image>
+            </ListViewItem>
+            <ListViewItem>
+                <Image Source="Resources/img/tool/dowm.png"></Image>
+            </ListViewItem>
+            <ListViewItem>
+                <Image Source="Resources/img/menuICO/img.png"></Image>
+            </ListViewItem>
+        </ListView>
+    </Canvas>
+</Window>

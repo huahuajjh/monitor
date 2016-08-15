@@ -36,6 +36,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -44,16 +46,38 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Components\CustomWindow.xaml.cs">
+      <DependentUpon>CustomWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomWindows.xaml.cs">
+      <DependentUpon>CustomWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Square.cs" />
+    <Compile Include="Controls\MoveThumb.cs" />
+    <Compile Include="Controls\ResizeThumb.cs" />
+    <Compile Include="winTest.xaml.cs">
+      <DependentUpon>winTest.xaml</DependentUpon>
+    </Compile>
     <Page Include="Components\Alert.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\CustomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\CustomWindows.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -87,6 +111,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Resources\ExpanderDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\StringResource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -94,6 +122,10 @@
     <Page Include="Resources\StylesDictionary.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="winTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -224,6 +256,19 @@
     <Resource Include="Resources\img\tool\prohibition.png" />
     <Resource Include="Resources\img\tool\dowm.png" />
     <Resource Include="Resources\img\tool\hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\index_bottom_ground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\left_ico\cvbs.png" />
+    <Resource Include="Resources\img\left_ico\hd.png" />
+    <Resource Include="Resources\img\left_ico\ipc.png" />
+    <Resource Include="Resources\img\left_ico\other.png" />
+    <Resource Include="Resources\img\left_ico\media.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\grop_ico.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
