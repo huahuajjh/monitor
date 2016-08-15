@@ -50,4 +50,18 @@
     <sys:String x:Key="Alert_Btn_OK">确定</sys:String>
     <sys:String x:Key="Alert_Btn_NO">取消</sys:String>
     <sys:String x:Key="Alert_Login_Hint">你登录信息错误,是否启用离线模式?</sys:String>
+    
+    <!--Device Setting-->
+    <sys:String x:Key="dsw_wall_name">拼接墙名称：</sys:String>
+    <sys:String x:Key="dsw_wall_way">拼接屏幕组合方式：</sys:String>
+    <sys:String x:Key="dsw_unit_resolution">单位物理分辨率：</sys:String>
+    <sys:String x:Key="dsw_cpu_ipaddr">处理器主控IP地址：</sys:String>
+    <sys:String x:Key="dsw_display_unit_vendor">显示单元厂商：</sys:String>
+    <sys:String x:Key="dsw_serialport_side">串口端：</sys:String>
+    <sys:String x:Key="dsw_self_mechine">本机</sys:String>
+    <sys:String x:Key="dsw_node">节点</sys:String>
+    <sys:String x:Key="dsw_com_port">COM端口：</sys:String>
+    <sys:String x:Key="dsw_baud_rate">波特率：</sys:String>
+    
+    <sys:String x:Key="bisw_title">底图设置</sys:String>
 </ResourceDictionary>

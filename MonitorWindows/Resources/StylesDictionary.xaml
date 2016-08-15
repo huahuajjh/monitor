@@ -166,6 +166,115 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
+    <!--devices setting style-->
+    <Style TargetType="Button" x:Key="save_btn_style">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="img/device_setting/normal_save.png"/>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="img/device_setting/enter_save.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="img/device_setting/pressing_save.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="img/device_setting/pressing_save.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="Border" x:Key="label_style">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="#F2F8FB"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="5" ShadowDepth="1" Color="#808F96" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Margin" Value="1,0,0,0"/>
+    </Style>
+
+    <!--toggle button style for combobox-->
+    <ControlTemplate x:Key="cmb_toggle_btn" TargetType="ToggleButton">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" BorderThickness="0" BorderBrush="#e8e8e8"/>
+            <Image Grid.Column="1" Width="25" Height="25" Source="img/device_setting/toggle_btn_for_bombobox.png" Cursor="Hand"/>
+        </Grid>
+    </ControlTemplate>
+    
+    
+    <!--combobox item style for combobox-->
+    <Style TargetType="ComboBoxItem" x:Key="cmbitem_style">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ComboBoxItem">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter x:Name="contentPresenter" Margin="{TemplateBinding Margin}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!--combobox style-->
+    <Style TargetType="ComboBox" x:Key="dsw_combobox_style">
+        <Setter Property="Template">            
+            <Setter.Value>
+                <ControlTemplate TargetType="ComboBox">
+                    <Grid>
+                        <!--drop arrow-->
+                        <ToggleButton ClickMode="Press" Template="{DynamicResource cmb_toggle_btn}" x:Name="ToggleButton"/>
+                        <!--main content-->
+                        <Grid>
+                            <ContentPresenter>
+
+                            </ContentPresenter>
+                        </Grid>
+                        <!--container-->
+                        <Popup>
+                            <Grid>
+                            </Grid>
+                        </Popup>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style TargetType="Button" x:Key="Top_Menu_Btn_NotBackground">
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Background" Value="Transparent" />
@@ -339,7 +448,7 @@
                 <ControlTemplate TargetType="{x:Type TabItem}">
                     <Label
                         x:Name="textBlock"
-                        FontSize="18"
+                        FontSize="{TemplateBinding FontSize}"
                         Height="45"
                         Content="{TemplateBinding Header}"
                         VerticalContentAlignment="Center"
@@ -442,11 +551,49 @@
         </Grid>
     </ControlTemplate>
     <!-- Designer Item Template-->
-    <ControlTemplate x:Key="DesignerItemTemplate" TargetType="UserControl">
-        <Grid DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}">
-            <s:MoveThumb Template="{StaticResource MoveThumbTemplate}" Cursor="SizeAll"/>
-            <Control Template="{StaticResource ResizeDecoratorTemplate}"/>
-            <ContentPresenter Content="{TemplateBinding ContentControl.Content}"/>
-        </Grid>
-    </ControlTemplate>
+        <ControlTemplate x:Key="DesignerItemTemplate" TargetType="UserControl">
+            <Grid DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}">
+                <s:MoveThumb Template="{StaticResource MoveThumbTemplate}" Cursor="SizeAll"/>
+                <Control Template="{StaticResource ResizeDecoratorTemplate}"/>
+                <ContentPresenter Content="{TemplateBinding ContentControl.Content}"/>
+            </Grid>
+        </ControlTemplate>
+
+        <Style x:Key="share_close" TargetType="Button">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="img/close_btn_narmal.png"></ImageBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Width" Value="28"/>
+            <Setter Property="Height" Value="26"/>
+            <Setter Property="Cursor" Value="Hand"/>
+
+            <!--template-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <!--triggers-->
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <ImageBrush ImageSource="img/close_btn_hover.png" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <ImageBrush ImageSource="img/close_btn_pressed.png"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
 </ResourceDictionary>

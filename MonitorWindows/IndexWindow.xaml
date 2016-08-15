@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:cvt="clr-namespace:MonitorWindows.Converter"
         xmlns:cts="clr-namespace:MonitorWindows.Components"
-        Title="{DynamicResource IndexWin_Title}"        
+        Title="{DynamicResource IndexWin_Title}"
         WindowStyle="None"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
@@ -30,7 +30,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Grid Height="85" MouseMove="Win_MouseMove" Panel.ZIndex="9999">
+            <Grid Height="85" Panel.ZIndex="9999">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
@@ -77,10 +77,10 @@
                     <StackPanel.Background>
                         <ImageBrush ImageSource="Resources/img/menuICO/background.png" />
                     </StackPanel.Background>
-                    <Button Width="108" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                    <Button Width="108" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" PreviewMouseLeftButtonUp="OpenDeviceSettingWindow">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/configure.png"  />
-                            <Label Content="{DynamicResource IndexWin_TopMenuTitle_FacilityConfigure}" Style="{StaticResource Top_Menu_Title}" />
+                            <Label Content="{DynamicResource IndexWin_TopMenuTitle_FacilityConfigure}" Style="{StaticResource Top_Menu_Title}"/>
                         </StackPanel>
                     </Button>
                     <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
@@ -145,7 +145,7 @@
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_detection}" Style="{StaticResource Top_Menu_Title}" />
                         </StackPanel>
                     </Button>
-                    <Button Width="106" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                    <Button Width="106" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenBgImgSettingWindow">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/img.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_img}" Style="{StaticResource Top_Menu_Title}" />

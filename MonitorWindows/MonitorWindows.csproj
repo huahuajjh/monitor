@@ -66,8 +66,12 @@
     <Compile Include="Components\Square.cs" />
     <Compile Include="Controls\MoveThumb.cs" />
     <Compile Include="Controls\ResizeThumb.cs" />
-    <Compile Include="winTest.xaml.cs">
-      <DependentUpon>winTest.xaml</DependentUpon>
+    <Compile Include="Windows\BaseWindow.cs" />
+    <Compile Include="Windows\BgImgSetting\BgImgSettingWindow.xaml.cs">
+      <DependentUpon>BgImgSettingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DeviceSettting\DeviceSettingWindow.xaml.cs">
+      <DependentUpon>DeviceSettingWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Components\Alert.xaml">
       <SubType>Designer</SubType>
@@ -123,7 +127,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="winTest.xaml">
+    <Page Include="Windows\BgImgSetting\BgImgSettingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DeviceSettting\DeviceSettingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -269,6 +277,31 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\img\grop_ico.png" />
+    <Resource Include="Resources\img\device_setting\device_setting_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\device_setting\normal_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\device_setting\enter_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\device_setting\pressing_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\device_setting\toggle_btn_for_bombobox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\bg_img_setting\bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\close_btn_narmal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\close_btn_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\close_btn_pressed.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

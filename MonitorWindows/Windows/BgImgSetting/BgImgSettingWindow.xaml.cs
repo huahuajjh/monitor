@@ -11,21 +11,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace MonitorWindows
+namespace MonitorWindows.Windows.BgImgSetting
 {
     /// <summary>
-    /// winTest.xaml 的交互逻辑
+    /// BgImgSettingWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class winTest : Window
+    public partial class BgImgSettingWindow : Window
     {
-        public winTest()
+        public BgImgSettingWindow()
         {
             InitializeComponent();
         }
 
-        private void Label_Drop(object sender, DragEventArgs e)
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
+            base.OnMouseLeftButtonDown(e);
 
+            this.DragMove();
         }
     }
 }
