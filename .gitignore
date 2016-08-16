@@ -2,3 +2,4 @@
 /MonitorWindows/obj
 bin
 obj
+*.dll

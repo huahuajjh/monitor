@@ -46,11 +46,15 @@
                         </CheckBox>
 
                         <!-- Popup 可显示 ComboBox 中的项列表。IsOpen 已数据绑定到通过 ComboBoxToggleButton 来切换的 IsDropDownOpen -->
-                        <Popup IsOpen="{TemplateBinding IsDropDownOpen}" Placement="Bottom" x:Name="Popup" Focusable="False" AllowsTransparency="True" PopupAnimation="Slide">
+                        <Popup IsOpen="{TemplateBinding IsDropDownOpen}" Placement="Bottom" x:Name="Popup" Focusable="False" AllowsTransparency="True" PopupAnimation="Slide">                            
                             <Grid MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{TemplateBinding ActualWidth}" x:Name="DropDown" SnapsToDevicePixels="True">
                                 <ScrollViewer Style="{DynamicResource SimpleScrollViewer}" SnapsToDevicePixels="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
                                     <!-- StackPanel 用于显示子级，方法是将 IsItemsHost 设置为 True -->
-                                    <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" Background="White"/>
+                                    <StackPanel Margin="2" IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" Background="White">
+                                        <StackPanel.Effect>
+                                            <DropShadowEffect ShadowDepth="0"/>
+                                        </StackPanel.Effect>
+                                    </StackPanel>
                                 </ScrollViewer>
                             </Grid>
                         </Popup>
@@ -133,7 +137,11 @@
                             <Grid MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{TemplateBinding ActualWidth}" x:Name="DropDown" SnapsToDevicePixels="True">
                                 <ScrollViewer Style="{DynamicResource SimpleScrollViewer}" SnapsToDevicePixels="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
                                     <!-- StackPanel 用于显示子级，方法是将 IsItemsHost 设置为 True -->
-                                    <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" Background="White"/>
+                                    <StackPanel Margin="2" IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" Background="White">
+                                        <StackPanel.Effect>
+                                            <DropShadowEffect ShadowDepth="0"/>
+                                        </StackPanel.Effect>
+                                    </StackPanel>
                                 </ScrollViewer>
                             </Grid>
                         </Popup>

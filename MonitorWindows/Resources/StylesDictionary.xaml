@@ -219,7 +219,7 @@
                 <DropShadowEffect BlurRadius="5" ShadowDepth="1" Color="#808F96" />
             </Setter.Value>
         </Setter>
-        <Setter Property="Margin" Value="1,0,0,0"/>
+        <!--Setter Property="Margin" Value="1,0,0,0"/-->
     </Style>
 
     <!--toggle button style for combobox-->
@@ -230,7 +230,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Border Grid.Column="0" BorderThickness="0" BorderBrush="#e8e8e8"/>
-            <Image Grid.Column="1" Width="25" Height="25" Source="img/device_setting/toggle_btn_for_bombobox.png" Cursor="Hand"/>
+            <Image Grid.Column="1" Width="20" Height="20" Source="img/device_setting/toggle_btn_for_bombobox.png" Cursor="Hand"/>
         </Grid>
     </ControlTemplate>
     
@@ -609,6 +609,11 @@
         </ControlTemplate>
 
         <Style x:Key="share_close" TargetType="Button">
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect ShadowDepth="0"/>
+            </Setter.Value>
+        </Setter>
             <Setter Property="Background">
                 <Setter.Value>
                     <ImageBrush ImageSource="img/close_btn_narmal.png"></ImageBrush>

@@ -11,22 +11,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace MonitorWindows.Windows.DeviceSettting
+namespace MonitorWindows.Windows.ExtOptSetting
 {
     /// <summary>
-    /// DeviceSetting.xaml 的交互逻辑
+    /// ExtOptWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class DeviceSettingWindow : Window
+    public partial class ExtOptWindow : Window
     {
-        public DeviceSettingWindow()
+        public ExtOptWindow()
         {
             InitializeComponent();
         }
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
-            base.OnMouseLeftButtonDown(e);
-
             this.DragMove();
         }
 
@@ -34,6 +32,5 @@ namespace MonitorWindows.Windows.DeviceSettting
         {
             this.Close();
         }
-
     }
 }

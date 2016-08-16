@@ -11,23 +11,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace MonitorWindows.Windows.DeviceSettting
+namespace MonitorWindows.Windows.SysMonitor
 {
     /// <summary>
-    /// DeviceSetting.xaml 的交互逻辑
+    /// SysMonitorWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class DeviceSettingWindow : Window
+    public partial class SysMonitorWindow : Window
     {
-        public DeviceSettingWindow()
+        public SysMonitorWindow()
         {
             InitializeComponent();
-        }
-
-        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
-        {
-            base.OnMouseLeftButtonDown(e);
-
-            this.DragMove();
         }
 
         private void CloseWindow(object sender, RoutedEventArgs e)
@@ -35,5 +28,9 @@ namespace MonitorWindows.Windows.DeviceSettting
             this.Close();
         }
 
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }         
     }
 }

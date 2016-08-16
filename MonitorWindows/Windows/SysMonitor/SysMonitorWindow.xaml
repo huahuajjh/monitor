@@ -1,0 +1,31 @@
+﻿<Window x:Class="MonitorWindows.Windows.SysMonitor.SysMonitorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mytb="clr-namespace:MonitorWindows.Windows.SysMonitor"
+        Height="338" Width="535"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
+
+    <Border Margin="10" Padding="12">
+        <Border.Background>
+            <ImageBrush ImageSource="../../Resources/img/bg_img_setting/bg.png"/>
+        </Border.Background>
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0"/>
+        </Border.Effect>
+
+        <StackPanel>
+            <DockPanel>
+                <Label Content="{DynamicResource sm_title}" DockPanel.Dock="Left" Foreground="Black" FontWeight="Bold" FontSize="15" VerticalAlignment="Center"/>
+                <Button Click="CloseWindow" Style="{StaticResource share_close}" DockPanel.Dock="Right" HorizontalAlignment="Right" />
+            </DockPanel>
+
+            <!--custom table-->
+            <mytb:DeviceListControl/>
+            
+        </StackPanel>
+
+    </Border>
+
+</Window>

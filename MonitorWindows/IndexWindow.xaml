@@ -85,13 +85,13 @@
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_FacilityConfigure}" Style="{StaticResource Top_Menu_Title}"/>
                         </StackPanel>
                     </Button>
-                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenUserMgtWindow">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/userManage.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_userManage}" Style="{StaticResource Top_Menu_Title}" />
                         </StackPanel>
                     </Button>
-                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenInterfaceSettingWindow">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/uiConfig.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_uiConfig}" Style="{StaticResource Top_Menu_Title}" />
@@ -141,7 +141,7 @@
                         </Grid>
                         <Label Height="23" Padding="2" HorizontalContentAlignment="Center" Content="{DynamicResource IndexWin_TopMenuTitle_wintoggle}" Foreground="Gray" />
                     </StackPanel>
-                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenSysMonitorWindow">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/detection.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_detection}" Style="{StaticResource Top_Menu_Title}" />
@@ -153,7 +153,7 @@
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_img}" Style="{StaticResource Top_Menu_Title}" />
                         </StackPanel>
                     </Button>
-                    <Button Width="63" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                    <Button Width="63" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenCpsWindow">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/subtitle.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_subtitle}" Style="{StaticResource Top_Menu_Title}" />
@@ -180,7 +180,7 @@
                             </StackPanel>
                         </Button>
                     </Grid>
-                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenExtOptWindow">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/extend.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_extend}" Style="{StaticResource Top_Menu_Title}" />
