@@ -66,7 +66,7 @@
     
     <!--background image setting-->
     <sys:String x:Key="bisw_title">底图设置</sys:String>
-    <sys:String x:Key="bisw_set_img">设置图片：</sys:String>
+    <sys:String x:Key="bisw_set_img">设置图片</sys:String>
     <sys:String x:Key="bisw_pick_img">选择图片：</sys:String>
     <sys:String x:Key="bisw_pick_img_btn">选择图片</sys:String>
     <sys:String x:Key="bisw_lb_display_way">显示方式：</sys:String>
@@ -74,4 +74,55 @@
     <sys:String x:Key="bisw_rb_double_scr">双屏</sys:String>
     <sys:String x:Key="bisw_lb_bg_color">背景色：</sys:String>
     <sys:String x:Key="bisw_btn_pick_color">选择颜色</sys:String>
+    
+    <!--extends option settin-->
+    <sys:String x:Key="eos_lb_title">扩展工具列表</sys:String>
+    <sys:String x:Key="eos_tb_name">名称</sys:String>
+    <sys:String x:Key="eos_tb_path">路径</sys:String>
+    <sys:String x:Key="eos_tb_cli">命令行</sys:String>
+    <sys:String x:Key="eos_btn_add">添加</sys:String>
+    <sys:String x:Key="eos_btn_save">保存</sys:String>
+    <sys:String x:Key="eos_btn_del">删除</sys:String>
+    <sys:String x:Key="eos_cb_pick">选择</sys:String>
+    
+    <!--system monitor setting-->
+    <sys:String x:Key="sm_title">状态列表</sys:String>
+    <sys:String x:Key="sm_tb_ip">设备IP</sys:String>
+    <sys:String x:Key="sm_tb_device_type">设备类型</sys:String>
+    <sys:String x:Key="sm_tb_state">状态</sys:String>
+    <sys:String x:Key="sm_tb_bug_info">故障信息</sys:String>
+    
+    <!--interface setting-->
+    <sys:String x:Key="is_title">背景色</sys:String>
+    <sys:String x:Key="is_lb_window_title">xxx窗口：</sys:String>
+    <sys:String x:Key="is_btn_save">保存</sys:String>
+    
+    <!--caption setting-->
+    <sys:String x:Key="cps_title">字幕设置</sys:String>
+    <sys:String x:Key="cps_tb_no">序号</sys:String>
+    <sys:String x:Key="cps_tb_word_content">文字内容</sys:String>
+    <sys:String x:Key="cps_tb_current_state">当前状态</sys:String>
+    <sys:String x:Key="cps_btn_modify">修改</sys:String>
+    <sys:String x:Key="cps_btn_del">删除</sys:String>
+    <sys:String x:Key="cps_btn_run">运行</sys:String>
+    <sys:String x:Key="cps_btn_stop">停止</sys:String>
+    <sys:String x:Key="cps_btn_word_style">文字样式</sys:String>
+    <sys:String x:Key="cps_btn_prop">属性</sys:String>
+    <sys:String x:Key="cps_btn_bg">背景</sys:String>
+    <sys:String x:Key="cps_btn_position">位置</sys:String>
+    <sys:String x:Key="cps_btn_roll_speed">滚动速度</sys:String>
+    <sys:String x:Key="cps_tb_pick">选择</sys:String>
+    <sys:String x:Key="cps_tb_caption">请输入要添加的字幕</sys:String>
+    
+    <!--user management-->
+    <sys:String x:Key="um_title">用户权限管理</sys:String>
+    <sys:String x:Key="um_tb_no">序号</sys:String>
+    <sys:String x:Key="um_tb_uname">用户名</sys:String>
+    <sys:String x:Key="um_tb_operation">操作</sys:String>
+    <sys:String x:Key="um_lb_win_opr_permission">窗口权限操作</sys:String>
+    <sys:String x:Key="um_tb_permission">权限</sys:String>
+    <sys:String x:Key="um_tb_input_source_piple">输入源通道</sys:String>
+    <sys:String x:Key="um_tb_win_name">窗口名称</sys:String>
+    <sys:String x:Key="um_tb_pick">选择</sys:String>
+    <sys:String x:Key="um_btn_save">保存</sys:String>
 </ResourceDictionary>

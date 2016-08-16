@@ -66,12 +66,42 @@
     <Compile Include="Components\Square.cs" />
     <Compile Include="Controls\MoveThumb.cs" />
     <Compile Include="Controls\ResizeThumb.cs" />
+    <Compile Include="Controls\Tb.xaml.cs">
+      <DependentUpon>Tb.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\BaseWindow.cs" />
     <Compile Include="Windows\BgImgSetting\BgImgSettingWindow.xaml.cs">
       <DependentUpon>BgImgSettingWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\CaptionSetting\CaptionSettingWindow.xaml.cs">
+      <DependentUpon>CaptionSettingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CaptionSetting\TbControl.xaml.cs">
+      <DependentUpon>TbControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\DeviceSettting\DeviceSettingWindow.xaml.cs">
       <DependentUpon>DeviceSettingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ExtOptSetting\ExtOptWindow.xaml.cs">
+      <DependentUpon>ExtOptWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\InterfaceSetting\InterfaceSettingWindow.xaml.cs">
+      <DependentUpon>InterfaceSettingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SysMonitor\DeviceListControl.xaml.cs">
+      <DependentUpon>DeviceListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SysMonitor\SysMonitorWindow.xaml.cs">
+      <DependentUpon>SysMonitorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserManagement\UserManagementWindow.xaml.cs">
+      <DependentUpon>UserManagementWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserManagement\WinOprPerControl.xaml.cs">
+      <DependentUpon>WinOprPerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserManagement\UserPermMgtControl.xaml.cs">
+      <DependentUpon>UserPermMgtControl.xaml</DependentUpon>
     </Compile>
     <Page Include="Components\Alert.xaml">
       <SubType>Designer</SubType>
@@ -86,6 +116,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\IPTextBoxCtrl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Tb.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -115,6 +149,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Resources\ComboBoxDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\ExpanderDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,7 +169,43 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\CaptionSetting\CaptionSettingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CaptionSetting\TbControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Windows\DeviceSettting\DeviceSettingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ExtOptSetting\ExtOptWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\InterfaceSetting\InterfaceSettingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SysMonitor\DeviceListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SysMonitor\SysMonitorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserManagement\UserManagementWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserManagement\WinOprPerControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\UserManagement\UserPermMgtControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -302,6 +376,27 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\img\close_btn_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\extend_option_setting\ext_opt_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\share\normal_btn_bg_46x23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\share\disable_btn_bg_46x23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\share\hover_btn_bg_46x23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\share\press_btn_bg_46x23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\interface_setting\interface_setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\caption_setting\caption_setting_bg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

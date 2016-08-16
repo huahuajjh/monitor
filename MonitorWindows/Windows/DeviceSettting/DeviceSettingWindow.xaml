@@ -27,10 +27,10 @@
                 <TabControl Style="{StaticResource TabControlStyle}">
                     <TabItem Header="拼接设置" Style="{StaticResource listTabItemStyle}" Cursor="Hand">
                         <StackPanel>
-                            <Button Content="1" />
-                            <Button Content="1" />
-                            <Button Content="1" />
-                            <Button Content="1" />
+                            <Button Content="拼接墙1" />
+                            <Button Content="拼接墙2" />
+                            <Button Content="拼接墙3" />
+                            <Button Content="拼接墙4" />
                         </StackPanel>
                     </TabItem>
                     <TabItem Header="拼接设置" Style="{StaticResource listTabItemStyle}" Cursor="Hand">
@@ -54,9 +54,9 @@
 
             <!--right panel-->
             <StackPanel Orientation="Vertical" Grid.Column="1">
-                <Grid Height="245" Width="455" Margin="3,10,3,10">
+                <Button Style="{StaticResource share_close}" Grid.ColumnSpan="4" HorizontalAlignment="Right" Margin="0,5,5,5" Click="CloseWindow"/>
+                <Grid Height="230" Width="455">
                     <Grid.RowDefinitions>
-                        <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
@@ -68,40 +68,43 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Button Style="{StaticResource share_close}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="0,-15,-430,0" Click="CloseWindow"/>
-                    <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource label_style}">
+                    <Border Grid.Row="0" Grid.Column="0" Style="{StaticResource label_style}">
                         <Label Content="{DynamicResource dsw_wall_name}"  HorizontalAlignment="Center" VerticalAlignment="Center">
                         </Label>
                     </Border>
-                    <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource label_style}" Grid.ColumnSpan="2">
+                    <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource label_style}" Grid.ColumnSpan="2">
                         <TextBox BorderThickness="0" Name="DSWWallName" Background="#EFF6FA" VerticalContentAlignment="Center"/>
                     </Border>
-                    <Border Grid.Row="2" Grid.Column="0" Style="{StaticResource label_style}">
+                    <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource label_style}">
                         <Label Content="{DynamicResource dsw_wall_way}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
-                    <Border Grid.Row="2" Grid.Column="1" Style="{StaticResource label_style}">
+                    <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource label_style}">
                         <TextBox BorderThickness="0" Background="#EFF6FA" VerticalContentAlignment="Center"/>
                     </Border>
-                    <Border Grid.Row="2" Grid.Column="2" Style="{StaticResource label_style}">
+                    <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource label_style}">
                         <TextBox BorderThickness="0" Background="#EFF6FA" VerticalContentAlignment="Center"/>
                     </Border>
-                    <Border Grid.Row="3" Grid.Column="0" Style="{StaticResource label_style}">
+                    <Border Grid.Row="2" Grid.Column="0" Style="{StaticResource label_style}">
                         <Label Content="{DynamicResource dsw_unit_resolution}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
-                    <Border Grid.Row="3" Grid.Column="1" Style="{StaticResource label_style}">
-                        <ComboBox Style="{StaticResource dsw_combobox_style}">
+                    <Border Grid.Row="2" Grid.Column="1" Style="{StaticResource label_style}">
+                        <ComboBox Style="{StaticResource LabelComboBox}" Background="Transparent">
+                            <ComboBoxItem Content="1"/>
+                            <ComboBoxItem Content="1"/>
+                            <ComboBoxItem Content="1"/>
+                            <ComboBoxItem Content="1"/>
                         </ComboBox>
+                    </Border>
+                    <Border Grid.Row="2" Grid.Column="2" Style="{StaticResource label_style}">
+                    </Border>
+                    <Border Grid.Row="3" Grid.Column="0" Style="{StaticResource label_style}">
+                        <Label Content="{DynamicResource dsw_cpu_ipaddr}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <Border Grid.Row="3" Grid.Column="1" Style="{StaticResource label_style}">
                     </Border>
                     <Border Grid.Row="3" Grid.Column="2" Style="{StaticResource label_style}">
                     </Border>
-                    <Border Grid.Row="4" Grid.Column="0" Style="{StaticResource label_style}">
-                        <Label Content="{DynamicResource dsw_cpu_ipaddr}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Border>
-                    <Border Grid.Row="4" Grid.Column="1" Style="{StaticResource label_style}">
-                    </Border>
-                    <Border Grid.Row="4" Grid.Column="2" Style="{StaticResource label_style}">
-                    </Border>
-                    <Border Grid.Row="5" Grid.Column="0" Style="{StaticResource label_style}" Grid.ColumnSpan="4">
+                    <Border Grid.Row="4" Grid.Column="0" Style="{StaticResource label_style}" Grid.ColumnSpan="4">
                         <StackPanel Orientation="Horizontal">
                             <Label Content="{DynamicResource dsw_display_unit_vendor}"></Label>
                             <Label Content="{DynamicResource dsw_serialport_side}"/>

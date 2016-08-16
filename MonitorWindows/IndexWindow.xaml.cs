@@ -1,5 +1,10 @@
 ﻿using MonitorWindows.Windows.BgImgSetting;
+using MonitorWindows.Windows.CaptionSetting;
 using MonitorWindows.Windows.DeviceSettting;
+using MonitorWindows.Windows.ExtOptSetting;
+using MonitorWindows.Windows.InterfaceSetting;
+using MonitorWindows.Windows.SysMonitor;
+using MonitorWindows.Windows.UserManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -78,6 +83,31 @@ namespace MonitorWindows
             BgImgSettingWindow bg_setting_win = new BgImgSettingWindow();
             bg_setting_win.Owner = this;
             bg_setting_win.ShowDialog();
+        }
+
+        private void OpenExtOptWindow(object sender, RoutedEventArgs e)
+        {
+            new ExtOptWindow().ShowDialog();
+        }
+
+        private void OpenSysMonitorWindow(object sender, RoutedEventArgs e)
+        {
+            new SysMonitorWindow().ShowDialog();
+        }
+
+        private void OpenInterfaceSettingWindow(object sender, RoutedEventArgs e)
+        {
+            new InterfaceSettingWindow().ShowDialog();
+        }
+
+        private void OpenCpsWindow(object sender, RoutedEventArgs e)
+        {
+            new CaptionSettingWindow().ShowDialog();
+        }
+
+        private void OpenUserMgtWindow(object sender, RoutedEventArgs e)
+        {
+            new UserManagementWindow().ShowDialog();
         }
 
     }

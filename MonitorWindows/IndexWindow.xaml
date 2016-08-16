@@ -83,13 +83,13 @@
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_FacilityConfigure}" Style="{StaticResource Top_Menu_Title}"/>
                         </StackPanel>
                     </Button>
-                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenUserMgtWindow">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/userManage.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_userManage}" Style="{StaticResource Top_Menu_Title}" />
                         </StackPanel>
                     </Button>
-                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenInterfaceSettingWindow">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/uiConfig.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_uiConfig}" Style="{StaticResource Top_Menu_Title}" />
@@ -139,7 +139,7 @@
                         </Grid>
                         <Label Height="23" Padding="2" HorizontalContentAlignment="Center" Content="{DynamicResource IndexWin_TopMenuTitle_wintoggle}" Foreground="Gray" />
                     </StackPanel>
-                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenSysMonitorWindow">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/detection.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_detection}" Style="{StaticResource Top_Menu_Title}" />
@@ -151,7 +151,7 @@
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_img}" Style="{StaticResource Top_Menu_Title}" />
                         </StackPanel>
                     </Button>
-                    <Button Width="63" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                    <Button Width="63" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenCpsWindow">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/subtitle.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_subtitle}" Style="{StaticResource Top_Menu_Title}" />
@@ -178,7 +178,7 @@
                             </StackPanel>
                         </Button>
                     </Grid>
-                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenExtOptWindow">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/extend.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_extend}" Style="{StaticResource Top_Menu_Title}" />
@@ -200,6 +200,8 @@
             </Border>
             <DockPanel Grid.Row="2">
                 <DockPanel DockPanel.Dock="Left" Width="181" Margin="10,5">
+                    <Button Style="{StaticResource ToolBtn}" DockPanel.Dock="Bottom" Content="{DynamicResource IndexWin_LeftMenuTitle_Arranged}" />
+                    <ComboBox Style="{StaticResource ColorComboBox}" DockPanel.Dock="Top"></ComboBox>
                     <TabControl Style="{StaticResource TabControlStyle}">
                         <TabItem Header="{DynamicResource IndexWin_LeftMenuTitle_Signal}" Style="{StaticResource listTabItemStyle}">
                             <StackPanel Background="Transparent">
@@ -279,7 +281,8 @@
                                             <MenuItem Header="删除"/>
                                         </ContextMenu>
                                     </ListViewItem.ContextMenu>
-                                    A ListView</ListViewItem>
+                                    A ListView
+                                </ListViewItem>
                                 <ListViewItem>
                                     <ListViewItem.ContextMenu>
                                         <ContextMenu>
@@ -289,13 +292,9 @@
                                             <Separator />
                                             <MenuItem Header="删除"/>
                                         </ContextMenu>
-                                    </ListViewItem.ContextMenu> A ListView</ListViewItem>
+                                    </ListViewItem.ContextMenu> A ListView
+                                </ListViewItem>
                             </ListView>
-                        </TabItem>
-                        <TabItem Header="{DynamicResource IndexWin_LeftMenuTitle_Arranged}" Style="{StaticResource listTabItemStyle}">
-                            <Grid>
-                                <TextBlock Text="Page 3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            </Grid>
                         </TabItem>
                     </TabControl>
                 </DockPanel>
