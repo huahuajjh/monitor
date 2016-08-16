@@ -537,11 +537,16 @@
         </Setter>
     </Style>
 
-    <Style x:Key="Win_NotAction" TargetType="Label">
-        <Setter Property="Background" Value="White" />
+    <Style x:Key="Win_NotAction" TargetType="UserControl">
+        <Setter Property="Panel.ZIndex" Value="3" />
     </Style>
-    <Style x:Key="Win_Action" TargetType="Label">
-        <Setter Property="Background" Value="Red" />
+    <Style x:Key="Win_Action" TargetType="UserControl">
+        <Setter Property="Panel.ZIndex" Value="9990" />
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect ShadowDepth="0" />
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <!-- MoveThumb Template -->
@@ -597,9 +602,8 @@
     </ControlTemplate>
     <!-- Designer Item Template-->
         <ControlTemplate x:Key="DesignerItemTemplate" TargetType="UserControl">
-            <Grid DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}">
-                <s:MoveThumb Template="{StaticResource MoveThumbTemplate}" Cursor="SizeAll"/>
-                <Control Template="{StaticResource ResizeDecoratorTemplate}"/>
+        <Grid DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}">
+            <Control Template="{StaticResource ResizeDecoratorTemplate}"/>
                 <ContentPresenter Content="{TemplateBinding ContentControl.Content}"/>
             </Grid>
         </ControlTemplate>

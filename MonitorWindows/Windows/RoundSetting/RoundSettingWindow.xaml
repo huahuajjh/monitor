@@ -1,0 +1,89 @@
+﻿<Window x:Class="MonitorWindows.Windows.RoundSetting.RoundSettingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource RoundSettingWin_Title}" Height="407.021" Width="724.362"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
+    <Border>
+        <Border.Background>
+            <ImageBrush ImageSource="../../Resources/img/bg_img_setting/bg.png"/>
+        </Border.Background>
+        <DockPanel>
+            <DockPanel VerticalAlignment="Top" DockPanel.Dock="Top">
+                <Button DockPanel.Dock="Right" Style="{StaticResource share_close}" Margin="7" Click="Button_Click"></Button>
+                <Label Grid.Column="0" Grid.Row="0" Content="{DynamicResource RoundSettingWin_Title}" Foreground="Gray" FontWeight="Bold" FontSize="15" VerticalAlignment="Center" Margin="10,0,0,0"></Label>
+            </DockPanel>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <StackPanel Margin="40,10">
+                    <Label Content="{DynamicResource RoundSettingWin_Time_Title}" FontSize="12" />
+                    <Grid Margin="0,0,0,20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBox VerticalContentAlignment="Center" />
+                        <Label Grid.Column="1" Content="~" />
+                        <TextBox Grid.Column="2" VerticalContentAlignment="Center" />
+
+                    </Grid>
+                    <Label FontSize="12" Content="{DynamicResource RoundSettingWin_TimeGap_Title}" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <ComboBox Style="{StaticResource LabelComboBox}" Width="80" Background="White" />
+                        <Label Content="{DynamicResource RoundSettingWin_TimeMinute_Title}" FontSize="12" />
+                        <ComboBox Style="{StaticResource LabelComboBox}" Width="80" Background="White" />
+
+                        <Label Content="{DynamicResource RoundSettingWin_TimeSeconds_Title}" FontSize="12" />
+                    </StackPanel>
+                    <Label Content="{DynamicResource RoundSettingWin_Sequential_Title}" FontSize="12" Margin="0,50,0,0" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <Button HorizontalAlignment="Right" Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonUp_Title}" Margin="10,5" Padding="5" FontSize="12" />
+                            <Button HorizontalAlignment="Right" Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonDown_Title}" Margin="10,5" Padding="5" FontSize="12" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <Button HorizontalAlignment="Left" Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonSelect_Title}" Margin="10,5" Padding="5" FontSize="12" />
+                            <Button HorizontalAlignment="Left" Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonNotSelect_Title}" Margin="10,5" Padding="5" FontSize="12" />
+                        </StackPanel>
+                    </Grid>
+                    <Grid Margin="20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonStart_Title}" HorizontalAlignment="Right" Margin="0,0,10,0" Padding="5" FontSize="12"  />
+                        <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonEnd_Title}" HorizontalAlignment="Left" Grid.Column="1" Margin="10,0,0,0"  Padding="5" FontSize="12" />
+                    </Grid>
+                </StackPanel>
+                <Grid Grid.Column="1">
+                    <DataGrid ItemsSource="{Binding Data}" Style="{StaticResource DataTable}">
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#63A3C4" />
+                                <Setter Property="Padding" Value="10"/>
+                                <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                                <Setter Property="BorderBrush" Value="#454545"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontSize" Value="12" />
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="*" Header="序号" Binding="{Binding Index}" />
+                            <DataGridTextColumn Width="*" Header="预案ID" Binding="{Binding Number}" />
+                            <DataGridTextColumn Width="*" Header="预案名称" Binding="{Binding Name}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Grid>
+        </DockPanel>
+    </Border>
+</Window>

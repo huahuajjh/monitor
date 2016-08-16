@@ -9,7 +9,9 @@
         WindowStartupLocation="CenterScreen"
         Background="Transparent" ResizeMode="CanResizeWithGrip" StateChanged="Window_StateChanged"
         Width="1458"
-        MinWidth="1458">
+        Height="930"
+        MinWidth="1458"
+        MinHeight="930">
     <Window.Resources>
         <cvt:VisibilityAsBooleanConverter x:Key="cvtVisibility"/>
     </Window.Resources>
@@ -25,7 +27,7 @@
                 <RowDefinition Height="85"></RowDefinition>
                 <RowDefinition Height="106"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="0"></RowDefinition>
+                <RowDefinition Height="200"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
@@ -184,12 +186,10 @@
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_extend}" Style="{StaticResource Top_Menu_Title}" />
                         </StackPanel>
                     </Button>
-                    <Button Width="105" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
-                        <StackPanel>
-                            <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/extendWin.png"  />
-                            <Label Content="{DynamicResource IndexWin_TopMenuTitle_extendWin}" Style="{StaticResource Top_Menu_Title}" />
-                        </StackPanel>
-                    </Button>
+                    <ComboBox Style="{StaticResource ExtendPlatform}" Width="105">
+                        <ComboBoxItem>程序1</ComboBoxItem>
+                        <ComboBoxItem>程序2</ComboBoxItem>
+                    </ComboBox>
                     <Button Width="63" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/help.png"  />
@@ -200,8 +200,7 @@
             </Border>
             <DockPanel Grid.Row="2">
                 <DockPanel DockPanel.Dock="Left" Width="181" Margin="10,5">
-                    <Button Style="{StaticResource ToolBtn}" DockPanel.Dock="Bottom" Content="{DynamicResource IndexWin_LeftMenuTitle_Arranged}" />
-                    <ComboBox Style="{StaticResource ColorComboBox}" DockPanel.Dock="Top"></ComboBox>
+                    <Button Style="{StaticResource ToolBtn}" DockPanel.Dock="Bottom" Content="{DynamicResource IndexWin_LeftMenuTitle_Arranged}" Click="Button_Click" />
                     <TabControl Style="{StaticResource TabControlStyle}">
                         <TabItem Header="{DynamicResource IndexWin_LeftMenuTitle_Signal}" Style="{StaticResource listTabItemStyle}">
                             <StackPanel Background="Transparent">
@@ -313,6 +312,81 @@
                 <Image Margin="0,0,11,5" DockPanel.Dock="Bottom" Height="42" Source="Resources/img/index_bottom_ground.png" Stretch="Fill" />
                 <cts:CustomWindows Margin="0,0,11,0"></cts:CustomWindows>
             </DockPanel>
+            <StackPanel Grid.Row="3" Margin="3" Background="#4C000000">
+                <StackPanel Height="43">
+                    <StackPanel.Background>
+                        <ImageBrush ImageSource="Resources/img/index_bottom_bg.png"/>
+                    </StackPanel.Background>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource IndexWin_BottomMenuTitle_Setting}" Margin="20,10" Padding="20,3" HorizontalAlignment="Right"></Button>
+                        <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource IndexWin_BottomMenuTitle_Copy}" Margin="20,10" Padding="20,3" HorizontalAlignment="Right"></Button>
+                        <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource IndexWin_BottomMenuTitle_Show}" Margin="20,10" Padding="20,3" HorizontalAlignment="Right"></Button>
+                        <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource IndexWin_BottomMenuTitle_Stop}" Margin="20,10" Padding="20,3" HorizontalAlignment="Right"></Button>
+                        <Border Margin="20,10" BorderBrush="#ccc" BorderThickness="1" CornerRadius="2">
+                            <StackPanel Orientation="Horizontal" Background="#2BFFFFFF">
+                                <TextBox Width="100" Background="Transparent" Foreground="White" BorderThickness="0" VerticalContentAlignment="Center" />
+                                <Button
+                                    Style="{StaticResource SearchButton}"
+                                    Background="Transparent" Padding="5"
+                                    Foreground="White"
+                                    Cursor="Hand"
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center" />
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+                <DockPanel Margin="5">
+                    <Button Style="{StaticResource LeftDirectionBtn}" DockPanel.Dock="Left"></Button>
+                    <Button Style="{StaticResource RightDirectionBtn}" DockPanel.Dock="Right"></Button>
+                    <Border BorderBrush="#9AA4AD" BorderThickness="1" Height="140">
+                        <Grid ShowGridLines="True">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Canvas></Canvas>
+                                <Label Content="测试1" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Background="#4C000000" Foreground="White" />
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Canvas></Canvas>
+                                <Label Content="测试1" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Background="#4C000000" Foreground="White" />
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <Canvas></Canvas>
+                                <Label Content="测试1" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Background="#4C000000" Foreground="White" />
+                            </Grid>
+                            <Grid Grid.Column="3">
+                                <Canvas></Canvas>
+                                <Label Content="测试1" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Background="#4C000000" Foreground="White" />
+                            </Grid>
+                            <Grid Grid.Column="4">
+                                <Canvas></Canvas>
+                                <Label Content="测试1" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Background="#4C000000" Foreground="White" />
+                            </Grid>
+                            <Grid Grid.Column="5">
+                                <Canvas></Canvas>
+                                <Label Content="测试1" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Background="#4C000000" Foreground="White" />
+                            </Grid>
+                            <Grid Grid.Column="6">
+                                <Canvas></Canvas>
+                                <Label Content="测试1" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Background="#4C000000" Foreground="White" />
+                            </Grid>
+                            <Grid Grid.Column="7">
+                                <Canvas></Canvas>
+                                <Label Content="测试1" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Background="#4C000000" Foreground="White" />
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </DockPanel>
+            </StackPanel>
         </Grid>
     </Border>
 </Window>

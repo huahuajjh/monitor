@@ -21,15 +21,58 @@ namespace MonitorWindows.Components
     {
         public CustomWindows windows;
 
+        private Point? point = null;
+        private string _Title;
+
         public CustomWindow(CustomWindows windows)
         {
             this.windows = windows;
             InitializeComponent();
+            this.Title = "窗口";
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.windows.ReleaseWin(this);
         }
 
         private void Win_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            e.Handled = true;
             windows.ActionWin = this;
+            this.point = e.GetPosition(this);
+        }
+
+        private void Win_MouseMove(object sender, MouseEventArgs e)
+        {
+            e.Handled = true;
+            if (point == null) return;
+            if (e.LeftButton == MouseButtonState.Released) return;
+            windows.ActionWin = this;
+            Point winPoint = e.GetPosition(windows.WinPanel);
+            Point inPoint = new Point();
+            inPoint.X = winPoint.X - point.Value.X;
+            inPoint.Y = winPoint.Y - point.Value.Y;
+            windows.CalculateWinPoint(this, inPoint);
+        }
+
+        private void Win_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+            point = null;
+        }
+
+        public string Title
+        {
+            get
+            {
+                return this._Title;
+            }
+            set
+            {
+                this._Title = value;
+                this.TitleVaule.Content = value;
+            }
         }
     }
 }

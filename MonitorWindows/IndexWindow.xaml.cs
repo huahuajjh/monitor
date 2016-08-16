@@ -78,5 +78,11 @@ namespace MonitorWindows
             new BgImgSettingWindow().Show();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.RoundSetting.RoundSettingWindow win = new Windows.RoundSetting.RoundSettingWindow();
+            win.ShowDialog();
+        }
+
     }
 }

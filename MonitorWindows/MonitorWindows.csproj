@@ -73,6 +73,9 @@
     <Compile Include="Windows\DeviceSettting\DeviceSettingWindow.xaml.cs">
       <DependentUpon>DeviceSettingWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\RoundSetting\RoundSettingWindow.xaml.cs">
+      <DependentUpon>RoundSettingWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Components\Alert.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -115,7 +118,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Resources\ButtonDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\ComboBoxDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\DataGridDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -136,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\DeviceSettting\DeviceSettingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\RoundSetting\RoundSettingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -306,6 +321,37 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\img\close_btn_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\index_bottom_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\direction\leftNor.png" />
+    <Resource Include="Resources\img\direction\leftPoint.png" />
+    <Resource Include="Resources\img\direction\leftPush.png" />
+    <Resource Include="Resources\img\direction\rightNor.png" />
+    <Resource Include="Resources\img\direction\rightPoint.png" />
+    <Resource Include="Resources\img\direction\rightPush.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\share_btn\hui.png" />
+    <Resource Include="Resources\img\share_btn\hui1.5x.png" />
+    <Resource Include="Resources\img\share_btn\hui2x.png" />
+    <Resource Include="Resources\img\share_btn\nor.png" />
+    <Resource Include="Resources\img\share_btn\nor1.5x.png" />
+    <Resource Include="Resources\img\share_btn\nor2x.png" />
+    <Resource Include="Resources\img\share_btn\point.png" />
+    <Resource Include="Resources\img\share_btn\point1.5x.png" />
+    <Resource Include="Resources\img\share_btn\point2x.png" />
+    <Resource Include="Resources\img\share_btn\push-2x_03.png" />
+    <Resource Include="Resources\img\share_btn\push.png" />
+    <Resource Include="Resources\img\share_btn\push1.5x_07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\index_win-setting_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\down_background.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -11,6 +11,8 @@
                 <ResourceDictionary Source="Resources/StringResource.xaml" />
                 <ResourceDictionary Source="Resources/ExpanderDictionary.xaml" />
                 <ResourceDictionary Source="Resources/ComboBoxDictionary.xaml" />
+                <ResourceDictionary Source="Resources/DataGridDictionary.xaml" />
+                <ResourceDictionary Source="Resources/ButtonDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

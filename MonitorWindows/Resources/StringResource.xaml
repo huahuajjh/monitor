@@ -44,7 +44,24 @@
     <sys:String x:Key="IndexWin_TopWinMenuTitle_Bottom">窗口置底</sys:String>
     <sys:String x:Key="IndexWin_LeftMenuTitle_Signal">信号源管理</sys:String>
     <sys:String x:Key="IndexWin_LeftMenuTitle_Scene">场景模式</sys:String>
-    <sys:String x:Key="IndexWin_LeftMenuTitle_Arranged">预案轮训</sys:String>
+    <sys:String x:Key="IndexWin_LeftMenuTitle_Arranged">预案轮询</sys:String>
+    <sys:String x:Key="IndexWin_BottomMenuTitle_Setting">设置</sys:String>
+    <sys:String x:Key="IndexWin_BottomMenuTitle_Copy">复制</sys:String>
+    <sys:String x:Key="IndexWin_BottomMenuTitle_Show">播放</sys:String>
+    <sys:String x:Key="IndexWin_BottomMenuTitle_Stop">停止</sys:String>
+
+    <sys:String x:Key="RoundSettingWin_Title">轮询设置</sys:String>
+    <sys:String x:Key="RoundSettingWin_Time_Title">轮询时间段:</sys:String>
+    <sys:String x:Key="RoundSettingWin_TimeGap_Title">轮询时间间隔:</sys:String>
+    <sys:String x:Key="RoundSettingWin_TimeMinute_Title">分</sys:String>
+    <sys:String x:Key="RoundSettingWin_TimeSeconds_Title">秒</sys:String>
+    <sys:String x:Key="RoundSettingWin_Sequential_Title">轮询顺序调整:</sys:String>
+    <sys:String x:Key="RoundSettingWin_ButtonUp_Title">向上</sys:String>
+    <sys:String x:Key="RoundSettingWin_ButtonDown_Title">向下</sys:String>
+    <sys:String x:Key="RoundSettingWin_ButtonSelect_Title">全部选</sys:String>
+    <sys:String x:Key="RoundSettingWin_ButtonNotSelect_Title">全不选</sys:String>
+    <sys:String x:Key="RoundSettingWin_ButtonStart_Title">开始</sys:String>
+    <sys:String x:Key="RoundSettingWin_ButtonEnd_Title">结束</sys:String>
 
     <sys:String x:Key="Alert_Title">提示</sys:String>
     <sys:String x:Key="Alert_Btn_OK">确定</sys:String>

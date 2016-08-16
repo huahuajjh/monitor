@@ -31,7 +31,7 @@ namespace MonitorWindows.Components
         private double _scaleValue = 1;
         private CustomWindow _ActionWin = null;
 
-        private List<Square> Squares = new List<Square>();
+        private List<Square> _Squares = new List<Square>();
 
         private List<CustomWindow> wins = new List<CustomWindow>();
 
@@ -42,11 +42,11 @@ namespace MonitorWindows.Components
             {
                 foreach (var item in wins)
                 {
-                    item.WinBack.Style = this.FindResource("Win_NotAction") as Style;
+                    item.Style = this.FindResource("Win_NotAction") as Style;
                 }
                 if(value != null)
                 {
-                    value.WinBack.Style = this.FindResource("Win_Action") as Style;
+                    value.Style = this.FindResource("Win_Action") as Style;
                 }
                 _ActionWin = value;
             }
@@ -68,7 +68,7 @@ namespace MonitorWindows.Components
                 {
                     Square btn = new Square(i,l);
                     DataGrid.Children.Add(btn);
-                    Squares.Add(btn);
+                    _Squares.Add(btn);
                 }
             }
         }
@@ -94,7 +94,7 @@ namespace MonitorWindows.Components
             Point start = new Point(x, y);
             Point end = new Point(x + win.ActualWidth, y + win.ActualHeight);
             // 计算出位置
-            foreach (var item in this.Squares)
+            foreach (var item in this._Squares)
             {
                 Point? topLeft = item.GetRimDirection(Direction.TopLeft, start);
                 Point? topRight = item.GetRimDirection(Direction.TopRight, new Point(end.X, start.Y));
@@ -143,7 +143,6 @@ namespace MonitorWindows.Components
                 WinPanel.Children.Remove(rectangle);
                 rectangle = null;
             }
-            //<Rectangle StrokeDashArray="3" Stroke="Black" StrokeThickness="1" RadiusX="3" RadiusY="3"/>
             rectangle = new Rectangle();
             rectangle.StrokeDashArray = new DoubleCollection(new double[] {3});
             rectangle.Stroke = Brushes.White;
@@ -194,6 +193,8 @@ namespace MonitorWindows.Components
 
         private void WinPanel_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            WinPanel.Children.Remove(rectangle);
+            rectangle = null;
             Point endPoint = e.GetPosition(WinPanel);
             Point startPoint = point;
             if (startPoint.X > endPoint.X && startPoint.Y > endPoint.Y)
@@ -222,11 +223,18 @@ namespace MonitorWindows.Components
                 Canvas.SetLeft(w, startPoint.X);
                 Canvas.SetTop(w, startPoint.Y);
             }
-            if (rectangle != null)
+        }
+
+        public void ReleaseWin(CustomWindow win)
+        {
+            foreach (CustomWindow item in wins)
             {
-                WinPanel.Children.Remove(rectangle);
-                rectangle = null;
+                if(win == item)
+                {
+                    this.WinPanel.Children.Remove(win);
+                }
             }
+            this.wins.Remove(win);
         }
     }
 }

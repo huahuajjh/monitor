@@ -147,4 +147,81 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style TargetType="ComboBox" x:Key="ExtendPlatform">
+        <Setter Property="Template" >
+            <Setter.Value>
+                <ControlTemplate TargetType="ComboBox">
+                    <Grid>
+                        <!-- ToggleButton 已数据绑定到 ComboBox 本身以切换 IsDropDownOpen -->
+                        <CheckBox
+                            Grid.Column="2"
+                            Background="{TemplateBinding Background}"
+                            x:Name="ToggleButton"
+                            Focusable="false"
+                            IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                            ClickMode="Press">
+                            <Border Padding="0,11" Cursor="Hand" Name="SPTag">
+                                <StackPanel>
+                                    <Image Style="{StaticResource Top_Menu_ICO}" Source="img/menuICO/extendWin.png"  />
+                                    <Grid>
+                                        <Label Name="DornState" Content="&#xf078;" FontFamily="font/#FontAwesome" HorizontalAlignment="Right" Foreground="White" Margin="5,1"></Label>
+                                        <Label Content="{DynamicResource IndexWin_TopMenuTitle_extendWin}" Style="{StaticResource Top_Menu_Title}" HorizontalAlignment="Center" />
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
+                            <CheckBox.Style>
+                                <Style TargetType="CheckBox">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="CheckBox">
+                                                <ContentPresenter />
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                    </Trigger>
+                                                    <Trigger Property="IsChecked" Value="True">
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </CheckBox.Style>
+                        </CheckBox>
+
+                        <!-- Popup 可显示 ComboBox 中的项列表。IsOpen 已数据绑定到通过 ComboBoxToggleButton 来切换的 IsDropDownOpen -->
+                        <Popup IsOpen="{TemplateBinding IsDropDownOpen}" Placement="Bottom" x:Name="Popup" Focusable="False" AllowsTransparency="True" PopupAnimation="Slide">
+                            <Grid MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{TemplateBinding ActualWidth}" x:Name="DropDown" SnapsToDevicePixels="True">
+                                <ScrollViewer SnapsToDevicePixels="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
+                                    <!-- StackPanel 用于显示子级，方法是将 IsItemsHost 设置为 True -->
+                                    <Border Padding="5">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="img/down_background.png" Stretch="Fill" />
+                                        </Border.Background>
+                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    </Border>
+                                </ScrollViewer>
+                            </Grid>
+                        </Popup>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="SPTag">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="img/menuBtn/hover.png" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsDropDownOpen" Value="True">
+                            <Setter Property="Background" TargetName="SPTag">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="img/menuBtn/dowm.png" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Content" Value="&#xf077;" TargetName="DornState" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

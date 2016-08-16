@@ -45,7 +45,7 @@ namespace MonitorWindows.Components
     /// </summary>
     public class Square : Control
     {
-        private const double SIZE = 180;
+        private const double SIZE = 120;
         private const double DISTANCE = 10;
 
         private int _Num = 2;

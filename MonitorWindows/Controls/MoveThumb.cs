@@ -14,11 +14,7 @@ namespace MonitorWindows.Controls
             MouseMove += new MouseEventHandler((object sender, MouseEventArgs e) =>
             {
                 if (e.LeftButton == MouseButtonState.Released) return;
-                CustomWindow designerItem = this.DataContext as CustomWindow;
-                if (designerItem != null)
-                {
-                    designerItem.windows.ActionWin = designerItem;
-                }
+                
             });
         }
 

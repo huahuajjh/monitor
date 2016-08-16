@@ -8,6 +8,21 @@
              Height="0"
              MinHeight="50"
              Template="{StaticResource DesignerItemTemplate}"
-             >
-    <Label IsHitTestVisible="False" Content="123" Name="WinBack" />
+             MouseDown="Win_MouseDown"
+             MouseMove="Win_MouseMove"
+             MouseUp="Win_MouseUp">
+    <Border Name="WinBack">
+        <Border.Background>
+            <ImageBrush ImageSource="../Resources/img/bg_img_setting/bg.png"/>
+        </Border.Background>
+        <DockPanel>
+            <DockPanel VerticalAlignment="Top" DockPanel.Dock="Top">
+                <Button DockPanel.Dock="Right" Style="{StaticResource share_close}" Margin="7" Click="Button_Click"></Button>
+                <Label Grid.Column="0" Grid.Row="0" Name="TitleVaule" Foreground="Gray" FontWeight="Bold" FontSize="15" VerticalAlignment="Center" Margin="10,0,0,0"></Label>
+            </DockPanel>
+            <DockPanel Background="#7FFFFFFF">
+                
+            </DockPanel>
+        </DockPanel>
+    </Border>
 </UserControl>
