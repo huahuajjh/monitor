@@ -21,106 +21,200 @@
                 <ColumnDefinition Width="135"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-
             <!--left panel-->
             <DockPanel Grid.Column="0" Margin="5">
-                <TabControl Style="{StaticResource TabControlStyle}">
-                    <TabItem Header="拼接设置" Style="{StaticResource listTabItemStyle}" Cursor="Hand">
-                        <StackPanel>
-                            <Button Content="拼接墙1" />
-                            <Button Content="拼接墙2" />
-                            <Button Content="拼接墙3" />
-                            <Button Content="拼接墙4" />
+                <RadioButton GroupName="StettindGrop" Style="{StaticResource RadioToolBtn}" DockPanel.Dock="Bottom" Content="{DynamicResource dsw_advanced_name}" Name="AdvancedDom" />
+                <RadioButton GroupName="StettindGrop" Style="{StaticResource RadioToolBtn}" DockPanel.Dock="Bottom" Content="{DynamicResource dsw_matrix_name}" Name="MatrixDom" />
+                <RadioButton GroupName="StettindGrop" Style="{StaticResource RadioToolBtn}" DockPanel.Dock="Bottom" Content="{DynamicResource dsw_splice_name}" Name="SpliceDom" IsChecked="True" />
+                <StackPanel Background="#66FFFFFF">
+                    <Button Style="{StaticResource ExpanderLeftBtnStyle}" Content="拼接墙1"  />
+                    <Button Style="{StaticResource ExpanderLeftBtnStyle}" Content="拼接墙2"  />
+                    <Button Style="{StaticResource ExpanderLeftBtnStyle}" Content="拼接墙3"  />
+                    <Button Style="{StaticResource ExpanderLeftBtnStyle}" Content="拼接墙4"  />
+                </StackPanel>
+            </DockPanel>
+            <DockPanel Grid.Column="1">
+                <StackPanel DockPanel.Dock="Top">
+                    <Button Style="{StaticResource share_close}" Grid.ColumnSpan="4" Margin="0,6,6,6" HorizontalAlignment="Right" Click="CloseWindow"/>
+                </StackPanel>
+                <TabControl Style="{StaticResource TabControlHiddenHeadStyle}" Background="Transparent">
+                    <TabItem IsSelected="{Binding ElementName=SpliceDom,Path=IsChecked}">
+                        <StackPanel Orientation="Vertical">
+                            <Grid Height="230" Width="455">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Row="0" Grid.Column="0" Style="{StaticResource label_style}">
+                                    <Label Content="{DynamicResource dsw_wall_name}"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    </Label>
+                                </Border>
+                                <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource label_style}" Grid.ColumnSpan="2">
+                                    <TextBox BorderThickness="0" Name="DSWWallName" Background="#EFF6FA" VerticalContentAlignment="Center"/>
+                                </Border>
+                                <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource label_style}">
+                                    <Label Content="{DynamicResource dsw_wall_way}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource label_style}">
+                                    <TextBox BorderThickness="0" Background="#EFF6FA" VerticalContentAlignment="Center"/>
+                                </Border>
+                                <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource label_style}">
+                                    <TextBox BorderThickness="0" Background="#EFF6FA" VerticalContentAlignment="Center"/>
+                                </Border>
+                                <Border Grid.Row="2" Grid.Column="0" Style="{StaticResource label_style}">
+                                    <Label Content="{DynamicResource dsw_unit_resolution}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <Border Grid.Row="2" Grid.Column="1" Style="{StaticResource label_style}">
+                                    <ComboBox Style="{StaticResource LabelComboBox}" Background="Transparent" BorderThickness="0">
+                                        <ComboBoxItem Content="1"/>
+                                        <ComboBoxItem Content="1"/>
+                                        <ComboBoxItem Content="1"/>
+                                        <ComboBoxItem Content="1"/>
+                                    </ComboBox>
+                                </Border>
+                                <Border Grid.Row="2" Grid.Column="2" Style="{StaticResource label_style}">
+                                </Border>
+                                <Border Grid.Row="3" Grid.Column="0" Style="{StaticResource label_style}">
+                                    <Label Content="{DynamicResource dsw_cpu_ipaddr}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <Border Grid.Row="3" Grid.Column="1" Style="{StaticResource label_style}">
+                                </Border>
+                                <Border Grid.Row="3" Grid.Column="2" Style="{StaticResource label_style}">
+                                </Border>
+                                <Border Grid.Row="4" Grid.Column="0" Style="{StaticResource label_style}" Grid.ColumnSpan="4">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="{DynamicResource dsw_display_unit_vendor}"></Label>
+                                        <Label Content="{DynamicResource dsw_serialport_side}"/>
+                                        <Label>
+                                            <RadioButton Content="{DynamicResource dsw_self_mechine}" GroupName="seriaport"/>
+                                        </Label>
+                                        <Label>
+                                            <RadioButton Content="{DynamicResource dsw_node}" GroupName="seriaport"/>
+                                        </Label>
+                                        <Label Content="{DynamicResource dsw_com_port}"></Label>
+                                        <Label Content="{DynamicResource dsw_baud_rate}"></Label>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                            <Button Margin="0,10" Style="{StaticResource ShareBtn}" Content="{DynamicResource dsw_save}" Width="85" Height="33" Cursor="Hand"/>
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="拼接设置" Style="{StaticResource listTabItemStyle}" Cursor="Hand">
-                        <StackPanel>
-                            <Button Content="2" />
-                            <Button Content="2" />
-                            <Button Content="2" />
-                            <Button Content="2" />
+                    <TabItem IsSelected="{Binding ElementName=MatrixDom,Path=IsChecked}">
+                        <StackPanel Orientation="Vertical">
+                            <Grid Height="230" Width="455">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Row="0" Grid.Column="0" Style="{StaticResource label_style}">
+                                    <Label Content="{DynamicResource dsw_matrixType_title}"  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource label_style}">
+                                    <ComboBox Style="{StaticResource LabelComboBox}" Background="Transparent" BorderThickness="0">
+                                        <ComboBoxItem Content="1"/>
+                                        <ComboBoxItem Content="1"/>
+                                        <ComboBoxItem Content="1"/>
+                                        <ComboBoxItem Content="1"/>
+                                    </ComboBox>
+                                </Border>
+                                <Border Grid.Row="0" Grid.Column="2" Style="{StaticResource label_style}">
+                                    <Label Content="{DynamicResource dsw_matrixFactory_title}"  HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                                </Border>
+                                <Border Grid.Row="0" Grid.Column="3" Style="{StaticResource label_style}">
+                                    <ComboBox Style="{StaticResource LabelComboBox}" Background="Transparent" BorderThickness="0">
+                                        <ComboBoxItem Content="1"/>
+                                        <ComboBoxItem Content="1"/>
+                                        <ComboBoxItem Content="1"/>
+                                        <ComboBoxItem Content="1"/>
+                                    </ComboBox>
+                                </Border>
+                                <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource label_style}">
+                                    <Label Content="{DynamicResource dsw_matrixPort_title}"  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource label_style}">
+                                    <ComboBox Style="{StaticResource LabelComboBox}" Background="Transparent" BorderThickness="0">
+                                        <ComboBoxItem Content="1"/>
+                                        <ComboBoxItem Content="1"/>
+                                        <ComboBoxItem Content="1"/>
+                                        <ComboBoxItem Content="1"/>
+                                    </ComboBox>
+                                </Border>
+                                <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource label_style}">
+                                    <Label Content="{DynamicResource dsw_matrixBPS_title}"  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <Border Grid.Row="1" Grid.Column="3" Style="{StaticResource label_style}">
+                                    <ComboBox Style="{StaticResource LabelComboBox}" Background="Transparent" BorderThickness="0">
+                                        <ComboBoxItem Content="1"/>
+                                        <ComboBoxItem Content="1"/>
+                                        <ComboBoxItem Content="1"/>
+                                        <ComboBoxItem Content="1"/>
+                                    </ComboBox>
+                                </Border>
+                                <Border Grid.Row="2" Grid.Column="0" Style="{StaticResource label_style}">
+                                    <Label Content="{DynamicResource dsw_matrixPull_title}"  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <Border Grid.Row="2" Grid.Column="1" Style="{StaticResource label_style}">
+                                    <TextBox BorderThickness="0" Background="#EFF6FA" VerticalContentAlignment="Center"/>
+                                </Border>
+                                <Border Grid.Row="2" Grid.Column="2" Style="{StaticResource label_style}">
+                                    <Label Content="{DynamicResource dsw_matrixPush_title}"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    </Label>
+                                </Border>
+                                <Border Grid.Row="2" Grid.Column="3" Style="{StaticResource label_style}">
+                                    <TextBox BorderThickness="0" Background="#EFF6FA" VerticalContentAlignment="Center"/>
+                                </Border>
+                                <Border Grid.Row="3" Grid.Column="0" Style="{StaticResource label_style}">
+                                    <Label Content="{DynamicResource dsw_matrixNet_title}"  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <Border Grid.Row="3" Grid.Column="1" Style="{StaticResource label_style}">
+                                    <TextBox BorderThickness="0" Background="#EFF6FA" VerticalContentAlignment="Center"/>
+                                </Border>
+                                <Border Grid.Row="3" Grid.Column="2" Style="{StaticResource label_style}" Grid.ColumnSpan="2">
+                                    <Button Margin="0,10" Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource dsw_matrixTest_title}" Cursor="Hand"/>
+                                </Border>
+                            </Grid>
+                            <Button Style="{StaticResource ShareBtn}" Content="{DynamicResource dsw_save}" Width="85" Height="33" Cursor="Hand"/>
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="矩阵设置" Style="{StaticResource listTabItemStyle}" Cursor="Hand">
-                        <StackPanel>
-                            <Button Content="3" />
-                            <Button Content="3" />
-                            <Button Content="3" />
-                            <Button Content="3" />
+                    <TabItem IsSelected="{Binding ElementName=AdvancedDom,Path=IsChecked}">
+                        <StackPanel Margin="50">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{DynamicResource dsw_advanced_update}" FontSize="15" VerticalAlignment="Center" />
+                                <Label Content="2012/1/1" FontSize="15" VerticalAlignment="Center" Width="200" />
+                                <Button Style="{StaticResource ShareBtn}" Content="&#xf093;" FontFamily="../../Resources/font/#FontAwesome" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,20">
+                                <Label Content="{DynamicResource dsw_advanced_backup}" FontSize="15" VerticalAlignment="Center" />
+                                <Label Content="2012/1/1" FontSize="15" VerticalAlignment="Center" Width="200" />
+                                <Button Style="{StaticResource ShareBtn}" Content="&#xf0ee;" FontFamily="../../Resources/font/#FontAwesome" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{DynamicResource dsw_advanced_import}" FontSize="15" VerticalAlignment="Center" />
+                                <Label Content="2012/1/1" FontSize="15" VerticalAlignment="Center" Width="200" />
+                                <Button Style="{StaticResource ShareBtn}" Content="&#xf0ed;" FontFamily="../../Resources/font/#FontAwesome" />
+                            </StackPanel>
                         </StackPanel>
                     </TabItem>
                 </TabControl>
             </DockPanel>
-
-            <!--right panel-->
-            <StackPanel Orientation="Vertical" Grid.Column="1">
-                <Button Style="{StaticResource share_close}" Grid.ColumnSpan="4" HorizontalAlignment="Right" Margin="0,5,5,5" Click="CloseWindow"/>
-                <Grid Height="230" Width="455">
-                    <Grid.RowDefinitions>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Border Grid.Row="0" Grid.Column="0" Style="{StaticResource label_style}">
-                        <Label Content="{DynamicResource dsw_wall_name}"  HorizontalAlignment="Center" VerticalAlignment="Center">
-                        </Label>
-                    </Border>
-                    <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource label_style}" Grid.ColumnSpan="2">
-                        <TextBox BorderThickness="0" Name="DSWWallName" Background="#EFF6FA" VerticalContentAlignment="Center"/>
-                    </Border>
-                    <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource label_style}">
-                        <Label Content="{DynamicResource dsw_wall_way}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Border>
-                    <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource label_style}">
-                        <TextBox BorderThickness="0" Background="#EFF6FA" VerticalContentAlignment="Center"/>
-                    </Border>
-                    <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource label_style}">
-                        <TextBox BorderThickness="0" Background="#EFF6FA" VerticalContentAlignment="Center"/>
-                    </Border>
-                    <Border Grid.Row="2" Grid.Column="0" Style="{StaticResource label_style}">
-                        <Label Content="{DynamicResource dsw_unit_resolution}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Border>
-                    <Border Grid.Row="2" Grid.Column="1" Style="{StaticResource label_style}">
-                        <ComboBox Style="{StaticResource LabelComboBox}" Background="Transparent">
-                            <ComboBoxItem Content="1"/>
-                            <ComboBoxItem Content="1"/>
-                            <ComboBoxItem Content="1"/>
-                            <ComboBoxItem Content="1"/>
-                        </ComboBox>
-                    </Border>
-                    <Border Grid.Row="2" Grid.Column="2" Style="{StaticResource label_style}">
-                    </Border>
-                    <Border Grid.Row="3" Grid.Column="0" Style="{StaticResource label_style}">
-                        <Label Content="{DynamicResource dsw_cpu_ipaddr}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Border>
-                    <Border Grid.Row="3" Grid.Column="1" Style="{StaticResource label_style}">
-                    </Border>
-                    <Border Grid.Row="3" Grid.Column="2" Style="{StaticResource label_style}">
-                    </Border>
-                    <Border Grid.Row="4" Grid.Column="0" Style="{StaticResource label_style}" Grid.ColumnSpan="4">
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="{DynamicResource dsw_display_unit_vendor}"></Label>
-                            <Label Content="{DynamicResource dsw_serialport_side}"/>
-                            <Label>
-                                <RadioButton Content="{DynamicResource dsw_self_mechine}" GroupName="seriaport"/>
-                            </Label>
-                            <Label>
-                                <RadioButton Content="{DynamicResource dsw_node}" GroupName="seriaport"/>
-                            </Label>
-                            <Label Content="{DynamicResource dsw_com_port}"></Label>
-                            <Label Content="{DynamicResource dsw_baud_rate}"></Label>
-                        </StackPanel>
-                    </Border>
-                </Grid>
-                <Button Margin="0,10" Foreground="White" FontWeight="Bold" Style="{StaticResource save_btn_style}" Content="{DynamicResource dsw_save}" Width="85" Height="33" Cursor="Hand"/>
-            </StackPanel>
         </Grid>
     </Border>
 </Window>

@@ -14,42 +14,149 @@
             <DropShadowEffect ShadowDepth="0"/>
         </Border.Effect>
 
-        <StackPanel>
-            <DockPanel>
+        <DockPanel>
+            <DockPanel DockPanel.Dock="Top">
                 <Label Content="{DynamicResource cps_title}" DockPanel.Dock="Left" Foreground="Black" FontWeight="Bold" FontSize="15" VerticalAlignment="Center"/>
                 <Button Click="CloseWindow" Style="{StaticResource share_close}" DockPanel.Dock="Right" HorizontalAlignment="Right" />
             </DockPanel>
 
-            <!--custom table-->
-            <mytb:TbControl Height="200"/>
-            
-            <StackPanel Orientation="Horizontal">
-                <Button Content="+" FontSize="20" Foreground="White" Background="#1D4F66" Width="25" Height="25" BorderThickness="0" Cursor="Hand" Margin="20,0,0,0">
-                    <Button.Effect>
-                        <DropShadowEffect ShadowDepth="0"/>
-                    </Button.Effect>
-                </Button>
-                <TextBox Text="{DynamicResource cps_tb_caption}" BorderThickness="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="640">
-                    <TextBox.Effect>
-                        <DropShadowEffect ShadowDepth="0"/>
-                    </TextBox.Effect>
-                </TextBox>
-            </StackPanel>
-            
-            <StackPanel Orientation="Horizontal" Margin="20">
-                <StackPanel.Effect>
-                    <DropShadowEffect ShadowDepth="0"/>
-                </StackPanel.Effect>
-                <StackPanel Orientation="Vertical">
-                    <Button Content="{DynamicResource cps_btn_prop}" Background="#C1DCE6" BorderThickness="0" Width="100" Height="30" Cursor="Hand"/>
-                    <Button Content="{DynamicResource cps_btn_bg}" Background="White" BorderThickness="0" Width="100" Height="30" Cursor="Hand"/>
-                    <Button Content="{DynamicResource cps_btn_position}" Background="White" BorderThickness="0" Width="100" Height="30" Cursor="Hand"/>
+            <DockPanel Margin="5" DockPanel.Dock="Bottom">
+                <StackPanel DockPanel.Dock="Right" Width="120">
+                    <RadioButton GroupName="StettindGrop" Style="{StaticResource RadioToolBtn}" DockPanel.Dock="Bottom" Content="{DynamicResource cps_tb_attribute_title}" Name="AttributeDom" IsChecked="True" />
+                    <RadioButton GroupName="StettindGrop" Style="{StaticResource RadioToolBtn}" DockPanel.Dock="Bottom" Content="{DynamicResource cps_tb_background_title}" Name="BackgroundDom" />
+                    <RadioButton GroupName="StettindGrop" Style="{StaticResource RadioToolBtn}" DockPanel.Dock="Bottom" Content="{DynamicResource cps_btn_position}" Name="PositionDom" />
                 </StackPanel>
+                <Label Content="文字样式" DockPanel.Dock="Top" Margin="0,0,10,10" Padding="10" Background="#4CFFFFFF" />
 
-                <StackPanel Background="#C1DCE6" Width="567">
-                </StackPanel>
+
+                <TabControl Background="Transparent" Style="{StaticResource TabControlHiddenHeadStyle}" Margin="0,0,10,0" Height="100">
+                    <TabItem IsSelected="{Binding ElementName=AttributeDom,Path=IsChecked}">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,5,0,0">
+                                <Label Content="{DynamicResource cps_tb_font}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                <ComboBox Style="{StaticResource LabelComboBox}" Width="100" Margin="5,0,10,0" />
+
+                                <Label Content="{DynamicResource cps_tb_font_color}" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                                <ComboBox Style="{StaticResource ColorComboBox}" Width="200" Margin="5,0,10,0"/>
+
+                                <Label Content="{DynamicResource cps_tb_font_distance}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                <TextBox Width="100" BorderThickness="0" Margin="5,0,0,0" VerticalContentAlignment="Center" />
+
+                            </StackPanel>
+                            <StackPanel Margin="0,5" Orientation="Horizontal">
+                                <Label Content="{DynamicResource cps_tb_font_size}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                <ComboBox Style="{StaticResource LabelComboBox}" Width="100" Margin="5,0,10,0">
+                                </ComboBox>
+                                <Label Content="{DynamicResource cps_tb_font_style}" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                                <ComboBox Style="{StaticResource LabelComboBox}" Width="176" Margin="5,0,10,0">
+                                </ComboBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{DynamicResource cps_tb_font_speed}" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                                <Slider Width="300" VerticalAlignment="Center" Margin="5,0,0,0" />
+                            </StackPanel>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem IsSelected="{Binding ElementName=BackgroundDom,Path=IsChecked}">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton VerticalAlignment="Center" Margin="10" />
+                                <Label Content="{DynamicResource cps_tb_background_color}" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                                <ComboBox Style="{StaticResource ColorComboBox}" Width="200" Margin="5,0,10,0"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton VerticalAlignment="Center" Margin="10" />
+                                <Label Content="{DynamicResource cps_tb_background_image}" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                                <StackPanel Orientation="Horizontal" Margin="5,0,10,0">
+                                    <Label VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="1" Height="30" Background="White" Width="200">
+                                        <Label.Effect>
+                                            <DropShadowEffect ShadowDepth="0"/>
+                                        </Label.Effect>
+                                    </Label>
+                                    <Button Content="{DynamicResource bisw_pick_img_btn}" Grid.Row="1" Grid.Column="2" Height="30" Background="#FFFFFF" BorderThickness="0" Cursor="Hand">
+                                        <Button.Effect>
+                                            <DropShadowEffect ShadowDepth="0"/>
+                                        </Button.Effect>
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="36,0">
+                                <Label Content="{DynamicResource cps_tb_background_transparent}" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                                <Slider Width="300" VerticalAlignment="Center" Margin="5,0,0,0" />
+                            </StackPanel>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem IsSelected="{Binding ElementName=PositionDom,Path=IsChecked}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <Label Content="{DynamicResource cps_tb_point_up}" />
+                                    <TextBox Width="50"></TextBox>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <Label Content="{DynamicResource cps_tb_point_down}" />
+                                    <TextBox Width="50"></TextBox>
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <Label Content="{DynamicResource cps_tb_point_left}" />
+                                    <TextBox Width="50"></TextBox>
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <Label Content="{DynamicResource cps_tb_point_right}" />
+                                    <TextBox Width="50"></TextBox>
+                                </StackPanel>
+                            </Grid>
+                            <DockPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Button Style="{StaticResource ShareBtnSmall}" DockPanel.Dock="Top" Content="{DynamicResource cps_tb_point_upTitle}" HorizontalAlignment="Center" Margin="0,0,0,10" />
+                                <Button Style="{StaticResource ShareBtnSmall}" DockPanel.Dock="Bottom" Content="{DynamicResource cps_tb_point_downTitle}" HorizontalAlignment="Center" Margin="0,10,0,0" />
+                                <Button Style="{StaticResource ShareBtnSmall}" DockPanel.Dock="Left" Content="{DynamicResource cps_tb_point_leftTitle}" VerticalAlignment="Center" Margin="0,0,20,0" />
+                                <Button Style="{StaticResource ShareBtnSmall}" DockPanel.Dock="Right" Content="{DynamicResource cps_tb_point_rightTitle}" VerticalAlignment="Center" Margin="20,0,0,0" />
+                                <Button Style="{StaticResource ShareBtnSmall}" Content="OK"></Button>
+                            </DockPanel>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </DockPanel>
+
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
+                <Button Content="+" FontSize="20" Foreground="White" Background="#1D4F66" Width="25" Height="25" BorderThickness="0" Cursor="Hand" Margin="20,0,0,0" />
+
+                <TextBox Text="{DynamicResource cps_tb_caption}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="640" />
+
             </StackPanel>
-            
-        </StackPanel>
+            <!--custom table-->
+            <Grid Margin="20" MinHeight="200" MaxHeight="200">
+                <DataGrid ItemsSource="{Binding Data}" Style="{StaticResource DataTable}">
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#63A3C4" />
+                            <Setter Property="Padding" Value="10"/>
+                            <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                            <Setter Property="BorderBrush" Value="#454545"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="12" />
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*" Header="{DynamicResource cps_tb_pick}" Binding="{Binding Index}" />
+                        <DataGridTextColumn Width="*" Header="{DynamicResource cps_tb_no}" Binding="{Binding Number}" />
+                        <DataGridTextColumn Width="*" Header="{DynamicResource cps_tb_word_content}" Binding="{Binding Name}" />
+                        <DataGridTextColumn Width="*" Header="{DynamicResource cps_tb_current_state}" Binding="{Binding Name}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </DockPanel>
     </Border>
 </Window>

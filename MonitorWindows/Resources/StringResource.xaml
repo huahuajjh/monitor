@@ -69,6 +69,9 @@
     <sys:String x:Key="Alert_Login_Hint">你登录信息错误,是否启用离线模式?</sys:String>
     
     <!--Device Setting-->
+    <sys:String x:Key="dsw_splice_name">拼接墙设置</sys:String>
+    <sys:String x:Key="dsw_matrix_name">矩阵设置</sys:String>
+    <sys:String x:Key="dsw_advanced_name">高级设置</sys:String>
     <sys:String x:Key="dsw_wall_name">拼接墙名称：</sys:String>
     <sys:String x:Key="dsw_wall_way">拼接屏幕组合方式：</sys:String>
     <sys:String x:Key="dsw_unit_resolution">单位物理分辨率：</sys:String>
@@ -80,7 +83,18 @@
     <sys:String x:Key="dsw_com_port">COM端口：</sys:String>
     <sys:String x:Key="dsw_baud_rate">波特率：</sys:String>
     <sys:String x:Key="dsw_save">保存</sys:String>
-    
+    <sys:String x:Key="dsw_matrixType_title">矩阵类型</sys:String>
+    <sys:String x:Key="dsw_matrixFactory_title">矩阵厂商</sys:String>
+    <sys:String x:Key="dsw_matrixPort_title">串口端号</sys:String>
+    <sys:String x:Key="dsw_matrixBPS_title">通讯波特率</sys:String>
+    <sys:String x:Key="dsw_matrixPull_title">输入通道</sys:String>
+    <sys:String x:Key="dsw_matrixPush_title">输出通道</sys:String>
+    <sys:String x:Key="dsw_matrixNet_title">网络控制</sys:String>
+    <sys:String x:Key="dsw_matrixTest_title">测试</sys:String>
+    <sys:String x:Key="dsw_advanced_update">上次升级时间:</sys:String>
+    <sys:String x:Key="dsw_advanced_backup">上次备份时间:</sys:String>
+    <sys:String x:Key="dsw_advanced_import">上次导入时间:</sys:String>
+
     <!--background image setting-->
     <sys:String x:Key="bisw_title">底图设置</sys:String>
     <sys:String x:Key="bisw_set_img">设置图片</sys:String>
@@ -130,6 +144,26 @@
     <sys:String x:Key="cps_btn_roll_speed">滚动速度</sys:String>
     <sys:String x:Key="cps_tb_pick">选择</sys:String>
     <sys:String x:Key="cps_tb_caption">请输入要添加的字幕</sys:String>
+    <sys:String x:Key="cps_tb_attribute_title">属性</sys:String>
+    <sys:String x:Key="cps_tb_background_title">背景</sys:String>
+    <sys:String x:Key="cps_tb_font">字体:</sys:String>
+    <sys:String x:Key="cps_tb_font_color">颜色:</sys:String>
+    <sys:String x:Key="cps_tb_font_size">字号:</sys:String>
+    <sys:String x:Key="cps_tb_font_distance">间距:</sys:String>
+    <sys:String x:Key="cps_tb_font_style">滚动样式:</sys:String>
+    <sys:String x:Key="cps_tb_font_speed">滚动速度:</sys:String>
+    <sys:String x:Key="cps_tb_background_color">颜色:</sys:String>
+    <sys:String x:Key="cps_tb_background_image">图片:</sys:String>
+    <sys:String x:Key="cps_tb_background_transparent">透明度:</sys:String>
+    <sys:String x:Key="cps_tb_point_up">上间距:</sys:String>
+    <sys:String x:Key="cps_tb_point_down">下间距:</sys:String>
+    <sys:String x:Key="cps_tb_point_left">左间距:</sys:String>
+    <sys:String x:Key="cps_tb_point_right">右间距:</sys:String>
+    <sys:String x:Key="cps_tb_point_upTitle">↑</sys:String>
+    <sys:String x:Key="cps_tb_point_downTitle">↓</sys:String>
+    <sys:String x:Key="cps_tb_point_leftTitle">←</sys:String>
+    <sys:String x:Key="cps_tb_point_rightTitle">→</sys:String>
+    <sys:String x:Key="cps_tb_point_ok">OK</sys:String>
     
     <!--user management-->
     <sys:String x:Key="um_title">用户权限管理</sys:String>

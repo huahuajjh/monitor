@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -13,14 +14,29 @@ using System.Windows.Shapes;
 
 namespace MonitorWindows.Windows.UserManagement
 {
+    public class TempItem
+    {
+        public int Number { get; set; }
+        public int Index { get; set; }
+        public string Name { get; set; }
+    }
+
     /// <summary>
     /// UserManagementWindow.xaml 的交互逻辑
     /// </summary>
     public partial class UserManagementWindow : Window
     {
+        public ObservableCollection<TempItem> Data { get; set; }
+
         public UserManagementWindow()
         {
             InitializeComponent();
+            Data = new ObservableCollection<TempItem>();
+            for (int i = 0; i < 100; i++)
+            {
+                Data.Add(new TempItem() { Index = i, Name = i.ToString(), Number = i });
+            }
+            DataContext = this;
         }
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)

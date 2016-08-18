@@ -14,10 +14,12 @@
                             Focusable="false"
                             IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                             ClickMode="Press">
-                            <DockPanel Width="{Binding ElementName=ToggleButton,Path=ActualWidth}">
-                                <Label Foreground="{TemplateBinding Foreground}" Name="Check_state" DockPanel.Dock="Right" Content="&#xf078;" FontFamily="font/#FontAwesome" Margin="10,0" />
-                                <Label Foreground="{TemplateBinding Foreground}" Content="{TemplateBinding SelectionBoxItem}" />
-                            </DockPanel>
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                <DockPanel Width="{Binding ElementName=ToggleButton,Path=ActualWidth}">
+                                    <Label Foreground="{TemplateBinding Foreground}" Name="Check_state" DockPanel.Dock="Right" Content="&#xf078;" FontFamily="font/#FontAwesome" Margin="10,0" />
+                                    <Label Foreground="{TemplateBinding Foreground}" Content="{TemplateBinding SelectionBoxItem}" />
+                                </DockPanel>
+                            </Border>
                             <CheckBox.Style>
                                 <Style TargetType="CheckBox">
                                     <Setter Property="Template">
@@ -100,13 +102,16 @@
                             Focusable="false"
                             IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                             ClickMode="Press">
-                            <DockPanel Width="{Binding ElementName=ToggleButton,Path=ActualWidth}">
-                                <Label Foreground="{TemplateBinding Foreground}" Name="Check_state" DockPanel.Dock="Right" Content="&#xf078;" FontFamily="font/#FontAwesome" Margin="10,0" />
-                                <StackPanel Orientation="Horizontal">
-                                    <Rectangle VerticalAlignment="Center" Margin="5,0" Fill="{Binding RelativeSource={RelativeSource TemplatedParent},Path=SelectedValue.Name}" Height="10" Width="100"></Rectangle>
-                                    <TextBlock VerticalAlignment="Center" Margin="5,0" Text="{Binding RelativeSource={RelativeSource TemplatedParent},Path=SelectedValue.Name}" Foreground="{TemplateBinding Foreground}"></TextBlock>
-                                </StackPanel>
-                            </DockPanel>
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
+                                                    Background="{TemplateBinding Background}">
+                                <DockPanel Width="{Binding ElementName=ToggleButton,Path=ActualWidth}">
+                                    <Label Foreground="{TemplateBinding Foreground}" Name="Check_state" DockPanel.Dock="Right" Content="&#xf078;" FontFamily="font/#FontAwesome" Margin="10,0" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <Rectangle VerticalAlignment="Center" Margin="5,0" Fill="{Binding RelativeSource={RelativeSource TemplatedParent},Path=SelectedValue.Name}" Height="10" Width="100"></Rectangle>
+                                        <TextBlock VerticalAlignment="Center" Margin="5,0" Text="{Binding RelativeSource={RelativeSource TemplatedParent},Path=SelectedValue.Name}" Foreground="{TemplateBinding Foreground}"></TextBlock>
+                                    </StackPanel>
+                                </DockPanel>
+                            </Border>
                             <CheckBox.Style>
                                 <Style TargetType="CheckBox">
                                     <Setter Property="Template">
@@ -114,7 +119,6 @@
                                             <ControlTemplate TargetType="CheckBox">
                                                 <Label
                                                     Content="{TemplateBinding Content}"
-                                                    Background="{TemplateBinding Background}"
                                                     Name="txt"
                                                     FontSize="{TemplateBinding FontSize}"
                                                     Foreground="{TemplateBinding Foreground}"
@@ -135,9 +139,9 @@
                         </CheckBox>
                         <Popup IsOpen="{TemplateBinding IsDropDownOpen}" Placement="Bottom" x:Name="Popup" Focusable="False" AllowsTransparency="True" PopupAnimation="Slide">
                             <Grid MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{TemplateBinding ActualWidth}" x:Name="DropDown" SnapsToDevicePixels="True">
-                                <ScrollViewer Style="{DynamicResource SimpleScrollViewer}" SnapsToDevicePixels="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
+                                <ScrollViewer SnapsToDevicePixels="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
                                     <!-- StackPanel 用于显示子级，方法是将 IsItemsHost 设置为 True -->
-                                    <StackPanel Margin="2" IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" Background="White">
+                                    <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" Background="White">
                                         <StackPanel.Effect>
                                             <DropShadowEffect ShadowDepth="0"/>
                                         </StackPanel.Effect>
@@ -168,13 +172,13 @@
                             Focusable="false"
                             IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                             ClickMode="Press">
-                            <Border Padding="0,11" Cursor="Hand" Name="SPTag">
+                            <Border Padding="0,5" Cursor="Hand" Name="SPTag">
                                 <StackPanel>
                                     <Image Style="{StaticResource Top_Menu_ICO}" Source="img/menuICO/extendWin.png"  />
-                                    <Grid>
-                                        <Label Name="DornState" Content="&#xf078;" FontFamily="font/#FontAwesome" HorizontalAlignment="Right" Foreground="White" Margin="5,1"></Label>
+                                    <StackPanel Orientation="Horizontal">
                                         <Label Content="{DynamicResource IndexWin_TopMenuTitle_extendWin}" Style="{StaticResource Top_Menu_Title}" HorizontalAlignment="Center" />
-                                    </Grid>
+                                        <Label Name="DornState" Content="&#xf078;" FontFamily="font/#FontAwesome" HorizontalAlignment="Right" Foreground="White" Padding="0" VerticalAlignment="Center"></Label>
+                                    </StackPanel>
                                 </StackPanel>
                             </Border>
                             <CheckBox.Style>
@@ -201,7 +205,7 @@
                             <Grid MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{TemplateBinding ActualWidth}" x:Name="DropDown" SnapsToDevicePixels="True">
                                 <ScrollViewer SnapsToDevicePixels="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
                                     <!-- StackPanel 用于显示子级，方法是将 IsItemsHost 设置为 True -->
-                                    <Border Padding="5">
+                                    <Border Padding="2,5" Margin="0,5">
                                         <Border.Background>
                                             <ImageBrush ImageSource="img/down_background.png" Stretch="Fill" />
                                         </Border.Background>

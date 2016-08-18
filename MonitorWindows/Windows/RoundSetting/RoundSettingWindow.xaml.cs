@@ -39,6 +39,11 @@ namespace MonitorWindows.Windows.RoundSetting
             DataContext = this;
         }
 
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

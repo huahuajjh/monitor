@@ -8,10 +8,10 @@
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         Background="Transparent" ResizeMode="CanResizeWithGrip" StateChanged="Window_StateChanged"
-        Width="1458"
-        Height="930"
-        MinWidth="1458"
-        MinHeight="930">
+        Width="1024"
+        Height="700"
+        MinWidth="1024"
+        MinHeight="700">
     <Window.Resources>
         <cvt:VisibilityAsBooleanConverter x:Key="cvtVisibility"/>
     </Window.Resources>
@@ -24,15 +24,15 @@
         </Border.Effect>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="85"></RowDefinition>
-                <RowDefinition Height="106"></RowDefinition>
+                <RowDefinition Height="65"></RowDefinition>
+                <RowDefinition Height="76"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="200"></RowDefinition>
+                <RowDefinition Height="0" Name="PreviewToolState"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Grid Height="85" Panel.ZIndex="9999">
+            <Grid Panel.ZIndex="9999">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
@@ -49,7 +49,7 @@
                         <Button Name="Maximize_Btn" Style="{StaticResource Maximize_Btn}" Margin="0,0,5,0" Click="Maximize_Win" />
                         <Button Style="{StaticResource Close_Btn}" Margin="0,0,5,0" Click="Close_Win" />
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,10,0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
                         <Label Style="{StaticResource Login_Normal}" ToolTip="{DynamicResource IndexWin_LoginState_False}" />
                         <Label Name="LoginInfoBtn" Style="{StaticResource UserInfo_Btn}" Content="{DynamicResource IndexWin_LoginBtn_Title}" />
                     </StackPanel>
@@ -71,40 +71,40 @@
                     </Canvas>
                 </StackPanel>
             </Grid>
-            <Border Grid.Row="1" Margin="10,5" Height="96">
+            <Border Grid.Row="1" Margin="10,5">
                 <Border.Background>
                     <ImageBrush ImageSource="Resources/img/top_menu_background.png" />
                 </Border.Background>
-                <StackPanel Margin="10,1" Orientation="Horizontal" HorizontalAlignment="Left" Width="1404" Height="90">
+                <StackPanel Margin="10,1,0,1" Orientation="Horizontal" HorizontalAlignment="Left" Width="974">
                     <StackPanel.Background>
                         <ImageBrush ImageSource="Resources/img/menuICO/background.png" />
                     </StackPanel.Background>
-                    <Button Width="108" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" PreviewMouseLeftButtonUp="OpenDeviceSettingWindow">
+                    <Button Width="73" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" PreviewMouseLeftButtonUp="OpenDeviceSettingWindow">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/configure.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_FacilityConfigure}" Style="{StaticResource Top_Menu_Title}"/>
                         </StackPanel>
                     </Button>
-                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenUserMgtWindow">
+                    <Button Width="76" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenUserMgtWindow">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/userManage.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_userManage}" Style="{StaticResource Top_Menu_Title}" />
                         </StackPanel>
                     </Button>
-                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenInterfaceSettingWindow">
+                    <Button Width="73" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenInterfaceSettingWindow">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/uiConfig.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_uiConfig}" Style="{StaticResource Top_Menu_Title}" />
                         </StackPanel>
                     </Button>
-                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                    <Button Width="74" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="Button_Click_3">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/preview.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_preview}" Style="{StaticResource Top_Menu_Title}" />
                         </StackPanel>
                     </Button>
-                    <StackPanel Width="301">
-                        <Grid Height="67">
+                    <StackPanel Width="210">
+                        <Grid Height="46">
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
@@ -141,25 +141,25 @@
                         </Grid>
                         <Label Height="23" Padding="2" HorizontalContentAlignment="Center" Content="{DynamicResource IndexWin_TopMenuTitle_wintoggle}" Foreground="Gray" />
                     </StackPanel>
-                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenSysMonitorWindow">
+                    <Button Width="73" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenSysMonitorWindow">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/detection.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_detection}" Style="{StaticResource Top_Menu_Title}" />
                         </StackPanel>
                     </Button>
-                    <Button Width="106" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenBgImgSettingWindow">
+                    <Button Width="74" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenBgImgSettingWindow">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/img.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_img}" Style="{StaticResource Top_Menu_Title}" />
                         </StackPanel>
                     </Button>
-                    <Button Width="63" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenCpsWindow">
+                    <Button Width="43" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenCpsWindow">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/subtitle.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_subtitle}" Style="{StaticResource Top_Menu_Title}" />
                         </StackPanel>
                     </Button>
-                    <Grid Width="123">
+                    <Grid Width="87">
                         <Grid.RowDefinitions>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
@@ -180,17 +180,20 @@
                             </StackPanel>
                         </Button>
                     </Grid>
-                    <Button Width="107" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenExtOptWindow">
+                    <Button Width="74" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenExtOptWindow">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/extend.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_extend}" Style="{StaticResource Top_Menu_Title}" />
                         </StackPanel>
                     </Button>
-                    <ComboBox Style="{StaticResource ExtendPlatform}" Width="105">
+                    <ComboBox Style="{StaticResource ExtendPlatform}" Width="72">
                         <ComboBoxItem>程序1</ComboBoxItem>
                         <ComboBoxItem>程序2</ComboBoxItem>
+                        <ComboBoxItem>程序2</ComboBoxItem>
+                        <ComboBoxItem>程序2</ComboBoxItem>
+                        <ComboBoxItem>程序2</ComboBoxItem>
                     </ComboBox>
-                    <Button Width="63" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                    <Button Width="44" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/help.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_help}" Style="{StaticResource Top_Menu_Title}" />
@@ -227,7 +230,7 @@
                                             <Label Content="CVBS信号源" />
                                         </StackPanel>
                                     </Expander.Header>
-                                    <Button Content="信号源1" Style="{StaticResource ExpanderLeftBtnStyle}">
+                                    <Button Content="信号源1" Style="{StaticResource ExpanderLeftBtnStyle}" PreviewMouseMove="Share_PreviewMouseMove" AllowDrop="True">
                                         <Button.ContextMenu>
                                             <ContextMenu>
                                                 <MenuItem Header="修改"/>
@@ -302,15 +305,15 @@
                     <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_Win}" Style="{StaticResource Index_Top_Menu_Buttom}" />
                     <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_OSD}" Style="{StaticResource Index_Top_Menu_Buttom}" />
                     <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_Echo}" Style="{StaticResource Index_Top_Menu_Buttom}" />
-                    <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_Dan}" Style="{StaticResource Index_Top_Menu_Buttom}" />
-                    <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_Quan}" Style="{StaticResource Index_Top_Menu_Buttom}" />
+                    <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_Dan}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="Button_Click_2" />
+                    <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_Quan}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="Button_Click_1" />
                     <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_IPC}" Style="{StaticResource Index_Top_Menu_Buttom}" />
                     <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_Split}" Style="{StaticResource Index_Top_Menu_Buttom}" />
                     <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_Top}" Style="{StaticResource Index_Top_Menu_Buttom}" />
                     <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_Bottom}" Style="{StaticResource Index_Top_Menu_Buttom}" />
                 </StackPanel>
                 <Image Margin="0,0,11,5" DockPanel.Dock="Bottom" Height="42" Source="Resources/img/index_bottom_ground.png" Stretch="Fill" />
-                <cts:CustomWindows Margin="0,0,11,0"></cts:CustomWindows>
+                <cts:CustomWindows Margin="0,0,11,0" x:Name="CWin"></cts:CustomWindows>
             </DockPanel>
             <StackPanel Grid.Row="3" Margin="3" Background="#4C000000">
                 <StackPanel Height="43">
@@ -348,8 +351,6 @@
                                 <ColumnDefinition />
                                 <ColumnDefinition />
                                 <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
                                 <Canvas></Canvas>
@@ -372,14 +373,6 @@
                                 <Label Content="测试1" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Background="#4C000000" Foreground="White" />
                             </Grid>
                             <Grid Grid.Column="5">
-                                <Canvas></Canvas>
-                                <Label Content="测试1" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Background="#4C000000" Foreground="White" />
-                            </Grid>
-                            <Grid Grid.Column="6">
-                                <Canvas></Canvas>
-                                <Label Content="测试1" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Background="#4C000000" Foreground="White" />
-                            </Grid>
-                            <Grid Grid.Column="7">
                                 <Canvas></Canvas>
                                 <Label Content="测试1" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Background="#4C000000" Foreground="White" />
                             </Grid>

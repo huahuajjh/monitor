@@ -313,10 +313,11 @@
     </Style>
     <Style TargetType="Image" x:Key="Top_Menu_ICO">
         <Setter Property="Margin" Value="0,5,0,5" />
-        <Setter Property="Width" Value="35" />
+        <Setter Property="Width" Value="17" />
     </Style>
     <Style TargetType="Label" x:Key="Top_Menu_Title">
         <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontSize" Value="12" />
     </Style>
 
     <Style x:Key="ExpanderStyle" TargetType="{x:Type Expander}">
@@ -391,9 +392,9 @@
     <Style x:Key="Index_Top_Menu_Buttom" TargetType="Button">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="#808183" />
-        <Setter Property="Padding" Value="20,5" />
+        <Setter Property="Padding" Value="15,5" />
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontSize" Value="12" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">

@@ -21,7 +21,9 @@
                 ClipToBounds="True"
                 Width="{Binding ElementName=DataGrid,Path=ActualWidth,Mode=OneWay}"
                 Height="{Binding ElementName=DataGrid,Path=ActualHeight,Mode=OneWay}"
-                Background="Transparent"/>
+                Background="Transparent"
+                Drop="WinPanel_Drop"
+                AllowDrop="True" />
 
         </Grid>
     </ScrollViewer>

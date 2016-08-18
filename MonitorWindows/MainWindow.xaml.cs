@@ -51,7 +51,7 @@ namespace MonitorWindows
             string ip = this.ipString.Text;
             string userName = this.UserName.Text;
             string password = this.Password.Password;
-            Components.Alert.ShowAlear("Alert_Login_Hint");
+            Components.Alert.ShowAlear("Alert_Login_Hint", () => { new IndexWindow().Show(); this.Close(); }, () => { new IndexWindow().Show(); this.Close(); });
         }
     }
 }

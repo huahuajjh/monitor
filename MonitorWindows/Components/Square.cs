@@ -45,7 +45,7 @@ namespace MonitorWindows.Components
     /// </summary>
     public class Square : Control
     {
-        private const double SIZE = 120;
+        public const double SIZE = 120;
         private const double DISTANCE = 10;
 
         private int _Num = 2;
@@ -107,7 +107,49 @@ namespace MonitorWindows.Components
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }
 
-        public Point? GetRimDirection(Direction direction, Point point)
+        public Point? GetMaximum(Direction direction, Point point)
+        {
+            if (!(point.X >= StartPoint.X && point.X <= this.EndPoint.X && point.Y >= StartPoint.Y && point.Y <= EndPoint.Y)) return null;
+            switch (direction)
+            {
+                case Direction.TopLeft:
+                    {
+                        double x = point.X - (point.X % this.size);
+                        double y = point.Y - (point.Y % this.size);
+                        return new Point(x,y);
+                    }
+                case Direction.TopRight:
+                    {
+                        double x = point.X - point.X % this.size + this.size;
+                        double y = point.Y - point.Y % this.size;
+                        return new Point(x, y);
+                    }
+                case Direction.BottomLeft:
+                    {
+                        double x = point.X - point.X % this.size;
+                        double y = point.Y - point.Y % this.size + this.size;
+                        return new Point(x, y);
+                    }
+                case Direction.BottomRight:
+                    {
+                        double x = point.X - point.X % this.size + this.size;
+                        double y = point.Y - point.Y % this.size + this.size;
+                        return new Point(x, y);
+                    }
+            }
+            return null;
+        }
+
+        public Point? IsDargPoint(Point point)
+        {
+            if(point.X >= StartPoint.X && point.X <= this.EndPoint.X && point.Y >= StartPoint.Y && point.Y <= EndPoint.Y)
+            {
+                return StartPoint;
+            }
+            return null;
+        }
+
+        public Point? GetRimDirection(Point point)
         {
             if(point.X < this.StartPoint.X || point.X > this.EndPoint.X || point.Y < this.StartPoint.Y || point.Y > this.EndPoint.Y)
             {

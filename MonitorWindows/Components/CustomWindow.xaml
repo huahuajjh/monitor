@@ -17,8 +17,8 @@
         </Border.Background>
         <DockPanel>
             <DockPanel VerticalAlignment="Top" DockPanel.Dock="Top">
-                <Button DockPanel.Dock="Right" Style="{StaticResource share_close}" Margin="7" Click="Button_Click"></Button>
-                <Label Grid.Column="0" Grid.Row="0" Name="TitleVaule" Foreground="Gray" FontWeight="Bold" FontSize="15" VerticalAlignment="Center" Margin="10,0,0,0"></Label>
+                <Button DockPanel.Dock="Right" Style="{StaticResource share_close}" Margin="7" Click="Button_Click" Width="10" Height="10"></Button>
+                <Label Grid.Column="0" Grid.Row="0" Name="TitleVaule" Foreground="Gray" FontWeight="Bold" FontSize="12" VerticalAlignment="Center" Margin="10,0,0,0"></Label>
             </DockPanel>
             <DockPanel Background="#7FFFFFFF">
                 

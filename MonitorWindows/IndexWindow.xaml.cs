@@ -7,6 +7,7 @@ using MonitorWindows.Windows.SysMonitor;
 using MonitorWindows.Windows.UserManagement;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -114,6 +115,37 @@ namespace MonitorWindows
         {
             Windows.RoundSetting.RoundSettingWindow win = new Windows.RoundSetting.RoundSettingWindow();
             win.ShowDialog();
+        }
+
+        private void Share_PreviewMouseMove(object sender, MouseEventArgs e)
+        {
+            if(e.LeftButton == MouseButtonState.Pressed)
+	        {
+                DataObject data = new DataObject(typeof(Button), sender);
+                DragDrop.DoDragDrop((Button)sender, data, DragDropEffects.Move);
+	        }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.CWin.FullScreen(this.CWin.ActionWin);
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            this.CWin.PartialFullScreen(this.CWin.ActionWin);
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            if(this.PreviewToolState.ActualHeight > 0)
+            {
+                this.PreviewToolState.Height = new GridLength(0);
+            }
+            else
+            {
+                this.PreviewToolState.Height = new GridLength(200);
+            }
         }
 
     }

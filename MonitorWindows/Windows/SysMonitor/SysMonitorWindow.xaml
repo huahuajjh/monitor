@@ -22,7 +22,26 @@
             </DockPanel>
 
             <!--custom table-->
-            <mytb:DeviceListControl/>
+            <Grid Margin="20" MinHeight="240" MaxHeight="240">
+                <DataGrid ItemsSource="{Binding Data}" Style="{StaticResource DataTable}">
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#63A3C4" />
+                            <Setter Property="Padding" Value="10"/>
+                            <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                            <Setter Property="BorderBrush" Value="#454545"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="12" />
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*" Header="{DynamicResource sm_tb_ip}" Binding="{Binding Index}" />
+                        <DataGridTextColumn Width="*" Header="{DynamicResource sm_tb_device_type}" Binding="{Binding Number}" />
+                        <DataGridTextColumn Width="*" Header="{DynamicResource sm_tb_state}" Binding="{Binding Name}" />
+                        <DataGridTextColumn Width="*" Header="{DynamicResource sm_tb_bug_info}" Binding="{Binding Name}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
             
         </StackPanel>
 

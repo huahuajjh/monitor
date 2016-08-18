@@ -45,7 +45,6 @@ namespace MonitorWindows.Components
 
         private void Win_MouseMove(object sender, MouseEventArgs e)
         {
-            e.Handled = true;
             if (point == null) return;
             if (e.LeftButton == MouseButtonState.Released) return;
             windows.ActionWin = this;
@@ -58,7 +57,6 @@ namespace MonitorWindows.Components
 
         private void Win_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            e.Handled = true;
             point = null;
         }
 

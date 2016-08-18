@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -96,10 +97,10 @@ namespace MonitorWindows.Components
             // 计算出位置
             foreach (var item in this._Squares)
             {
-                Point? topLeft = item.GetRimDirection(Direction.TopLeft, start);
-                Point? topRight = item.GetRimDirection(Direction.TopRight, new Point(end.X, start.Y));
-                Point? bottomLeft = item.GetRimDirection(Direction.BottomLeft, new Point(start.X, end.Y));
-                Point? bottomRight = item.GetRimDirection(Direction.BottomRight, end);
+                Point? topLeft = item.GetRimDirection(start);
+                Point? topRight = item.GetRimDirection(new Point(end.X, start.Y));
+                Point? bottomLeft = item.GetRimDirection(new Point(start.X, end.Y));
+                Point? bottomRight = item.GetRimDirection(end);
                 if (topLeft != null)
                 {
                     x += topLeft.Value.X;
@@ -132,7 +133,7 @@ namespace MonitorWindows.Components
         }
 
         private Rectangle rectangle = null;
-        private Point point = new Point();
+        private Point? point = null;
 
         public DragPutWindowEventHandler OnDragPutWindow { get; set; }
 
@@ -151,30 +152,30 @@ namespace MonitorWindows.Components
             rectangle.RadiusY = 3;
             WinPanel.Children.Add(rectangle);
             this.point = e.GetPosition(WinPanel);
-            Canvas.SetLeft(rectangle, point.X);
-            Canvas.SetTop(rectangle, point.Y);
+            Canvas.SetLeft(rectangle, point.Value.X);
+            Canvas.SetTop(rectangle, point.Value.Y);
         }
 
         private void WinPanel_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed && rectangle != null)
+            if (e.LeftButton == MouseButtonState.Pressed && rectangle != null && point != null)
             {
                 Point endPoint = e.GetPosition(WinPanel);
-                Point startPoint = point;
+                Point startPoint = point.Value;
                 if (startPoint.X > endPoint.X && startPoint.Y > endPoint.Y)
                 {
                     startPoint = endPoint;
-                    endPoint = point;
+                    endPoint = point.Value;
                 }
                 else if (startPoint.X > endPoint.X && startPoint.Y < endPoint.Y)
                 {
                     startPoint = new Point(endPoint.X, startPoint.Y);
-                    endPoint = new Point(point.X, endPoint.Y);
+                    endPoint = new Point(point.Value.X, endPoint.Y);
                 }
                 else if (startPoint.X < endPoint.X && startPoint.Y > endPoint.Y)
                 {
                     startPoint = new Point(startPoint.X, endPoint.Y);
-                    endPoint = new Point(endPoint.X, point.Y);
+                    endPoint = new Point(endPoint.X, point.Value.Y);
                 }
                 Canvas.SetLeft(rectangle, startPoint.X);
                 Canvas.SetTop(rectangle, startPoint.Y);
@@ -189,28 +190,33 @@ namespace MonitorWindows.Components
                 WinPanel.Children.Remove(rectangle);
                 rectangle = null;
             }
+            else if (point != null)
+            {
+                point = null;
+            }
         }
 
         private void WinPanel_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            if (point == null || rectangle == null) return;
             WinPanel.Children.Remove(rectangle);
             rectangle = null;
             Point endPoint = e.GetPosition(WinPanel);
-            Point startPoint = point;
+            Point startPoint = point.Value;
             if (startPoint.X > endPoint.X && startPoint.Y > endPoint.Y)
             {
                 startPoint = endPoint;
-                endPoint = point;
+                endPoint = point.Value;
             }
             else if (startPoint.X > endPoint.X && startPoint.Y < endPoint.Y)
             {
                 startPoint = new Point(endPoint.X, startPoint.Y);
-                endPoint = new Point(point.X, endPoint.Y);
+                endPoint = new Point(point.Value.X, endPoint.Y);
             }
             else if (startPoint.X < endPoint.X && startPoint.Y > endPoint.Y)
             {
                 startPoint = new Point(startPoint.X, endPoint.Y);
-                endPoint = new Point(endPoint.X, point.Y);
+                endPoint = new Point(endPoint.X, point.Value.Y);
             }
             if(endPoint.X - startPoint.X > 50 || endPoint.Y - startPoint.Y > 50)
             {
@@ -223,6 +229,7 @@ namespace MonitorWindows.Components
                 Canvas.SetLeft(w, startPoint.X);
                 Canvas.SetTop(w, startPoint.Y);
             }
+            point = null;
         }
 
         public void ReleaseWin(CustomWindow win)
@@ -235,6 +242,69 @@ namespace MonitorWindows.Components
                 }
             }
             this.wins.Remove(win);
+        }
+
+        public void PartialFullScreen(CustomWindow win)
+        {
+            if (!this.wins.Contains(win)) return;
+            Point topLeftPoint = new Point(Canvas.GetLeft(win), Canvas.GetTop(win));
+            Point topRightPoint = new Point(topLeftPoint.X + win.ActualWidth, topLeftPoint.Y);
+            Point bottomLeftPoint = new Point(topLeftPoint.X, topLeftPoint.Y + win.ActualHeight);
+            Point bottomRightPoint = new Point(topLeftPoint.X + win.ActualWidth, topLeftPoint.Y + win.ActualHeight);
+            Point? inTopLeftPoint = null;
+            Point? inTopRightPoint = null;
+            Point? inBottomLeftPoint = null;
+            Point? inBottomRightPoint = null;
+            foreach (var item in _Squares)
+            {
+                if (inTopLeftPoint == null) inTopLeftPoint = item.GetMaximum(Direction.TopLeft, topLeftPoint);
+                if (inTopRightPoint == null) inTopRightPoint = item.GetMaximum(Direction.TopRight, topRightPoint);
+                if (inBottomLeftPoint == null) inBottomLeftPoint = item.GetMaximum(Direction.BottomLeft, bottomLeftPoint);
+                if (inBottomRightPoint == null) inBottomRightPoint = item.GetMaximum(Direction.BottomRight, bottomRightPoint);
+            }
+            if (inTopLeftPoint == null || inTopRightPoint == null || inBottomLeftPoint == null || inBottomRightPoint == null) return;
+            Canvas.SetLeft(win, inTopLeftPoint.Value.X + 1);
+            Canvas.SetTop(win, inTopLeftPoint.Value.Y + 1);
+            win.Width = inTopRightPoint.Value.X - inTopLeftPoint.Value.X - 2;
+            win.Height = inBottomLeftPoint.Value.Y - inTopLeftPoint.Value.Y - 2;
+        }
+
+        public void FullScreen(CustomWindow win)
+        {
+            if (!this.wins.Contains(win)) return;
+            Canvas.SetTop(win, 1);
+            Canvas.SetLeft(win, 1);
+            win.Width = WinPanel.ActualWidth - 2;
+            win.Height = WinPanel.ActualHeight - 2;
+        }
+
+        private DateTime dropTime = DateTime.Now;
+
+        private void WinPanel_Drop(object sender, DragEventArgs e)
+        {
+            e.Handled = true;
+            if (dropTime.Second == DateTime.Now.Second) return;
+            dropTime = DateTime.Now;
+            IDataObject data = e.Data;
+            if (data == null) return;
+            e.Effects = DragDropEffects.None;
+            Point dragPoint = e.GetPosition(this.WinPanel);
+            Point? inPoint = null;
+            foreach (var item in this._Squares)
+            {
+                inPoint = item.IsDargPoint(dragPoint);
+                if (inPoint == null) continue;
+                break;
+            }
+            if (inPoint == null) return;
+            var w = new CustomWindow(this);
+            w.Width = Square.SIZE;
+            w.Height = Square.SIZE;
+            Canvas.SetLeft(w, inPoint.Value.X);
+            Canvas.SetTop(w, inPoint.Value.Y);
+            WinPanel.Children.Add(w);
+            wins.Add(w);
+            this.ActionWin = w;
         }
     }
 }

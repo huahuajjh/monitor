@@ -21,13 +21,31 @@
             </DockPanel>
             
             <!--custom table-->
-            <mytb:Tb>
-            </mytb:Tb>
+            <Grid Margin="10" MinHeight="210" MaxHeight="210">
+                <DataGrid ItemsSource="{Binding Data}" Style="{StaticResource DataTable}">
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#63A3C4" />
+                            <Setter Property="Padding" Value="10"/>
+                            <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                            <Setter Property="BorderBrush" Value="#454545"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="12" />
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*" Header="{DynamicResource cps_tb_pick}" Binding="{Binding Index}" />
+                        <DataGridTextColumn Width="*" Header="{DynamicResource eos_tb_name}" Binding="{Binding Number}" />
+                        <DataGridTextColumn Width="*" Header="{DynamicResource eos_tb_path}" Binding="{Binding Name}" />
+                        <DataGridTextColumn Width="*" Header="{DynamicResource eos_tb_cli}" Binding="{Binding Name}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
             
-            <StackPanel Margin="20,120,25,0" Orientation="Horizontal">
-                <Button Content="{DynamicResource eos_btn_add}" Margin="250,0,30,0"/>
-                <Button Content="{DynamicResource eos_btn_del}" Margin="0,0,30,0"/>
-                <Button Content="{DynamicResource eos_btn_save}" Margin="0,0,30,0"/>
+            <StackPanel Margin="20,0,25,0" Orientation="Horizontal">
+                <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource eos_btn_add}" Margin="250,0,30,0"/>
+                <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource eos_btn_del}" Margin="0,0,30,0"/>
+                <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource eos_btn_save}" Margin="0,0,30,0"/>
             </StackPanel>
             
         </StackPanel>
