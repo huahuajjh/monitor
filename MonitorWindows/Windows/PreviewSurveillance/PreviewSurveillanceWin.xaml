@@ -1,0 +1,26 @@
+﻿<Window x:Class="MonitorWindows.Windows.PreviewSurveillance.PreviewSurveillanceWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent" ResizeMode="CanResizeWithGrip" StateChanged="Window_StateChanged">
+    <Border Margin="10">
+        <Border.Background>
+            <ImageBrush ImageSource="../../Resources/img/bg_img_setting/bg2.png"/>
+        </Border.Background>
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0"/>
+        </Border.Effect>
+        <DockPanel>
+            <DockPanel Margin="6" DockPanel.Dock="Top">
+                <Button DockPanel.Dock="Right" Style="{StaticResource Close_Btn}" Margin="2,7" Click="Button_Click"></Button>
+                <Button Name="Maximize_Btn" DockPanel.Dock="Right" Style="{StaticResource Maximize_Btn}" Margin="2,7" Click="Maximize_Win"></Button>
+                <Label Foreground="White" Content="{DynamicResource PreviewSurveillanceWin_Title}" FontWeight="Bold" FontSize="15" VerticalAlignment="Center"/>
+            </DockPanel>
+            <Border Background="#68FFFFFF" Margin="2">
+                <Canvas></Canvas>
+            </Border>
+        </DockPanel>
+    </Border>
+</Window>

@@ -48,5 +48,25 @@ namespace MonitorWindows.Windows.UserManagement
         {
             this.Close();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            new Windows.AddUser.AddUserWin().ShowDialog();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            new Windows.EditUser.EditUserWin().ShowDialog();
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            new Windows.AddPermission.AddPermissionWin().ShowDialog();
+        }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            new Windows.EditPermission.EditPermissionWin().ShowDialog();
+        }
     }
 }

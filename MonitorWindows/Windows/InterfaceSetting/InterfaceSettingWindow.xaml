@@ -2,47 +2,78 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mytb="clr-namespace:MonitorWindows.Controls"
-    Height="274" Width="355"
+    xmlns:local ="clr-namespace:MonitorWindows"
+    Width="355"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
-    AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
+    AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent" Height="457">
     <Border Margin="10">
         <Border.Background>
-            <ImageBrush ImageSource="../../Resources/img/interface_setting/interface_setting.png"/>
+            <ImageBrush ImageSource="../../Resources/img/bg_img_setting/bg.png"/>
         </Border.Background>
         <Border.Effect>
             <DropShadowEffect ShadowDepth="0"/>
         </Border.Effect>
-
-        <StackPanel>
-            <DockPanel Margin="6">
+        <DockPanel>
+            <DockPanel Margin="6" DockPanel.Dock="Top">
                 <Label Content="{DynamicResource is_title}" DockPanel.Dock="Left" Foreground="Black" FontWeight="Bold" FontSize="15" VerticalAlignment="Center"/>
                 <Button Click="CloseWindow" Style="{StaticResource share_close}" DockPanel.Dock="Right" HorizontalAlignment="Right" />
             </DockPanel>
-
-            <Grid Margin="35,25,35,0">
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="70"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <Label Content="{DynamicResource is_lb_window_title}" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" />
-                <ComboBox Style="{StaticResource ColorComboBox}" Grid.Row="0" Grid.Column="1" Background="White" Height="40"/>
-
-                <Label Content="{DynamicResource is_lb_window_title}" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" />
-                <ComboBox Style="{StaticResource ColorComboBox}" Grid.Row="1" Grid.Column="1" Background="White" Height="40"/>
-
-                <Label Content="{DynamicResource is_lb_window_title}" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" />
-                <ComboBox Style="{StaticResource ColorComboBox}" Grid.Row="2" Grid.Column="1" Background="White" Height="40"/>
-            </Grid>
-
-            <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource is_btn_save}" HorizontalAlignment="Center" Margin="0,70,0,0"/>
-        </StackPanel>
+            <StackPanel Background="#50FFFFFF" Margin="2">
+                <StackPanel Margin="20,5">
+                    <Label Content="{DynamicResource is_lb_window_title}" />
+                    <StackPanel Margin="10,0">
+                        <StackPanel Orientation="Horizontal" Margin="0,2">
+                            <Label Content="{DynamicResource is_lb_GQWin_title}" Width="85" HorizontalContentAlignment="Right" />
+                            <mytb:ColorSelector Margin="5,0" SelectColor="{Binding Source={x:Static local:ShareResources.Instance},Path=HDSourceWinColor}" ColorChange="HDSourceWinColor_ColorChange"></mytb:ColorSelector>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,2">
+                            <Label Content="{DynamicResource is_lb_IPCWin_title}" Width="85" HorizontalContentAlignment="Right" />
+                            <mytb:ColorSelector Margin="5,0" SelectColor="{Binding Source={x:Static local:ShareResources.Instance},Path=IPCSourceWinColor}" ColorChange="IPCSourceWinColor_ColorChange"></mytb:ColorSelector>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,2">
+                            <Label Content="{DynamicResource is_lb_IPWin_title}" Width="85" HorizontalContentAlignment="Right" />
+                            <mytb:ColorSelector Margin="5,0" SelectColor="{Binding Source={x:Static local:ShareResources.Instance},Path=IPDesktopSourceWinColor}" ColorChange="IPDesktopSourceWinColor_ColorChange"></mytb:ColorSelector>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,2">
+                            <Label Content="{DynamicResource is_lb_IPStreamWin_title}" Width="85" HorizontalContentAlignment="Right" />
+                            <mytb:ColorSelector Margin="5,0" SelectColor="{Binding Source={x:Static local:ShareResources.Instance},Path=IPStreamSourceWinColor}" ColorChange="IPStreamSourceWinColor_ColorChange"></mytb:ColorSelector>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,2">
+                            <Label Content="{DynamicResource is_lb_OtherWin_title}" Width="85" HorizontalContentAlignment="Right" />
+                            <mytb:ColorSelector Margin="5,0" SelectColor="{Binding Source={x:Static local:ShareResources.Instance},Path=OtherSourceWinColor}" ColorChange="OtherSourceWinColor_ColorChange"></mytb:ColorSelector>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <Label Background="#ccc" Height="1" Margin="10,0" />
+                <StackPanel Margin="20,5">
+                    <Label Content="{DynamicResource is_lb_Cell_title}" />
+                    <StackPanel Margin="10,0">
+                        <StackPanel Orientation="Horizontal" Margin="0,2">
+                            <Label Content="{DynamicResource is_lb_Cell_FontColor}" Width="85" HorizontalContentAlignment="Right" />
+                            <mytb:ColorSelector Margin="5,0" SelectColor="{Binding Source={x:Static local:ShareResources.Instance},Path=CellTextColor}" ColorChange="ColorSelector_ColorChange"></mytb:ColorSelector>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,2">
+                            <Label Content="{DynamicResource is_lb_Cell_LinkColor}" Width="85" HorizontalContentAlignment="Right" />
+                            <mytb:ColorSelector Margin="5,0" SelectColor="{Binding Source={x:Static local:ShareResources.Instance},Path=CellLinkColor}" ColorChange="CellLinkColor_ColorChange"></mytb:ColorSelector>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,2">
+                            <Label Content="{DynamicResource is_lb_Cell_BGColor}" Width="85" HorizontalContentAlignment="Right" />
+                            <mytb:ColorSelector Margin="5,0" SelectColor="{Binding Source={x:Static local:ShareResources.Instance},Path=CellLinkColor}" ColorChange="CellBGColor_ColorChange"></mytb:ColorSelector>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <Label Background="#ccc" Height="1" Margin="10,0" />
+                <StackPanel Margin="20,5" Orientation="Horizontal">
+                    <Label Content="{DynamicResource is_lb_ui_BG}" />
+                    <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource is_lb_upLoadBtn}" Margin="20,0" Click="Button_Click" />
+                </StackPanel>
+                <Label Background="#ccc" Height="1" Margin="10,0" />
+                <StackPanel Margin="20,5" Orientation="Horizontal">
+                    <Label Content="{DynamicResource is_lb_logo_img}" />
+                    <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource is_lb_upLoadBtn}" Margin="20,0" Click="UploadLOGO_Click" />
+                </StackPanel>
+            </StackPanel>
+        </DockPanel>
     </Border>
 </Window>

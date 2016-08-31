@@ -1,0 +1,48 @@
+﻿<Window x:Class="MonitorWindows.Windows.AlienSplice.AlienSpliceWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="194" Width="217"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
+    <Border Margin="10">
+        <Border.Background>
+            <ImageBrush ImageSource="../../Resources/img/bg_img_setting/bg.png"/>
+        </Border.Background>
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0"/>
+        </Border.Effect>
+        <DockPanel>
+            <DockPanel Margin="6" DockPanel.Dock="Top">
+                <Label Content="{DynamicResource IndexWin_TopWinMenuTitle_Montage}" DockPanel.Dock="Left" Foreground="Black" FontWeight="Bold" FontSize="15" VerticalAlignment="Center"/>
+                <Button Style="{StaticResource share_close}" DockPanel.Dock="Right" HorizontalAlignment="Right" Click="Close_Win" />
+            </DockPanel>
+            <Border Background="#68FFFFFF" Margin="2" Padding="10,20,10,0">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label DockPanel.Dock="Left" Content="{DynamicResource AlienSplice_Img}" Width="80" HorizontalContentAlignment="Right" />
+                        <RadioButton VerticalContentAlignment="Center">
+                            <Label Content="{DynamicResource AlienSplice_Start}" />
+                        </RadioButton>
+                        <RadioButton VerticalContentAlignment="Center">
+                            <Label Content="{DynamicResource AlienSplice_Stop}" />
+                        </RadioButton>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Label DockPanel.Dock="Left" Content="{DynamicResource AlienSplice_Splice}" Width="80" HorizontalContentAlignment="Right" />
+                        <RadioButton VerticalContentAlignment="Center">
+                            <Label Content="{DynamicResource AlienSplice_Start}" />
+                        </RadioButton>
+                        <RadioButton VerticalContentAlignment="Center">
+                            <Label Content="{DynamicResource AlienSplice_Stop}" />
+                        </RadioButton>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right" Margin="10,10" Orientation="Horizontal">
+                        <Button Content="{DynamicResource AlienSplice_OK}" Style="{StaticResource ShareBtnSmall}" Margin="20,0" />
+                        <Button Content="{DynamicResource AlienSplice_Close}" Style="{StaticResource ShareBtnSmall}" Click="Close_Win" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </DockPanel>
+    </Border>
+</Window>

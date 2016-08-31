@@ -3,28 +3,68 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
-    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Background="#4CFFFFFF">
-        <Grid Name="WheelPanel"
-              Margin="40"
-              VerticalAlignment="Center"
-              HorizontalAlignment="Center"
-              MouseWheel="StackPanel_MouseWheel"
-              MouseDown="WinPanel_MouseDown"
-              MouseMove="WinPanel_MouseMove"
-              MouseUp="WinPanel_MouseUp">
-            <Grid.LayoutTransform>
-                <ScaleTransform x:Name="sourceGridScaleTransform" />
-            </Grid.LayoutTransform>
-            <UniformGrid Name="DataGrid" />
-            <Canvas
-                Name="WinPanel"
-                ClipToBounds="True"
-                Width="{Binding ElementName=DataGrid,Path=ActualWidth,Mode=OneWay}"
-                Height="{Binding ElementName=DataGrid,Path=ActualHeight,Mode=OneWay}"
-                Background="Transparent"
-                Drop="WinPanel_Drop"
-                AllowDrop="True" />
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="40" Background="#EBECED">
+            <Button Content="&#xf1eb;" Style="{StaticResource Index_Top_Menu_Buttom}" FontFamily="../Resources/font/#FontAwesome" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Signal}" Click="SignalAttribute_Click" />
+            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf17a;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Win}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="WinAttribute_Click" />
+            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf26a;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_OSD}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="OSDSetting_Click" />
+            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf0e2;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Echo}" Style="{StaticResource Index_Top_Menu_Buttom}" />
+            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf24d;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Dan}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="PartialFullScreenBtn_Click" />
+            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf096;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Quan}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="FullScreenBtn_Click" />
+            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf0c2;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_IPC}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="CloudControlBtn_Click" />
+            <ComboBox Style="{StaticResource SplitWin}" Name="splitWin" SelectionChanged="splitWin_SelectionChanged">
+                <ComboBoxItem DataContext="2" IsSelected="True" Content="{DynamicResource IndexWin_TopWinMenuTitle_Split_Four}"/>
+                <ComboBoxItem DataContext="3" Content="{DynamicResource IndexWin_TopWinMenuTitle_Split_Nine}" />
+                <ComboBoxItem DataContext="4" Content="{DynamicResource IndexWin_TopWinMenuTitle_Split_Sixteen}" />
+                <ComboBoxItem DataContext="5" Content="{DynamicResource IndexWin_TopWinMenuTitle_Split_XXV}" />
+                <ComboBoxItem DataContext="6" Content="{DynamicResource IndexWin_TopWinMenuTitle_Split_XXXVI}" />
+                <ComboBoxItem DataContext="7" Content="{DynamicResource IndexWin_TopWinMenuTitle_Split_FortyNine}" />
+                <ComboBoxItem DataContext="8" Content="{DynamicResource IndexWin_TopWinMenuTitle_Split_SixtyFour}" />
+                <ComboBoxItem DataContext="9" Content="{DynamicResource IndexWin_TopWinMenuTitle_Split_EightyOne}" />
+                <ComboBoxItem DataContext="10" Content="{DynamicResource IndexWin_TopWinMenuTitle_Split_Hundred}" />
+            </ComboBox>
+            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf0aa;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Top}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="WinTopBtn_Click" />
+            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf0ab;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Bottom}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="WinBottomBtn_Click" />
+            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf00d;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Close}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="CloseWinBtn_Click" />
+            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf014;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_CloseAll}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="CloseAllWinBtn_Click" />
+            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf0db;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Montage}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="AlienSplice_Click" />
+        </StackPanel>
+        <ScrollViewer Name="_SVDom" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Background="#4CFFFFFF">
+            <ScrollViewer.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="{DynamicResource IndexWin_TopWinMenuTitle_Close}" Click="CloseWinBtn_Click"/>
+                    <MenuItem Header="{DynamicResource IndexWin_TopWinMenuTitle_CloseAll}" Click="CloseAllWinBtn_Click" />
+                    <Separator />
+                    <MenuItem Header="{DynamicResource CustomWindows_RightClick_SortWin}">
+                        <MenuItem Header="{DynamicResource CustomWindows_RightClick_Four}" Click="MenuItem_FourItem_Click" />
+                        <MenuItem Header="{DynamicResource CustomWindows_RightClick_Nine}" Click="MenuItem_NineItem_Click" />
+                        <MenuItem Header="{DynamicResource CustomWindows_RightClick_Sixteen}" Click="MenuItem_SixteenItem_Click" />
+                        <Separator />
+                        <MenuItem Header="{DynamicResource CustomWindows_RightClick_DIYSplit}" Click="MenuItem_DIYSplit_Click" />
+                    </MenuItem>
+                    <MenuItem Header="{DynamicResource CustomWindows_RightClick_AutoSort}" Click="MenuItem_AutoSort_Click" />
+                </ContextMenu>
+            </ScrollViewer.ContextMenu>
+            <Grid Name="WheelPanel"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center"
+                  MouseWheel="StackPanel_MouseWheel"
+                  MouseDown="WinPanel_MouseDown"
+                  MouseMove="WinPanel_MouseMove"
+                  MouseUp="WinPanel_MouseUp">
+                <Grid.LayoutTransform>
+                    <ScaleTransform x:Name="sourceGridScaleTransform" />
+                </Grid.LayoutTransform>
+                <UniformGrid Name="DataGrid" />
+                <Canvas
+                    Name="WinPanel"
+                    ClipToBounds="True"
+                    Background="Transparent"
+                    Drop="WinPanel_Drop"
+                    AllowDrop="True">
+                </Canvas>
 
-        </Grid>
-    </ScrollViewer>
+            </Grid>
+        </ScrollViewer>
+    </DockPanel>
 </UserControl>

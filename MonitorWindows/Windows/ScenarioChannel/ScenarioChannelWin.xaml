@@ -1,0 +1,85 @@
+﻿<Window x:Class="MonitorWindows.Windows.ScenarioChannel.ScenarioChannelWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="421" Width="973"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
+    <Border Margin="10">
+        <Border.Background>
+            <ImageBrush ImageSource="../../Resources/img/bg_img_setting/bg.png"/>
+        </Border.Background>
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0"/>
+        </Border.Effect>
+        <DockPanel>
+            <DockPanel Margin="6" DockPanel.Dock="Top">
+                <Label Content="{DynamicResource ScenarioChannelWin_Title}" DockPanel.Dock="Left" Foreground="Black" FontWeight="Bold" FontSize="15" VerticalAlignment="Center"/>
+                <Button Click="Button_Click" Style="{StaticResource share_close}" DockPanel.Dock="Right" HorizontalAlignment="Right" />
+            </DockPanel>
+            <Border Background="#68FFFFFF" Margin="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid Margin="10,5" Height="340">
+                        <DataGrid ItemsSource="{Binding Data}" Style="{StaticResource DataTable}" IsReadOnly="False">
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#63A3C4" />
+                                    <Setter Property="Padding" Value="10"/>
+                                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                                    <Setter Property="BorderBrush" Value="#454545"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="FontSize" Value="12" />
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+                            <DataGrid.Columns>
+                                <DataGridCheckBoxColumn IsReadOnly="False" Width="*" Header="{DynamicResource ScenarioChannelWin_Table_XZ}" Binding="{Binding Index}" />
+                                <DataGridTextColumn IsReadOnly="True" Width="*" Header="{DynamicResource ScenarioChannelWin_Table_XH}" Binding="{Binding Number}" />
+                                <DataGridTextColumn IsReadOnly="True" Width="*" Header="{DynamicResource ScenarioChannelWin_Table_TDMC}" Binding="{Binding Number}" />
+                                <DataGridTextColumn IsReadOnly="True" Width="*" Header="{DynamicResource ScenarioChannelWin_Table_DZ}" Binding="{Binding Name}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <Button Style="{StaticResource ShareBtnSmall}" Width="50" Height="27" Margin="0,20">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{DynamicResource ScenarioChannelWin_Table_Add}" Foreground="White" VerticalAlignment="Center" Padding="0,0,5,0"></Label>
+                                <Label Content="&#xf18e;" FontFamily="../../Resources/font/#FontAwesome" Foreground="White" VerticalAlignment="Center" Padding="0"></Label>
+                            </StackPanel>
+                        </Button>
+                        <Button Style="{StaticResource ShareBtnSmall}" Width="50" Height="27" Margin="0,20">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="&#xf190;" FontFamily="../../Resources/font/#FontAwesome" Foreground="White" VerticalAlignment="Center" Padding="0,0,5,0"></Label>
+                                <Label Content="{DynamicResource ScenarioChannelWin_Table_Del}" Foreground="White" VerticalAlignment="Center" Padding="0"></Label>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                    <Grid Margin="10,5" Height="340" Grid.Column="2">
+                        <DataGrid ItemsSource="{Binding Data}" Style="{StaticResource DataTable}" IsReadOnly="False">
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#63A3C4" />
+                                    <Setter Property="Padding" Value="10"/>
+                                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                                    <Setter Property="BorderBrush" Value="#454545"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="FontSize" Value="12" />
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+                            <DataGrid.Columns>
+                                <DataGridCheckBoxColumn IsReadOnly="False" Width="*" Header="{DynamicResource ScenarioChannelWin_Table_XZ}" Binding="{Binding Index}" />
+                                <DataGridTextColumn IsReadOnly="True" Width="*" Header="{DynamicResource ScenarioChannelWin_Table_Name}" Binding="{Binding Number}" />
+                                <DataGridTextColumn IsReadOnly="True" Width="*" Header="{DynamicResource ScenarioChannelWin_Table_TD}" Binding="{Binding Number}" />
+                                <DataGridTextColumn IsReadOnly="True" Width="*" Header="{DynamicResource ScenarioChannelWin_Table_TimeJG}" Binding="{Binding Name}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Grid>
+            </Border>
+        </DockPanel>
+    </Border>
+</Window>

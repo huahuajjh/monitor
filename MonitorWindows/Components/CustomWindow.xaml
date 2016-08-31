@@ -7,21 +7,37 @@
              MinWidth="50"
              Height="0"
              MinHeight="50"
-             Template="{StaticResource DesignerItemTemplate}"
-             MouseDown="Win_MouseDown"
-             MouseMove="Win_MouseMove"
-             MouseUp="Win_MouseUp">
+             Template="{StaticResource DesignerItemTemplate}">
+    <UserControl.Resources>
+        <Style TargetType="Button" x:Key="BtnBG">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
     <Border Name="WinBack">
         <Border.Background>
-            <ImageBrush ImageSource="../Resources/img/bg_img_setting/bg.png"/>
+            <ImageBrush ImageSource="../Resources/img/bg_img_setting/bg2.png"/>
         </Border.Background>
         <DockPanel>
-            <DockPanel VerticalAlignment="Top" DockPanel.Dock="Top">
-                <Button DockPanel.Dock="Right" Style="{StaticResource share_close}" Margin="7" Click="Button_Click" Width="10" Height="10"></Button>
-                <Label Grid.Column="0" Grid.Row="0" Name="TitleVaule" Foreground="Gray" FontWeight="Bold" FontSize="12" VerticalAlignment="Center" Margin="10,0,0,0"></Label>
+            <DockPanel VerticalAlignment="Top" DockPanel.Dock="Top" PreviewMouseUp="Win_DblClickUp" PreviewMouseDown="Win_DblClickDown">
+                <Button DockPanel.Dock="Right" Style="{StaticResource Close_Btn}" Margin="2,7" Click="Button_Click"></Button>
+                <Button Name="maxMinWinBtn" DockPanel.Dock="Right" Style="{StaticResource Maximize_Btn}" Margin="2,7" Click="Maximize_Click"></Button>
+                <Label Grid.Column="0" Grid.Row="0" Name="TitleVaule" Foreground="White" FontWeight="Bold" FontSize="12" VerticalAlignment="Center" Margin="10,0,0,0"></Label>
             </DockPanel>
-            <DockPanel Background="#7FFFFFFF">
-                
+            <DockPanel Background="#CFFFFFFF" Name="bgDom">
+                <DockPanel.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="{DynamicResource CustomWindow_Text_Da}" />
+                        <MenuItem Header="{DynamicResource CustomWindow_Text_Xiao}" />
+                        <Separator />
+                        <MenuItem Header="{DynamicResource CustomWindow_Text_KVM}" />
+                    </ContextMenu>
+                </DockPanel.ContextMenu>
             </DockPanel>
         </DockPanel>
     </Border>

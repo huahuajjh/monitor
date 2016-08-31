@@ -7,7 +7,7 @@
         WindowStyle="None"
         AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
 
-    <Border Margin="10" Padding="12">
+    <Border Margin="10">
         <Border.Background>
             <ImageBrush ImageSource="../../Resources/img/bg_img_setting/bg.png"/>
         </Border.Background>
@@ -15,35 +15,34 @@
             <DropShadowEffect ShadowDepth="0"/>
         </Border.Effect>
 
-        <StackPanel>
-            <DockPanel>
+        <DockPanel>
+            <DockPanel Margin="6" DockPanel.Dock="Top">
                 <Label Content="{DynamicResource sm_title}" DockPanel.Dock="Left" Foreground="Black" FontWeight="Bold" FontSize="15" VerticalAlignment="Center"/>
                 <Button Click="CloseWindow" Style="{StaticResource share_close}" DockPanel.Dock="Right" HorizontalAlignment="Right" />
             </DockPanel>
-
-            <!--custom table-->
-            <Grid Margin="20" MinHeight="240" MaxHeight="240">
-                <DataGrid ItemsSource="{Binding Data}" Style="{StaticResource DataTable}">
-                    <DataGrid.ColumnHeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="Background" Value="#63A3C4" />
-                            <Setter Property="Padding" Value="10"/>
-                            <Setter Property="BorderThickness" Value="0,0,1,1"/>
-                            <Setter Property="BorderBrush" Value="#454545"/>
-                            <Setter Property="Foreground" Value="White"/>
-                            <Setter Property="FontSize" Value="12" />
-                        </Style>
-                    </DataGrid.ColumnHeaderStyle>
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Width="*" Header="{DynamicResource sm_tb_ip}" Binding="{Binding Index}" />
-                        <DataGridTextColumn Width="*" Header="{DynamicResource sm_tb_device_type}" Binding="{Binding Number}" />
-                        <DataGridTextColumn Width="*" Header="{DynamicResource sm_tb_state}" Binding="{Binding Name}" />
-                        <DataGridTextColumn Width="*" Header="{DynamicResource sm_tb_bug_info}" Binding="{Binding Name}" />
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Grid>
-            
-        </StackPanel>
+            <Border Background="#68FFFFFF" Margin="2">
+                <Grid Margin="20" MinHeight="240" MaxHeight="240">
+                    <DataGrid ItemsSource="{Binding Data}" Style="{StaticResource DataTable}">
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#63A3C4" />
+                                <Setter Property="Padding" Value="10"/>
+                                <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                                <Setter Property="BorderBrush" Value="#454545"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontSize" Value="12" />
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="*" Header="{DynamicResource sm_tb_ip}" Binding="{Binding Index}" />
+                            <DataGridTextColumn Width="*" Header="{DynamicResource sm_tb_device_type}" Binding="{Binding Number}" />
+                            <DataGridTextColumn Width="*" Header="{DynamicResource sm_tb_state}" Binding="{Binding Name}" />
+                            <DataGridTextColumn Width="*" Header="{DynamicResource sm_tb_bug_info}" Binding="{Binding Name}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Border>
+        </DockPanel>
 
     </Border>
 

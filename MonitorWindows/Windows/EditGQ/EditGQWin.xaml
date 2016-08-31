@@ -1,0 +1,43 @@
+﻿<Window x:Class="MonitorWindows.Windows.EditGQ.EditGQWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="284" Width="355"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
+    <Border Margin="10">
+        <Border.Background>
+            <ImageBrush ImageSource="../../Resources/img/bg_img_setting/bg.png"/>
+        </Border.Background>
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0"/>
+        </Border.Effect>
+        <DockPanel>
+            <DockPanel Margin="6" DockPanel.Dock="Top">
+                <Label Content="{DynamicResource EditGQWin_Title}" DockPanel.Dock="Left" Foreground="Black" FontWeight="Bold" FontSize="15" VerticalAlignment="Center"/>
+                <Button Click="Button_Click" Style="{StaticResource share_close}" DockPanel.Dock="Right" HorizontalAlignment="Right" />
+            </DockPanel>
+            <Border Background="#68FFFFFF" Margin="2">
+                <StackPanel>
+                    <DockPanel Margin="0,20,10,0">
+                        <Label Content="{DynamicResource AddGQWin_Txt_Name}" Width="70" HorizontalContentAlignment="Right" DockPanel.Dock="Left" />
+                        <TextBox Margin="5,0" VerticalContentAlignment="Center" />
+                    </DockPanel>
+                    <DockPanel Margin="0,5,10,0">
+                        <Label Content="{DynamicResource AddGQWin_Txt_Type}" Width="70" HorizontalContentAlignment="Right" DockPanel.Dock="Left" />
+                        <StackPanel Margin="5,5">
+                            <RadioButton Margin="1" Content="{DynamicResource AddGQWin_Txt_DIV}" />
+                            <RadioButton Margin="1" Content="{DynamicResource AddGQWin_Txt_HDMI}" />
+                            <RadioButton Margin="1" Content="{DynamicResource AddGQWin_Txt_3G_HD_SDSDI}" />
+                            <RadioButton Margin="1" Content="{DynamicResource AddGQWin_Txt_YPbPr}" />
+                            <RadioButton Margin="1" Content="{DynamicResource AddGQWin_Txt_VGA}"></RadioButton>
+                            <RadioButton Margin="1" Content="{DynamicResource AddGQWin_Txt_RGBHV}"></RadioButton>
+                            <RadioButton Margin="1" Content="{DynamicResource AddGQWin_Txt_CVBS}" />
+                        </StackPanel>
+                    </DockPanel>
+                    <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource AddGQWin_Txt_OK}" Margin="0,10"></Button>
+                </StackPanel>
+            </Border>
+        </DockPanel>
+    </Border>
+</Window>

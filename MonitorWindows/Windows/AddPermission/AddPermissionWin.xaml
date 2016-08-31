@@ -1,0 +1,39 @@
+﻿<Window x:Class="MonitorWindows.Windows.AddPermission.AddPermissionWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="219" Width="355"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
+    <Border Margin="10">
+        <Border.Background>
+            <ImageBrush ImageSource="../../Resources/img/bg_img_setting/bg.png"/>
+        </Border.Background>
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0"/>
+        </Border.Effect>
+        <DockPanel>
+            <DockPanel Margin="6" DockPanel.Dock="Top">
+                <Label Content="{DynamicResource AddPermissionWin_Title}" DockPanel.Dock="Left" Foreground="Black" FontWeight="Bold" FontSize="15" VerticalAlignment="Center"/>
+                <Button Click="Button_Click" Style="{StaticResource share_close}" DockPanel.Dock="Right" HorizontalAlignment="Right" />
+            </DockPanel>
+            <Border Background="#68FFFFFF" Margin="2">
+                <StackPanel>
+                    <DockPanel Margin="0,20,10,0">
+                        <Label Content="{DynamicResource AddPermissionWin_Name}" Width="70" HorizontalContentAlignment="Right" DockPanel.Dock="Left" />
+                        <TextBox Margin="5,0" VerticalContentAlignment="Center" />
+                    </DockPanel>
+                    <DockPanel Margin="0,5,10,0">
+                        <Label Content="{DynamicResource AddPermissionWin_TD}" Width="70" HorizontalContentAlignment="Right" DockPanel.Dock="Left" />
+                        <TextBox Margin="5,0" VerticalContentAlignment="Center" />
+                    </DockPanel>
+                    <DockPanel Margin="0,5,10,0">
+                        <Label Content="{DynamicResource AddPermissionWin_WinName}" Width="70" HorizontalContentAlignment="Right" DockPanel.Dock="Left" />
+                        <TextBox Margin="5,0" VerticalContentAlignment="Center" />
+                    </DockPanel>
+                    <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource AddPermissionWin_OK}" Margin="0,10"></Button>
+                </StackPanel>
+            </Border>
+        </DockPanel>
+    </Border>
+</Window>

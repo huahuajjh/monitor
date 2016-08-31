@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -33,6 +34,7 @@ namespace MonitorWindows.Components
         private CustomWindow _ActionWin = null;
 
         private List<Square> _Squares = new List<Square>();
+        public List<Square> Squares { get { return _Squares; } }
 
         private List<CustomWindow> wins = new List<CustomWindow>();
 
@@ -43,11 +45,12 @@ namespace MonitorWindows.Components
             {
                 foreach (var item in wins)
                 {
-                    item.Style = this.FindResource("Win_NotAction") as Style;
+                    item.Effect = null;
+                    Canvas.SetZIndex(item, item.ZIndex);
                 }
                 if(value != null)
                 {
-                    value.Style = this.FindResource("Win_Action") as Style;
+                    value.Effect = new DropShadowEffect() { ShadowDepth = 0 };
                 }
                 _ActionWin = value;
             }
@@ -56,18 +59,45 @@ namespace MonitorWindows.Components
         public CustomWindows()
         {
             InitializeComponent();
-            InitDataGrid();
+            this.Loaded += CustomWindows_Loaded;
+            this.SizeChanged += CustomWindows_SizeChanged;
         }
 
-        private void InitDataGrid()
+        void CustomWindows_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            DataGrid.Rows = 3;
-            DataGrid.Columns = 3;
+            foreach (var item in _Squares)
+            {
+                item.Width = this.GetWinSize(true);
+                item.Height = this.GetWinSize(false);
+                item.UpdateLayout();
+            }
+            foreach (var item in wins)
+            {
+                item.InitProportion();
+            }
+        }
+
+        void CustomWindows_Loaded(object sender, RoutedEventArgs e)
+        {
+            InitDataGrid(3, 5);
+        }
+
+        public void InitDataGrid(int rows, int columns)
+        {
+            DataGrid.Children.Clear();
+            _Squares.Clear();
+            DataGrid.Rows = rows;
+            DataGrid.Columns = columns;
+            int index = 1;
             for (int i = 0; i < DataGrid.Rows; i++)
             {
                 for (int l = 0; l < DataGrid.Columns; l++)
                 {
-                    Square btn = new Square(i,l);
+                    Square btn = new Square(l, i, int.Parse(((ComboBoxItem)splitWin.SelectedItem).DataContext.ToString()));
+                    btn.Index = index++;
+                    btn.Width = this.GetWinSize(true);
+                    btn.Height = this.GetWinSize(false);
+                    btn.UpdateLayout();
                     DataGrid.Children.Add(btn);
                     _Squares.Add(btn);
                 }
@@ -128,12 +158,11 @@ namespace MonitorWindows.Components
             }
             x = x + win.ActualWidth > this.WinPanel.ActualWidth ? this.WinPanel.ActualWidth - win.ActualWidth : x < 0 ? 0 : x;
             y = y + win.ActualHeight > this.WinPanel.ActualHeight ? this.WinPanel.ActualHeight - win.ActualHeight : y < 0 ? 0 : y;
-            Canvas.SetTop(win, y);
-            Canvas.SetLeft(win, x);
+            win.InitProportion(new Point(x, y));
         }
 
         private Rectangle rectangle = null;
-        private Point? point = null;
+        private Point? rectangleStartPoint = null;
 
         public DragPutWindowEventHandler OnDragPutWindow { get; set; }
 
@@ -147,35 +176,35 @@ namespace MonitorWindows.Components
             rectangle = new Rectangle();
             rectangle.StrokeDashArray = new DoubleCollection(new double[] {3});
             rectangle.Stroke = Brushes.White;
-            rectangle.StrokeThickness = 1;
+            rectangle.StrokeThickness = 0.5;
             rectangle.RadiusX = 3;
             rectangle.RadiusY = 3;
             WinPanel.Children.Add(rectangle);
-            this.point = e.GetPosition(WinPanel);
-            Canvas.SetLeft(rectangle, point.Value.X);
-            Canvas.SetTop(rectangle, point.Value.Y);
+            this.rectangleStartPoint = e.GetPosition(WinPanel);
+            Canvas.SetLeft(rectangle, rectangleStartPoint.Value.X);
+            Canvas.SetTop(rectangle, rectangleStartPoint.Value.Y);
         }
 
         private void WinPanel_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed && rectangle != null && point != null)
+            if (e.LeftButton == MouseButtonState.Pressed && rectangle != null && rectangleStartPoint != null)
             {
                 Point endPoint = e.GetPosition(WinPanel);
-                Point startPoint = point.Value;
+                Point startPoint = rectangleStartPoint.Value;
                 if (startPoint.X > endPoint.X && startPoint.Y > endPoint.Y)
                 {
                     startPoint = endPoint;
-                    endPoint = point.Value;
+                    endPoint = rectangleStartPoint.Value;
                 }
                 else if (startPoint.X > endPoint.X && startPoint.Y < endPoint.Y)
                 {
                     startPoint = new Point(endPoint.X, startPoint.Y);
-                    endPoint = new Point(point.Value.X, endPoint.Y);
+                    endPoint = new Point(rectangleStartPoint.Value.X, endPoint.Y);
                 }
                 else if (startPoint.X < endPoint.X && startPoint.Y > endPoint.Y)
                 {
                     startPoint = new Point(startPoint.X, endPoint.Y);
-                    endPoint = new Point(endPoint.X, point.Value.Y);
+                    endPoint = new Point(endPoint.X, rectangleStartPoint.Value.Y);
                 }
                 Canvas.SetLeft(rectangle, startPoint.X);
                 Canvas.SetTop(rectangle, startPoint.Y);
@@ -190,46 +219,68 @@ namespace MonitorWindows.Components
                 WinPanel.Children.Remove(rectangle);
                 rectangle = null;
             }
-            else if (point != null)
+            else if (rectangleStartPoint != null)
             {
-                point = null;
+                rectangleStartPoint = null;
             }
         }
 
+        // 测试变量(可删除)
+        private int tempState = 0;
         private void WinPanel_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (point == null || rectangle == null) return;
-            WinPanel.Children.Remove(rectangle);
-            rectangle = null;
+            if (rectangleStartPoint == null || rectangle == null) return;
+            Point startPoint = rectangleStartPoint.Value;
             Point endPoint = e.GetPosition(WinPanel);
-            Point startPoint = point.Value;
             if (startPoint.X > endPoint.X && startPoint.Y > endPoint.Y)
             {
                 startPoint = endPoint;
-                endPoint = point.Value;
+                endPoint = rectangleStartPoint.Value;
             }
             else if (startPoint.X > endPoint.X && startPoint.Y < endPoint.Y)
             {
                 startPoint = new Point(endPoint.X, startPoint.Y);
-                endPoint = new Point(point.Value.X, endPoint.Y);
+                endPoint = new Point(rectangleStartPoint.Value.X, endPoint.Y);
             }
             else if (startPoint.X < endPoint.X && startPoint.Y > endPoint.Y)
             {
                 startPoint = new Point(startPoint.X, endPoint.Y);
-                endPoint = new Point(endPoint.X, point.Value.Y);
+                endPoint = new Point(endPoint.X, rectangleStartPoint.Value.Y);
             }
             if(endPoint.X - startPoint.X > 50 || endPoint.Y - startPoint.Y > 50)
             {
-                var w = new CustomWindow(this);
-                w.Width = endPoint.X - startPoint.X;
-                w.Height = endPoint.Y - startPoint.Y;
+                var w = new CustomWindow(this, endPoint.X - startPoint.X, endPoint.Y - startPoint.Y, startPoint, "高清信号源", CustomWindowStateType.HDSource);
+                switch (tempState)
+                {
+                    case 1:
+                        w.WinType = CustomWindowStateType.IPCSource;
+                        w.Title = "IPC信号源";
+                        break;
+                    case 2:
+                        w.WinType = CustomWindowStateType.IPDesktopSource;
+                        w.Title = "IP桌面信号源";
+                        break;
+                    case 3:
+                        w.WinType = CustomWindowStateType.IPStreamSource;
+                        w.Title = "IP流媒体信号源";
+                        break;
+                    case 4:
+                        w.WinType = CustomWindowStateType.OtherSource;
+                        w.Title = "其他信号源";
+                        break;
+                    default:
+                        tempState = 0;
+                        break;
+                }
                 WinPanel.Children.Add(w);
                 wins.Add(w);
                 this.ActionWin = w;
-                Canvas.SetLeft(w, startPoint.X);
-                Canvas.SetTop(w, startPoint.Y);
+                tempState++;
             }
-            point = null;
+            // 清理数据
+            WinPanel.Children.Remove(rectangle);
+            rectangle = null;
+            rectangleStartPoint = null;
         }
 
         public void ReleaseWin(CustomWindow win)
@@ -241,41 +292,8 @@ namespace MonitorWindows.Components
                     this.WinPanel.Children.Remove(win);
                 }
             }
+            if (ActionWin == win) ActionWin = null;
             this.wins.Remove(win);
-        }
-
-        public void PartialFullScreen(CustomWindow win)
-        {
-            if (!this.wins.Contains(win)) return;
-            Point topLeftPoint = new Point(Canvas.GetLeft(win), Canvas.GetTop(win));
-            Point topRightPoint = new Point(topLeftPoint.X + win.ActualWidth, topLeftPoint.Y);
-            Point bottomLeftPoint = new Point(topLeftPoint.X, topLeftPoint.Y + win.ActualHeight);
-            Point bottomRightPoint = new Point(topLeftPoint.X + win.ActualWidth, topLeftPoint.Y + win.ActualHeight);
-            Point? inTopLeftPoint = null;
-            Point? inTopRightPoint = null;
-            Point? inBottomLeftPoint = null;
-            Point? inBottomRightPoint = null;
-            foreach (var item in _Squares)
-            {
-                if (inTopLeftPoint == null) inTopLeftPoint = item.GetMaximum(Direction.TopLeft, topLeftPoint);
-                if (inTopRightPoint == null) inTopRightPoint = item.GetMaximum(Direction.TopRight, topRightPoint);
-                if (inBottomLeftPoint == null) inBottomLeftPoint = item.GetMaximum(Direction.BottomLeft, bottomLeftPoint);
-                if (inBottomRightPoint == null) inBottomRightPoint = item.GetMaximum(Direction.BottomRight, bottomRightPoint);
-            }
-            if (inTopLeftPoint == null || inTopRightPoint == null || inBottomLeftPoint == null || inBottomRightPoint == null) return;
-            Canvas.SetLeft(win, inTopLeftPoint.Value.X + 1);
-            Canvas.SetTop(win, inTopLeftPoint.Value.Y + 1);
-            win.Width = inTopRightPoint.Value.X - inTopLeftPoint.Value.X - 2;
-            win.Height = inBottomLeftPoint.Value.Y - inTopLeftPoint.Value.Y - 2;
-        }
-
-        public void FullScreen(CustomWindow win)
-        {
-            if (!this.wins.Contains(win)) return;
-            Canvas.SetTop(win, 1);
-            Canvas.SetLeft(win, 1);
-            win.Width = WinPanel.ActualWidth - 2;
-            win.Height = WinPanel.ActualHeight - 2;
         }
 
         private DateTime dropTime = DateTime.Now;
@@ -297,14 +315,146 @@ namespace MonitorWindows.Components
                 break;
             }
             if (inPoint == null) return;
-            var w = new CustomWindow(this);
-            w.Width = Square.SIZE;
-            w.Height = Square.SIZE;
-            Canvas.SetLeft(w, inPoint.Value.X);
-            Canvas.SetTop(w, inPoint.Value.Y);
+            var w = new CustomWindow(this, this.GetWinSize(true), this.GetWinSize(false), inPoint.Value, "窗口", CustomWindowStateType.HDSource);
             WinPanel.Children.Add(w);
             wins.Add(w);
             this.ActionWin = w;
+        }
+
+        public double GetWinSize(bool isWidth)
+        {
+            double nw = this._SVDom.ActualWidth * 0.9;
+            double nh = this._SVDom.ActualHeight * 0.9;
+
+            //return Math.Min(nw / DataGrid.Columns, nh / DataGrid.Rows);
+            if(isWidth)
+            {
+                return nw / DataGrid.Columns;
+            }
+            return nh / DataGrid.Rows;
+        }
+
+        private void PartialFullScreenBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (null == this.ActionWin) return;
+            this.ActionWin.SingleScreen();
+        }
+
+        private void FullScreenBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (null == ActionWin) return;
+            ActionWin.WinState = CustomWindowState.FullScreen;
+        }
+
+        private void CloseWinBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (null == ActionWin) return;
+            this.ReleaseWin(this.ActionWin);
+        }
+
+        private void CloseAllWinBtn_Click(object sender, RoutedEventArgs e)
+        {
+            while (this.wins.Count > 0)
+            {
+                this.ReleaseWin(this.wins.First());
+            }
+        }
+
+        private void WinBottomBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (null == ActionWin) return;
+            ActionWin.ZIndex = ActionWin.ZIndex - 1;
+        }
+
+        private void WinTopBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (null == ActionWin) return;
+            ActionWin.ZIndex = ActionWin.ZIndex + 1;
+        }
+
+        private void splitWin_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int num = int.Parse(((ComboBoxItem)e.AddedItems[0]).DataContext.ToString());
+            foreach (var item in _Squares)
+            {
+                item.Num = num;
+            }
+        }
+
+        private void MenuItem_FourItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.InitDataGrid(2,2);
+        }
+
+        private void MenuItem_NineItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.InitDataGrid(3, 3);
+        }
+
+        private void MenuItem_SixteenItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.InitDataGrid(4, 4);
+        }
+
+        private void MenuItem_DIYSplit_Click(object sender, RoutedEventArgs e)
+        {
+            new Windows.SplitSquare.SplitSquareWin((int row, int col) => {
+                this.InitDataGrid(row, col);
+            }).ShowDialog();
+        }
+
+        private void MenuItem_AutoSort_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < wins.Count; i++)
+            {
+                if (_Squares.Count <= i) break;
+                CustomWindow win = wins[i];
+                Square square = _Squares[i];
+                win.InitProportion(square.ActualWidth - 2, square.ActualHeight - 2, new Point(square.StartPoint.X + 1, square.StartPoint.Y + 1));
+            }
+            for (int i = _Squares.Count; i < wins.Count; i++)
+            {
+                CustomWindow win = wins[i];
+                ReleaseWin(win);
+            }
+        }
+
+        private void SignalAttribute_Click(object sender, RoutedEventArgs e)
+        {
+            if (null == ActionWin) return;
+            new Windows.SignalAttribute.SignalAttributeWin().ShowDialog();
+        }
+
+        private void WinAttribute_Click(object sender, RoutedEventArgs e)
+        {
+            if (null == ActionWin) return;
+            new Windows.WinAttribute.WinAttributeWin(
+                ActionWin.Title,
+                Canvas.GetLeft(ActionWin),
+                Canvas.GetTop(ActionWin),
+                ActionWin.ActualWidth,
+                ActionWin.ActualHeight,
+                (string title, double x, double y, double w, double h) => {
+                    ActionWin.Title = title;
+                    ActionWin.InitProportion(w, h, new Point(x, y));
+                }).ShowDialog();
+        }
+
+        private void OSDSetting_Click(object sender, RoutedEventArgs e)
+        {
+            if (null == ActionWin) return;
+            new Windows.OSDSetting.OSDSettingWin().ShowDialog();
+        }
+
+        private void AlienSplice_Click(object sender, RoutedEventArgs e)
+        {
+            if (null == ActionWin) return;
+            new Windows.AlienSplice.AlienSpliceWin().ShowDialog();
+        }
+
+        private void CloudControlBtn_Click(object sender, RoutedEventArgs e)
+        {
+            new Windows.CloudControl.CloudControlWin().ShowDialog();
         }
     }
 }

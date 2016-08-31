@@ -63,11 +63,54 @@
     <Compile Include="Components\CustomWindows.xaml.cs">
       <DependentUpon>CustomWindows.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Components\ScenarioMagmet.xaml.cs">
+      <DependentUpon>ScenarioMagmet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\img\SignalSource.xaml.cs">
+      <DependentUpon>SignalSource.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Components\Square.cs" />
+    <Compile Include="Components\ToolWin.xaml.cs">
+      <DependentUpon>ToolWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ColorSelector.xaml.cs">
+      <DependentUpon>ColorSelector.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MoveThumb.cs" />
     <Compile Include="Controls\ResizeThumb.cs" />
     <Compile Include="Controls\Tb.xaml.cs">
       <DependentUpon>Tb.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShareResources.cs" />
+    <Compile Include="Windows\AddExtOptSetting\AddExtOptSettingWin.xaml.cs">
+      <DependentUpon>AddExtOptSettingWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddGQ\AddGQWin.xaml.cs">
+      <DependentUpon>AddGQWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddICPC\AddICPCWin.xaml.cs">
+      <DependentUpon>AddICPCWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddIPStream\AddIPStreamWin.xaml.cs">
+      <DependentUpon>AddIPStreamWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddIP\AddIPWin.xaml.cs">
+      <DependentUpon>AddIPWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddOther\AddOtherWin.xaml.cs">
+      <DependentUpon>AddOtherWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddPermission\AddPermissionWin.xaml.cs">
+      <DependentUpon>AddPermissionWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddScenarioMagmet\AddScenarioMagmetWin.xaml.cs">
+      <DependentUpon>AddScenarioMagmetWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddUser\AddUserWin.xaml.cs">
+      <DependentUpon>AddUserWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AlienSplice\AlienSpliceWin.xaml.cs">
+      <DependentUpon>AlienSpliceWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\BaseWindow.cs" />
     <Compile Include="Windows\BgImgSetting\BgImgSettingWindow.xaml.cs">
@@ -76,11 +119,44 @@
     <Compile Include="Windows\CaptionSetting\CaptionSettingWindow.xaml.cs">
       <DependentUpon>CaptionSettingWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\CaptionSetting\TbControl.xaml.cs">
-      <DependentUpon>TbControl.xaml</DependentUpon>
+    <Compile Include="Windows\CloudControl\CloudControlWin.xaml.cs">
+      <DependentUpon>CloudControlWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\DeviceSettting\DeviceSettingWindow.xaml.cs">
       <DependentUpon>DeviceSettingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditExtOptSetting\EditExtOptSettingWin.xaml.cs">
+      <DependentUpon>EditExtOptSettingWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditGQ\EditGQWin.xaml.cs">
+      <DependentUpon>EditGQWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditICPC\EditICPCWin.xaml.cs">
+      <DependentUpon>EditICPCWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditIPStream\EditIPStreamWin.xaml.cs">
+      <DependentUpon>EditIPStreamWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditIP\EditIPWin.xaml.cs">
+      <DependentUpon>EditIPWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditOther\EditOtherWin.xaml.cs">
+      <DependentUpon>EditOtherWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditPermission\EditPermissionWin.xaml.cs">
+      <DependentUpon>EditPermissionWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditScenarioMagmet\EditScenarioMagmetWin.xaml.cs">
+      <DependentUpon>EditScenarioMagmetWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditUser\EditUserWin.xaml.cs">
+      <DependentUpon>EditUserWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\OSDSetting\OSDSettingWin.xaml.cs">
+      <DependentUpon>OSDSettingWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PreviewSurveillance\PreviewSurveillanceWin.xaml.cs">
+      <DependentUpon>PreviewSurveillanceWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\RoundSetting\RoundSettingWindow.xaml.cs">
       <DependentUpon>RoundSettingWindow.xaml</DependentUpon>
@@ -91,8 +167,14 @@
     <Compile Include="Windows\InterfaceSetting\InterfaceSettingWindow.xaml.cs">
       <DependentUpon>InterfaceSettingWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\SysMonitor\DeviceListControl.xaml.cs">
-      <DependentUpon>DeviceListControl.xaml</DependentUpon>
+    <Compile Include="Windows\ScenarioChannel\ScenarioChannelWin.xaml.cs">
+      <DependentUpon>ScenarioChannelWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SignalAttribute\SignalAttributeWin.xaml.cs">
+      <DependentUpon>SignalAttributeWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SplitSquare\SplitSquareWin.xaml.cs">
+      <DependentUpon>SplitSquareWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\SysMonitor\SysMonitorWindow.xaml.cs">
       <DependentUpon>SysMonitorWindow.xaml</DependentUpon>
@@ -100,11 +182,8 @@
     <Compile Include="Windows\UserManagement\UserManagementWindow.xaml.cs">
       <DependentUpon>UserManagementWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\UserManagement\WinOprPerControl.xaml.cs">
-      <DependentUpon>WinOprPerControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\UserManagement\UserPermMgtControl.xaml.cs">
-      <DependentUpon>UserPermMgtControl.xaml</DependentUpon>
+    <Compile Include="Windows\WinAttribute\WinAttributeWin.xaml.cs">
+      <DependentUpon>WinAttributeWin.xaml</DependentUpon>
     </Compile>
     <Page Include="Components\Alert.xaml">
       <SubType>Designer</SubType>
@@ -115,6 +194,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Components\CustomWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\ScenarioMagmet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\img\SignalSource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\ToolWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ColorSelector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -156,6 +251,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\CheckBoxDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\ComboBoxDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -168,7 +267,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\GroupBoxDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ImageDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\RadioButtonDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\SliderDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -184,6 +295,46 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\AddExtOptSetting\AddExtOptSettingWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddGQ\AddGQWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddICPC\AddICPCWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddIPStream\AddIPStreamWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddIP\AddIPWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddOther\AddOtherWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddPermission\AddPermissionWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddScenarioMagmet\AddScenarioMagmetWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddUser\AddUserWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AlienSplice\AlienSpliceWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\BgImgSetting\BgImgSettingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -192,11 +343,55 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\CaptionSetting\TbControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Windows\CloudControl\CloudControlWin.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\DeviceSettting\DeviceSettingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditExtOptSetting\EditExtOptSettingWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditGQ\EditGQWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditICPC\EditICPCWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditIPStream\EditIPStreamWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditIP\EditIPWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditOther\EditOtherWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditPermission\EditPermissionWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditScenarioMagmet\EditScenarioMagmetWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditUser\EditUserWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\OSDSetting\OSDSettingWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PreviewSurveillance\PreviewSurveillanceWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -210,7 +405,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\SysMonitor\DeviceListControl.xaml">
+    <Page Include="Windows\ScenarioChannel\ScenarioChannelWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SignalAttribute\SignalAttributeWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SplitSquare\SplitSquareWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -222,11 +425,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\UserManagement\WinOprPerControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Windows\UserManagement\UserPermMgtControl.xaml">
+    <Page Include="Windows\WinAttribute\WinAttributeWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -447,6 +646,70 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\img\caption_setting\caption_setting_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\bg_img_setting\bg2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\xhyyllico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\CloudControl\smallBtnDown.png" />
+    <Resource Include="Resources\img\CloudControl\smallBtnNormal.png" />
+    <Resource Include="Resources\img\CloudControl\smallBtnHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\CloudControl\btnDown.png" />
+    <Resource Include="Resources\img\CloudControl\btnNormal.png" />
+    <Resource Include="Resources\img\CloudControl\btnHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\CloudControl\bigBtnDown.png" />
+    <Resource Include="Resources\img\CloudControl\bigBtnNormal.png" />
+    <Resource Include="Resources\img\CloudControl\bigBtnHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\CloudControl\searchBtnHover.png" />
+    <Resource Include="Resources\img\CloudControl\searchBtnDown.png" />
+    <Resource Include="Resources\img\CloudControl\searchBtnNormal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\CloudControl\ICOLightZoomIn.png" />
+    <Resource Include="Resources\img\CloudControl\ICOLightZoomOut.png" />
+    <Resource Include="Resources\img\CloudControl\ICOFocusingZoomIn.png" />
+    <Resource Include="Resources\img\CloudControl\ICOFocusingZoomOut.png" />
+    <Resource Include="Resources\img\CloudControl\ICOLighting.png" />
+    <Resource Include="Resources\img\CloudControl\ICOAuxiliaryFocusing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\CloudControl\addBtnNormal.png" />
+    <Resource Include="Resources\img\CloudControl\addBtnHover.png" />
+    <Resource Include="Resources\img\CloudControl\addBtnDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\CloudControl\controlBtn.png" />
+    <Resource Include="Resources\img\CloudControl\ICOShotInit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\CloudControl\delBtnHover.png" />
+    <Resource Include="Resources\img\CloudControl\delBtnDown.png" />
+    <Resource Include="Resources\img\CloudControl\delBtnNormal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\CloudControl\ICOAutoRotate.png" />
+    <Resource Include="Resources\img\CloudControl\ICOZoomingIn.png" />
+    <Resource Include="Resources\img\CloudControl\ICOZoomingOut.png" />
+    <Resource Include="Resources\img\CloudControl\ICOWiper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\CloudControl\ICOBttom.png" />
+    <Resource Include="Resources\img\CloudControl\ICOBttomLeft.png" />
+    <Resource Include="Resources\img\CloudControl\ICOBttomRight.png" />
+    <Resource Include="Resources\img\CloudControl\ICOLeft.png" />
+    <Resource Include="Resources\img\CloudControl\ICORight.png" />
+    <Resource Include="Resources\img\CloudControl\ICOTop.png" />
+    <Resource Include="Resources\img\CloudControl\ICOTopLeft.png" />
+    <Resource Include="Resources\img\CloudControl\ICOTopRight.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -28,8 +28,19 @@ namespace MonitorWindows
     public partial class IndexWindow : Window
     {
         public IndexWindow()
-        {            
+        {
             InitializeComponent();
+            // 屏幕最大化
+            this.WindowState = WindowState.Maximized;
+            this.MaxWidth = SystemParameters.WorkArea.Width + 13;
+            this.MaxHeight = SystemParameters.WorkArea.Height + 13;
+            ((Button)Maximize_Btn).Style = this.FindResource("Narrow_Btn") as Style;
+
+            // 增加预览监视
+            for (int i = 0; i < 10; i++)
+            {
+                toolWin.Add(new Components.ToolItem() { Title = i.ToString() });
+            }
         }
 
         private void Close_Win(object sender, RoutedEventArgs e)
@@ -115,25 +126,6 @@ namespace MonitorWindows
         {
             Windows.RoundSetting.RoundSettingWindow win = new Windows.RoundSetting.RoundSettingWindow();
             win.ShowDialog();
-        }
-
-        private void Share_PreviewMouseMove(object sender, MouseEventArgs e)
-        {
-            if(e.LeftButton == MouseButtonState.Pressed)
-	        {
-                DataObject data = new DataObject(typeof(Button), sender);
-                DragDrop.DoDragDrop((Button)sender, data, DragDropEffects.Move);
-	        }
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            this.CWin.FullScreen(this.CWin.ActionWin);
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            this.CWin.PartialFullScreen(this.CWin.ActionWin);
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)

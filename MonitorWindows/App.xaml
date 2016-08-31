@@ -15,6 +15,10 @@
                 <ResourceDictionary Source="Resources/ButtonDictionary.xaml" />
                 <ResourceDictionary Source="Resources/TabControlDictionary.xaml" />
                 <ResourceDictionary Source="Resources/RadioButtonDictionary.xaml" />
+                <ResourceDictionary Source="Resources/CheckBoxDictionary.xaml" />
+                <ResourceDictionary Source="Resources/ImageDictionary.xaml" />
+                <ResourceDictionary Source="Resources/GroupBoxDictionary.xaml" />
+                <ResourceDictionary Source="Resources/SliderDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

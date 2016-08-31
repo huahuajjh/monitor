@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -13,6 +14,8 @@ using System.Windows.Shapes;
 
 namespace MonitorWindows.Windows.InterfaceSetting
 {
+    
+
     /// <summary>
     /// InterfaceSettingWindow.xaml 的交互逻辑
     /// </summary>
@@ -31,6 +34,73 @@ namespace MonitorWindows.Windows.InterfaceSetting
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
             this.DragMove();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dialog =
+                new Microsoft.Win32.OpenFileDialog();
+            dialog.Filter = "选择图片|*.jpg;*.png;*.gif";
+            if (dialog.ShowDialog() == true)
+            {
+                ShareResources.Instance.IndexBG = new ImageBrush() { ImageSource = new BitmapImage(new Uri(dialog.FileName, UriKind.Relative)) };
+            }
+        }
+
+        private void UploadLOGO_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dialog =
+                new Microsoft.Win32.OpenFileDialog();
+            dialog.Filter = "选择图片|*.jpg;*.png;*.gif";
+            if (dialog.ShowDialog() == true)
+            {
+                ShareResources.Instance.LOGO = new ImageBrush() { ImageSource = new BitmapImage(new Uri(dialog.FileName, UriKind.Relative)) };
+            }
+        }
+
+        private void ColorSelector_ColorChange(object sender, SolidColorBrush e)
+        {
+            ShareResources.Instance.CellTextColor = e;
+        }
+
+        private void CellLinkColor_ColorChange(object sender, SolidColorBrush e)
+        {
+            ShareResources.Instance.CellLinkColor = e;
+        }
+
+        private void CellBGColor_ColorChange(object sender, SolidColorBrush e)
+        {
+            ShareResources.Instance.CellBGColor = e;
+        }
+
+        private void HDSourceWinColor_ColorChange(object sender, SolidColorBrush e)
+        {
+            Color color = e.Color;
+            ShareResources.Instance.HDSourceWinColor = new SolidColorBrush(new Color() { R = color.R, G = color.G, B = color.B, A = 185 });
+        }
+
+        private void IPCSourceWinColor_ColorChange(object sender, SolidColorBrush e)
+        {
+            Color color = e.Color;
+            ShareResources.Instance.IPCSourceWinColor = new SolidColorBrush(new Color() { R = color.R, G = color.G, B = color.B, A = 185 });
+        }
+
+        private void IPDesktopSourceWinColor_ColorChange(object sender, SolidColorBrush e)
+        {
+            Color color = e.Color;
+            ShareResources.Instance.IPDesktopSourceWinColor = new SolidColorBrush(new Color() { R = color.R, G = color.G, B = color.B, A = 185 });
+        }
+
+        private void IPStreamSourceWinColor_ColorChange(object sender, SolidColorBrush e)
+        {
+            Color color = e.Color;
+            ShareResources.Instance.IPStreamSourceWinColor = new SolidColorBrush(new Color() { R = color.R, G = color.G, B = color.B, A = 185 });
+        }
+
+        private void OtherSourceWinColor_ColorChange(object sender, SolidColorBrush e)
+        {
+            Color color = e.Color;
+            ShareResources.Instance.OtherSourceWinColor = new SolidColorBrush(new Color() { R = color.R, G = color.G, B = color.B, A = 185 });
         }
     }
 }

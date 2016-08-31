@@ -1,0 +1,135 @@
+﻿<UserControl x:Class="MonitorWindows.Components.SignalSource"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Background="Transparent" Name="SignalArea">
+            <Expander Style="{StaticResource ExpanderLeftStyle}">
+                <Expander.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="{DynamicResource SignalSource_Menu_CreateItem}" Click="MenuItem_Click" />
+                        <MenuItem Header="{DynamicResource SignalSource_Menu_Import}" />
+                        <MenuItem Header="{DynamicResource SignalSource_Menu_Export}" />
+                    </ContextMenu>
+                </Expander.ContextMenu>
+                <Expander.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Style="{StaticResource ICO_hd}" />
+                        <Label Content="{DynamicResource SignalSource_Title_GQ}" />
+                    </StackPanel>
+                </Expander.Header>
+                <StackPanel>
+                    <RadioButton Content="测试信号" Style="{StaticResource ExpanderLeftBtnStyle}" PreviewMouseMove="RadioButton_PreviewMouseMove" PreviewMouseDown="RadioButton_PreviewMouseDown">
+                        <RadioButton.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="{DynamicResource SignalSource_Menu_Edit}" Click="MenuItem_Click_1" />
+                                <MenuItem Header="{DynamicResource SignalSource_Menu_del}" />
+                            </ContextMenu>
+                        </RadioButton.ContextMenu>
+                    </RadioButton>
+                </StackPanel>
+            </Expander>
+            <Expander Style="{StaticResource ExpanderLeftStyle}">
+                <Expander.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="{DynamicResource SignalSource_Menu_CreateItem}" Click="MenuItem_Click_3" />
+                        <MenuItem Header="{DynamicResource SignalSource_Menu_Import}" />
+                        <MenuItem Header="{DynamicResource SignalSource_Menu_Export}" />
+                    </ContextMenu>
+                </Expander.ContextMenu>
+                <Expander.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Style="{StaticResource ICO_ipc}" />
+                        <Label Content="{DynamicResource SignalSource_Title_ICPC}" />
+                    </StackPanel>
+                </Expander.Header>
+                <StackPanel>
+                    <RadioButton Content="测试信号" Style="{StaticResource ExpanderLeftBtnStyle}" PreviewMouseMove="RadioButton_PreviewMouseMove" PreviewMouseDown="RadioButton_PreviewMouseDown">
+                        <RadioButton.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="{DynamicResource SignalSource_Menu_Edit}" Click="MenuItem_Click_2" />
+                                <MenuItem Header="{DynamicResource SignalSource_Menu_del}" />
+                            </ContextMenu>
+                        </RadioButton.ContextMenu>
+                    </RadioButton>
+                </StackPanel>
+            </Expander>
+            <Expander Style="{StaticResource ExpanderLeftStyle}">
+                <Expander.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="{DynamicResource SignalSource_Menu_CreateItem}" Click="MenuItem_Click_4" />
+                        <MenuItem Header="{DynamicResource SignalSource_Menu_Import}" />
+                        <MenuItem Header="{DynamicResource SignalSource_Menu_Export}" />
+                    </ContextMenu>
+                </Expander.ContextMenu>
+                <Expander.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Style="{StaticResource ICO_cvbs}" />
+                        <Label Content="{DynamicResource SignalSource_Title_IP}" />
+                    </StackPanel>
+                </Expander.Header>
+                <StackPanel>
+                    <RadioButton Content="测试信号" Style="{StaticResource ExpanderLeftBtnStyle}" PreviewMouseMove="RadioButton_PreviewMouseMove" PreviewMouseDown="RadioButton_PreviewMouseDown">
+                        <RadioButton.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="{DynamicResource SignalSource_Menu_Edit}" Click="MenuItem_Click_5" />
+                                <MenuItem Header="{DynamicResource SignalSource_Menu_del}" />
+                            </ContextMenu>
+                        </RadioButton.ContextMenu>
+                    </RadioButton>
+                </StackPanel>
+            </Expander>
+            <Expander Style="{StaticResource ExpanderLeftStyle}">
+                <Expander.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="{DynamicResource SignalSource_Menu_CreateItem}" Click="MenuItem_Click_6" />
+                        <MenuItem Header="{DynamicResource SignalSource_Menu_Import}" />
+                        <MenuItem Header="{DynamicResource SignalSource_Menu_Export}" />
+                    </ContextMenu>
+                </Expander.ContextMenu>
+                <Expander.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Style="{StaticResource ICO_media}" />
+                        <Label Content="{DynamicResource SignalSource_Title_Media}" />
+                    </StackPanel>
+                </Expander.Header>
+                <StackPanel>
+                    <RadioButton Content="测试信号" Style="{StaticResource ExpanderLeftBtnStyle}" PreviewMouseMove="RadioButton_PreviewMouseMove" PreviewMouseDown="RadioButton_PreviewMouseDown">
+                        <RadioButton.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="{DynamicResource SignalSource_Menu_Edit}" Click="MenuItem_Click_7" />
+                                <MenuItem Header="{DynamicResource SignalSource_Menu_del}" />
+                            </ContextMenu>
+                        </RadioButton.ContextMenu>
+                    </RadioButton>
+                </StackPanel>
+            </Expander>
+            <Expander Style="{StaticResource ExpanderLeftStyle}">
+                <Expander.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="{DynamicResource SignalSource_Menu_CreateItem}" Click="MenuItem_Click_8" />
+                        <MenuItem Header="{DynamicResource SignalSource_Menu_Import}" />
+                        <MenuItem Header="{DynamicResource SignalSource_Menu_Export}" />
+                    </ContextMenu>
+                </Expander.ContextMenu>
+                <Expander.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Style="{StaticResource ICO_other}" />
+                        <Label Content="{DynamicResource SignalSource_Title_Other}" />
+                    </StackPanel>
+                </Expander.Header>
+                <StackPanel>
+                    <RadioButton Content="测试信号" Style="{StaticResource ExpanderLeftBtnStyle}" PreviewMouseMove="RadioButton_PreviewMouseMove" PreviewMouseDown="RadioButton_PreviewMouseDown">
+                        <RadioButton.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="{DynamicResource SignalSource_Menu_Edit}" Click="MenuItem_Click_9" />
+                                <MenuItem Header="{DynamicResource SignalSource_Menu_del}" />
+                            </ContextMenu>
+                        </RadioButton.ContextMenu>
+                    </RadioButton>
+                </StackPanel>
+            </Expander>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

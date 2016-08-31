@@ -6,7 +6,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -38,9 +37,13 @@ namespace MonitorWindows.Windows.BgImgSetting
 
         private void OpenFile(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
+            System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
             ofd.Filter = "图片(*.jpg)|图片(*.jpeg)|图片(*.png)|*.txt|所有文件(*.*)|*.*";
-            ofd.ShowDialog();
+            if(ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                pathDom.Text = ofd.FileName;
+                Components.Alert.ShowAlear("bisw_alert_msg_sucess");
+            }
         }
     }
 }

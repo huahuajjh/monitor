@@ -1,11 +1,12 @@
 ﻿<Window x:Class="MonitorWindows.Windows.BgImgSetting.BgImgSettingWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="sub" Height="326" Width="640"
+        xmlns:mytb="clr-namespace:MonitorWindows.Controls"
+        Title="sub" Height="517" Width="640"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
-    
+
     <Border Margin="10">
         <Border.Effect>
             <DropShadowEffect ShadowDepth="1"/>
@@ -13,65 +14,173 @@
         <Border.Background>
             <ImageBrush ImageSource="../../Resources/img/bg_img_setting/bg.png"/>
         </Border.Background>
-        
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="33"></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            
-            <Label Grid.Column="0" Grid.Row="0" Content="{DynamicResource bisw_title}" Foreground="Black" FontWeight="Bold" FontSize="15" VerticalAlignment="Center" Margin="10,0,0,0"></Label>
-            <Button Grid.Row="0" Grid.Column="1" Style="{StaticResource share_close}" HorizontalAlignment="Right" Margin="0,5,5,0" Click="CloseWindow"/>
-            
-            <Grid Grid.Row="1" Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="150"/>
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                
-                <Label Content="{DynamicResource bisw_set_img}" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label Content="{DynamicResource bisw_pick_img}" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="1" Height="30" Background="White">
-                    <Label.Effect>
-                        <DropShadowEffect ShadowDepth="0"/>
-                    </Label.Effect>
-                </Label>
-                <Button Content="{DynamicResource bisw_pick_img_btn}" Grid.Row="1" Grid.Column="2" Height="30" Background="#FFFFFF" BorderThickness="0" Cursor="Hand" Click="OpenFile">
-                    <Button.Effect>
-                        <DropShadowEffect ShadowDepth="0"/>
-                    </Button.Effect>
-                </Button>
-                <Label Content="{DynamicResource bisw_lb_display_way}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <RadioButton GroupName="display_way" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"  Content="{DynamicResource bisw_rb_single_scr}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                <RadioButton GroupName="display_way" Grid.Row="2" Grid.Column="2" Content="{DynamicResource bisw_rb_double_scr}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                <Label Content="{DynamicResource bisw_lb_bg_color}" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>                             
-                <ComboBox Style="{StaticResource ColorComboBox}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Background="white" Height="30">
-                    <ComboBox.Effect>
-                        <DropShadowEffect ShadowDepth="0"/>
-                    </ComboBox.Effect>
-                </ComboBox>
-            </Grid>
-
-            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Border Background="#CADFEA" Width="200" Height="200">
-                    <Border.Effect>
-                        <DropShadowEffect ShadowDepth="0"/>
-                    </Border.Effect>
-                    <Image Name="img"/>
-                </Border>
-            </StackPanel>
-            <WrapPanel Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="482,174,-272,-1" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
-        </Grid>        
+        <DockPanel>
+            <DockPanel Margin="6" DockPanel.Dock="Top">
+                <Label Content="{DynamicResource bisw_title}" DockPanel.Dock="Left" Foreground="Black" FontWeight="Bold" FontSize="15" VerticalAlignment="Center"/>
+                <Button Click="CloseWindow" Style="{StaticResource share_close}" DockPanel.Dock="Right" HorizontalAlignment="Right" />
+            </DockPanel>
+            <Border Background="#68FFFFFF" Margin="2">
+                <DockPanel Margin="5,0,5,5">
+                    <Grid DockPanel.Dock="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <RadioButton Name="pqOneDom" Style="{StaticResource ExpanderLeftBtnBuleStyle}" Content="拼接墙1" HorizontalContentAlignment="Center" IsChecked="True" />
+                        <RadioButton Name="pqTwoDom" Grid.Column="1" Style="{StaticResource ExpanderLeftBtnBuleStyle}" Content="拼接墙2" HorizontalContentAlignment="Center" />
+                        <RadioButton Name="pqThreeDom" Grid.Column="2" Style="{StaticResource ExpanderLeftBtnBuleStyle}" Content="拼接墙3" HorizontalContentAlignment="Center" />
+                        <RadioButton Name="pqFourDom" Grid.Column="3" Style="{StaticResource ExpanderLeftBtnBuleStyle}" Content="拼接墙4" HorizontalContentAlignment="Center" />
+                    </Grid>
+                    <TabControl Style="{StaticResource TabControlHiddenHeadStyle}" Background="Transparent">
+                        <TabItem IsSelected="{Binding ElementName=pqOneDom,Path=IsChecked}">
+                            <DockPanel>
+                                <Grid DockPanel.Dock="Top" Margin="0,10" ShowGridLines="True">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="250" />
+                                        <ColumnDefinition Width="220" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Label Content="{DynamicResource bisw_pick_img}" />
+                                        <TextBox Width="100" IsReadOnly="True" Name="pathDom" VerticalContentAlignment="Center" />
+                                        <Button Content="{DynamicResource bisw_pick_img_btn}" Style="{StaticResource ShareBtnSmall}" Margin="5,0" Click="OpenFile" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Label Content="{DynamicResource bisw_lb_display_way}" />
+                                        <RadioButton GroupName="display_way" Content="{DynamicResource bisw_rb_single_scr}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <RadioButton GroupName="display_way" Content="{DynamicResource bisw_rb_double_scr}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Label Content="{DynamicResource bisw_lb_bg_color}" />
+                                        <mytb:ColorSelector></mytb:ColorSelector>
+                                    </StackPanel>
+                                </Grid>
+                                <UniformGrid Columns="3" Rows="3">
+                                    <CheckBox Content="1" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="2" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="3" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="4" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="5" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="6" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="7" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="8" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="9" Style="{StaticResource BgImgSettingCheckBox}" />
+                                </UniformGrid>
+                            </DockPanel>
+                        </TabItem>
+                        <TabItem IsSelected="{Binding ElementName=pqTwoDom,Path=IsChecked}">
+                            <DockPanel>
+                                <Grid DockPanel.Dock="Top" Margin="0,10" ShowGridLines="True">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="250" />
+                                        <ColumnDefinition Width="220" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Label Content="{DynamicResource bisw_pick_img}" />
+                                        <TextBox Width="100" />
+                                        <Button Content="{DynamicResource bisw_pick_img_btn}" Style="{StaticResource ShareBtnSmall}" Margin="5,0" Click="OpenFile" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Label Content="{DynamicResource bisw_lb_display_way}" />
+                                        <RadioButton GroupName="display_way" Content="{DynamicResource bisw_rb_single_scr}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <RadioButton GroupName="display_way" Content="{DynamicResource bisw_rb_double_scr}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Label Content="{DynamicResource bisw_lb_bg_color}" />
+                                        <mytb:ColorSelector></mytb:ColorSelector>
+                                    </StackPanel>
+                                </Grid>
+                                <UniformGrid Columns="3" Rows="3">
+                                    <CheckBox Content="1" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="2" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="3" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="4" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="5" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="6" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="7" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="8" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="9" Style="{StaticResource BgImgSettingCheckBox}" />
+                                </UniformGrid>
+                            </DockPanel>
+                        </TabItem>
+                        <TabItem IsSelected="{Binding ElementName=pqThreeDom,Path=IsChecked}">
+                            <DockPanel>
+                                <Grid DockPanel.Dock="Top" Margin="0,10" ShowGridLines="True">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="250" />
+                                        <ColumnDefinition Width="220" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Label Content="{DynamicResource bisw_pick_img}" />
+                                        <TextBox Width="100" />
+                                        <Button Content="{DynamicResource bisw_pick_img_btn}" Style="{StaticResource ShareBtnSmall}" Margin="5,0" Click="OpenFile" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Label Content="{DynamicResource bisw_lb_display_way}" />
+                                        <RadioButton GroupName="display_way" Content="{DynamicResource bisw_rb_single_scr}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <RadioButton GroupName="display_way" Content="{DynamicResource bisw_rb_double_scr}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Label Content="{DynamicResource bisw_lb_bg_color}" />
+                                        <mytb:ColorSelector></mytb:ColorSelector>
+                                    </StackPanel>
+                                </Grid>
+                                <UniformGrid Columns="3" Rows="3">
+                                    <CheckBox Content="1" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="2" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="3" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="4" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="5" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="6" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="7" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="8" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="9" Style="{StaticResource BgImgSettingCheckBox}" />
+                                </UniformGrid>
+                            </DockPanel>
+                        </TabItem>
+                        <TabItem IsSelected="{Binding ElementName=pqFourDom,Path=IsChecked}">
+                            <DockPanel>
+                                <Grid DockPanel.Dock="Top" Margin="0,10" ShowGridLines="True">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="250" />
+                                        <ColumnDefinition Width="220" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Label Content="{DynamicResource bisw_pick_img}" />
+                                        <TextBox Width="100" />
+                                        <Button Content="{DynamicResource bisw_pick_img_btn}" Style="{StaticResource ShareBtnSmall}" Margin="5,0" Click="OpenFile" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Label Content="{DynamicResource bisw_lb_display_way}" />
+                                        <RadioButton GroupName="display_way" Content="{DynamicResource bisw_rb_single_scr}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <RadioButton GroupName="display_way" Content="{DynamicResource bisw_rb_double_scr}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Label Content="{DynamicResource bisw_lb_bg_color}" />
+                                        <mytb:ColorSelector></mytb:ColorSelector>
+                                    </StackPanel>
+                                </Grid>
+                                <UniformGrid Columns="3" Rows="3">
+                                    <CheckBox Content="1" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="2" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="3" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="4" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="5" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="6" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="7" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="8" Style="{StaticResource BgImgSettingCheckBox}" />
+                                    <CheckBox Content="9" Style="{StaticResource BgImgSettingCheckBox}" />
+                                </UniformGrid>
+                            </DockPanel>
+                        </TabItem>
+                    </TabControl>
+                </DockPanel>
+            </Border>
+        </DockPanel>
     </Border>
-    </Window>
+</Window>

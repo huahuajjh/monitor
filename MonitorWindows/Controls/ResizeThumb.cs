@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MonitorWindows.Components;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -14,9 +15,9 @@ namespace MonitorWindows.Controls
 
         private void ResizeThumb_DragDelta(object sender, DragDeltaEventArgs e)
         {
-            Control designerItem = this.DataContext as Control;
+            CustomWindow designerItem = this.DataContext as CustomWindow;
 
-            if (designerItem != null)
+            if (designerItem != null && designerItem.WinState == CustomWindowState.NotFullScreen)
             {
                 double deltaVertical, deltaHorizontal;
 

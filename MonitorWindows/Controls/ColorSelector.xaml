@@ -1,0 +1,9 @@
+﻿<UserControl x:Class="MonitorWindows.Controls.ColorSelector"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             MinWidth="50"
+             Name="selectColorDom">
+    <Border BorderThickness="2" BorderBrush="#ccc" CornerRadius="3" Background="{Binding ElementName=selectColorDom,Path=SelectColor}" Cursor="Hand" PreviewMouseDown="SelectColor_Click"></Border>
+</UserControl>

@@ -1,0 +1,98 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="CheckBox" x:Key="ListShowState">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <Label
+                        Content="&#xf00b;"
+                        Name="txt"
+                        FontFamily="font/#FontAwesome"
+                        FontSize="18"
+                        Foreground="White"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Margin="{TemplateBinding Margin}"/>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Effect" TargetName="txt">
+                                <Setter.Value>
+                                    <DropShadowEffect ShadowDepth="0" Color="White" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Content" TargetName="txt" Value="&#xf009;" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="CheckBox" x:Key="PreviewCheckBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <Label Name="txt" Width="{TemplateBinding Width}" Content="{TemplateBinding Content}" HorizontalContentAlignment="Center" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="txt">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="img/menuBtn/hover.png" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" TargetName="txt">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="img/menuBtn/dowm.png" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="txt">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="img/menuBtn/dowm.png" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" TargetName="txt">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="img/menuBtn/prohibition.png" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="CheckBox" x:Key="BgImgSettingCheckBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <Label
+                        Content="{TemplateBinding Content}"
+                        Name="txt"
+                        FontSize="{TemplateBinding FontSize}"
+                        Foreground="{TemplateBinding Foreground}"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Margin="{TemplateBinding Margin}"
+                        BorderThickness="1"
+                        BorderBrush="SkyBlue"
+                        />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="txt" Value="#507BBAD5" />
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" TargetName="txt" Value="#7BBAD5" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

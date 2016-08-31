@@ -1,0 +1,29 @@
+﻿<Window x:Class="MonitorWindows.Windows.AddScenarioMagmet.AddScenarioMagmetWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="134" Width="355"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
+    <Border Margin="10">
+        <Border.Background>
+            <ImageBrush ImageSource="../../Resources/img/bg_img_setting/bg.png"/>
+        </Border.Background>
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0"/>
+        </Border.Effect>
+        <DockPanel>
+            <DockPanel Margin="6" DockPanel.Dock="Top">
+                <Label Content="{DynamicResource ScenarioMagmet_Menu_Save}" DockPanel.Dock="Left" Foreground="Black" FontWeight="Bold" FontSize="15" VerticalAlignment="Center"/>
+                <Button Click="Button_Click" Style="{StaticResource share_close}" DockPanel.Dock="Right" HorizontalAlignment="Right" />
+            </DockPanel>
+            <DockPanel Background="#68FFFFFF" Margin="2">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="20">
+                    <Label Content="{DynamicResource ScenarioMagmet_Win_Name}" />
+                    <TextBox Width="160" Margin="5,0" Name="nameDom" VerticalContentAlignment="Center" />
+                    <Button Content="{DynamicResource Alert_Btn_OK}" Style="{StaticResource ShareBtnSmall}" Margin="10,0" Click="Button_Click_1" />
+                </StackPanel>
+            </DockPanel>
+        </DockPanel>
+    </Border>
+</Window>

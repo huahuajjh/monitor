@@ -1,0 +1,118 @@
+﻿<Window x:Class="MonitorWindows.Windows.SignalAttribute.SignalAttributeWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="434" Width="769"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
+    <Border Margin="10">
+        <Border.Background>
+            <ImageBrush ImageSource="../../Resources/img/bg_img_setting/bg.png"/>
+        </Border.Background>
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0"/>
+        </Border.Effect>
+        <DockPanel>
+            <DockPanel Margin="6" DockPanel.Dock="Top">
+                <Label Content="{DynamicResource SignalAttribute_Title}" DockPanel.Dock="Left" Foreground="Black" FontWeight="Bold" FontSize="15" VerticalAlignment="Center"/>
+                <Button Style="{StaticResource share_close}" DockPanel.Dock="Right" HorizontalAlignment="Right" Click="Close_Win" />
+            </DockPanel>
+            <DockPanel Background="#68FFFFFF" Margin="5">
+                <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right" Orientation="Horizontal" Margin="10">
+                    <Button Content="{DynamicResource SignalAttribute_Btn_default}" Width="60" Style="{StaticResource ShareBtnSmall}" Margin="10,0" />
+                    <Button Content="{DynamicResource SignalAttribute_Btn_OK}" Style="{StaticResource ShareBtnSmall}" Margin="10,0" />
+                    <Button Content="{DynamicResource SignalAttribute_Btn_Cancel}" Style="{StaticResource ShareBtnSmall}" />
+                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Margin="5">
+                        <GroupBox Header="{DynamicResource SignalAttribute_boxTitle_Brightness}" BorderThickness="1" BorderBrush="SkyBlue" Margin="10,2">
+                            <DockPanel>
+                                <Label Content="{Binding ElementName=brightnessDom, Path=Value}" DockPanel.Dock="Right" />
+                                <Slider Name="brightnessDom" IsSnapToTickEnabled="True" Maximum="255" VerticalAlignment="Center" />
+                            </DockPanel>
+                        </GroupBox>
+                        <GroupBox Header="{DynamicResource SignalAttribute_boxTitle_Contrast}" BorderThickness="1" BorderBrush="SkyBlue" Margin="10,2">
+                            <DockPanel>
+                                <Label Content="{Binding ElementName=contrastDom, Path=Value}" DockPanel.Dock="Right" />
+                                <Slider Name="contrastDom" IsSnapToTickEnabled="True" Maximum="255" VerticalAlignment="Center" />
+                            </DockPanel>
+                        </GroupBox>
+                        <GroupBox Header="{DynamicResource SignalAttribute_boxTitle_XiangWei}" BorderThickness="1" BorderBrush="SkyBlue" Margin="10,2">
+                            <DockPanel>
+                                <Label Content="{Binding ElementName=xiangWeiDom, Path=Value}" DockPanel.Dock="Right" />
+                                <Slider Name="xiangWeiDom" IsSnapToTickEnabled="True" Maximum="5" VerticalAlignment="Center" />
+                            </DockPanel>
+                        </GroupBox>
+                        <GroupBox Header="{DynamicResource SignalAttribute_boxTitle_LeftBian}" BorderThickness="1" BorderBrush="SkyBlue" Margin="10,2">
+                            <DockPanel>
+                                <Label Content="{Binding ElementName=leftBianDom, Path=Value}" DockPanel.Dock="Right" />
+                                <Slider Name="leftBianDom" IsSnapToTickEnabled="True" Maximum="50" VerticalAlignment="Center" />
+                            </DockPanel>
+                        </GroupBox>
+                        <GroupBox Header="{DynamicResource SignalAttribute_boxTitle_TopBian}" BorderThickness="1" BorderBrush="SkyBlue" Margin="10,2">
+                            <DockPanel>
+                                <Label Content="{Binding ElementName=topBianDom, Path=Value}" DockPanel.Dock="Right" />
+                                <Slider Name="topBianDom" IsSnapToTickEnabled="True" Maximum="10" VerticalAlignment="Center" />
+                            </DockPanel>
+                        </GroupBox>
+                        <GroupBox Header="{DynamicResource SignalAttribute_boxTitle_RuiDu}" BorderThickness="1" BorderBrush="SkyBlue" Margin="10,2">
+                            <DockPanel>
+                                <Label Content="{Binding ElementName=rdDom, Path=Value}" DockPanel.Dock="Right" />
+                                <Slider Name="rdDom" IsSnapToTickEnabled="True" Maximum="10" VerticalAlignment="Center" />
+                            </DockPanel>
+                        </GroupBox>
+                    </StackPanel>
+                    <StackPanel Margin="5" Grid.Column="1">
+                        <GroupBox Header="{DynamicResource SignalAttribute_boxTitle_Color}" BorderThickness="1" BorderBrush="SkyBlue" Margin="10,2">
+                            <StackPanel>
+                                <DockPanel>
+                                    <Label Content="{Binding ElementName=redColorDom, Path=Value}" DockPanel.Dock="Right" />
+                                    <Label Content="{DynamicResource SignalAttribute_boxTitle_ColorRed}" DockPanel.Dock="Left" />
+                                    <Slider Name="redColorDom" IsSnapToTickEnabled="True" Maximum="255" VerticalAlignment="Center" />
+                                </DockPanel>
+                                <DockPanel>
+                                    <Label Content="{Binding ElementName=greenColorDom, Path=Value}" DockPanel.Dock="Right" />
+                                    <Label Content="{DynamicResource SignalAttribute_boxTitle_ColorGreen}" DockPanel.Dock="Left" />
+                                    <Slider Name="greenColorDom" IsSnapToTickEnabled="True" Maximum="255" VerticalAlignment="Center" />
+                                </DockPanel>
+                                <DockPanel>
+                                    <Label Content="{Binding ElementName=blueColorDom, Path=Value}" DockPanel.Dock="Right" />
+                                    <Label Content="{DynamicResource SignalAttribute_boxTitle_ColorBlur}" DockPanel.Dock="Left" />
+                                    <Slider Name="blueColorDom" IsSnapToTickEnabled="True" Maximum="255" VerticalAlignment="Center" />
+                                </DockPanel>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox Header="{DynamicResource SignalAttribute_boxTitle_PinLv}" BorderThickness="1" BorderBrush="SkyBlue" Margin="10,2">
+                            <DockPanel>
+                                <Label Content="{Binding ElementName=pinLvDom, Path=Value}" DockPanel.Dock="Right" />
+                                <Slider Name="pinLvDom" IsSnapToTickEnabled="True" Maximum="10" VerticalAlignment="Center" />
+                            </DockPanel>
+                        </GroupBox>
+                        <GroupBox Header="{DynamicResource SignalAttribute_boxTitle_CJWidth}" BorderThickness="1" BorderBrush="SkyBlue" Margin="10,2">
+                            <DockPanel>
+                                <Label Content="{Binding ElementName=cyWidthDom, Path=Value}" DockPanel.Dock="Right" />
+                                <Slider Name="cyWidthDom" IsSnapToTickEnabled="True" Maximum="10" VerticalAlignment="Center" />
+                            </DockPanel>
+                        </GroupBox>
+                        <GroupBox Header="{DynamicResource SignalAttribute_boxTitle_CJHeight}" BorderThickness="1" BorderBrush="SkyBlue" Margin="10,2">
+                            <DockPanel>
+                                <Label Content="{Binding ElementName=cyHegihtDom, Path=Value}" DockPanel.Dock="Right" />
+                                <Slider Name="cyHegihtDom" IsSnapToTickEnabled="True" Maximum="10" VerticalAlignment="Center" />
+                            </DockPanel>
+                        </GroupBox>
+                        <GroupBox Header="{DynamicResource SignalAttribute_boxTitle_BaoHeDu}" BorderThickness="1" BorderBrush="SkyBlue" Margin="10,2">
+                            <DockPanel>
+                                <Label Content="{Binding ElementName=bhdDom, Path=Value}" DockPanel.Dock="Right" />
+                                <Slider Name="bhdDom" IsSnapToTickEnabled="True" Maximum="10" VerticalAlignment="Center" />
+                            </DockPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </Grid>
+            </DockPanel>
+        </DockPanel>
+    </Border>
+</Window>

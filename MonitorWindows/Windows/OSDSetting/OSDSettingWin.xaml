@@ -1,0 +1,70 @@
+﻿<Window x:Class="MonitorWindows.Windows.OSDSetting.OSDSettingWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mytb="clr-namespace:MonitorWindows.Controls"
+        Height="482" Width="350"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
+    <Border Margin="10">
+        <Border.Background>
+            <ImageBrush ImageSource="../../Resources/img/bg_img_setting/bg.png"/>
+        </Border.Background>
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0"/>
+        </Border.Effect>
+        <DockPanel>
+            <DockPanel Margin="6" DockPanel.Dock="Top">
+                <Label Content="{DynamicResource OSDSetting_Title}" DockPanel.Dock="Left" Foreground="Black" FontWeight="Bold" FontSize="15" VerticalAlignment="Center"/>
+                <Button Style="{StaticResource share_close}" DockPanel.Dock="Right" HorizontalAlignment="Right" Click="Close_Win" />
+            </DockPanel>
+            <Border Background="#68FFFFFF" Margin="2" Padding="10,20,10,0">
+                <StackPanel>
+                    <DockPanel>
+                        <Label DockPanel.Dock="Left" Content="{DynamicResource OSDSetting_Text_Title}" HorizontalContentAlignment="Right" Width="100" />
+                        <TextBox Height="59" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"></TextBox>
+                    </DockPanel>
+                    <DockPanel Margin="0,5">
+                        <Label DockPanel.Dock="Left" Content="{DynamicResource OSDSetting_TextFont}" HorizontalContentAlignment="Right" Width="100" />
+                        <ComboBox Style="{StaticResource LabelComboBox}"></ComboBox>
+                    </DockPanel>
+                    <DockPanel Margin="0,5">
+                        <Label DockPanel.Dock="Left" Content="{DynamicResource OSDSetting_TextFontSize}" HorizontalContentAlignment="Right" Width="100" />
+                        <ComboBox Style="{StaticResource LabelComboBox}"></ComboBox>
+                    </DockPanel>
+                    <StackPanel Margin="0,5" Orientation="Horizontal">
+                        <Label Content="{DynamicResource OSDSetting_TextFontColor}" HorizontalContentAlignment="Right" Width="100" />
+                        <mytb:ColorSelector></mytb:ColorSelector>
+                    </StackPanel>
+                    <DockPanel Margin="0,5">
+                        <Label DockPanel.Dock="Left" Content="{DynamicResource OSDSetting_TextFontTime}" HorizontalContentAlignment="Right" Width="100" />
+                        <ComboBox Style="{StaticResource LabelComboBox}"></ComboBox>
+                    </DockPanel>
+                    <DockPanel Margin="0,5">
+                        <Label DockPanel.Dock="Left" Content="{DynamicResource OSDSetting_TextOpacity}" HorizontalContentAlignment="Right" Width="100" />
+                        <Label DockPanel.Dock="Right" Content="{Binding ElementName=osdOpacity,Path=Value}" />
+                        <Slider VerticalAlignment="Center" Name="osdOpacity" Maximum="100" IsSnapToTickEnabled="True"></Slider>
+                    </DockPanel>
+                    <GroupBox Margin="0,5" Header="{DynamicResource OSDSetting_TextPoint}" BorderBrush="SkyBlue">
+                        <StackPanel>
+                            <DockPanel Margin="0,5">
+                                <Label DockPanel.Dock="Left" Content="{DynamicResource OSDSetting_TextPoint_X}" HorizontalContentAlignment="Right" Width="96" />
+                                <Label DockPanel.Dock="Right" Content="{Binding ElementName=xPointDom,Path=Value}" />
+                                <Slider Name="xPointDom" VerticalAlignment="Center" Maximum="100" IsSnapToTickEnabled="True"></Slider>
+                            </DockPanel>
+                            <DockPanel Margin="0,5">
+                                <Label DockPanel.Dock="Left" Content="{DynamicResource OSDSetting_TextPoint_Y}" HorizontalContentAlignment="Right" Width="96" />
+                                <Label DockPanel.Dock="Right" Content="{Binding ElementName=yPointDom,Path=Value}" />
+                                <Slider Name="yPointDom" VerticalAlignment="Center" Maximum="100" IsSnapToTickEnabled="True"></Slider>
+                            </DockPanel>
+                        </StackPanel>
+                    </GroupBox>
+                    <StackPanel HorizontalAlignment="Right" Margin="10,10" Orientation="Horizontal">
+                        <Button Content="{DynamicResource OSDSetting_OK}" Style="{StaticResource ShareBtnSmall}" Margin="20,0" />
+                        <Button Content="{DynamicResource OSDSetting_Close}" Style="{StaticResource ShareBtnSmall}" Click="Close_Win" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </DockPanel>
+    </Border>
+</Window>

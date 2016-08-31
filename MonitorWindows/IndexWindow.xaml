@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:cvt="clr-namespace:MonitorWindows.Converter"
         xmlns:cts="clr-namespace:MonitorWindows.Components"
+        xmlns:local ="clr-namespace:MonitorWindows"
         Title="{DynamicResource IndexWin_Title}"
         WindowStyle="None"
         AllowsTransparency="True"
@@ -15,10 +16,7 @@
     <Window.Resources>
         <cvt:VisibilityAsBooleanConverter x:Key="cvtVisibility"/>
     </Window.Resources>
-    <Border BorderThickness="0" BorderBrush="DarkGreen" Margin="5" CornerRadius="5">
-        <Border.Background>
-            <ImageBrush ImageSource="Resources/img/background.png" />
-        </Border.Background>
+    <Border BorderThickness="0" BorderBrush="DarkGreen" Margin="5" CornerRadius="5" Name="MainBg" Background="{Binding Source={x:Static local:ShareResources.Instance}, Path=IndexBG}">
         <Border.Effect>
             <DropShadowEffect ShadowDepth="0" />
         </Border.Effect>
@@ -41,7 +39,7 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition Width="200"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Image DockPanel.Dock="Left" Source="Resources/img/LOGO.png"  />
+                <Border DockPanel.Dock="Left" Height="64" Margin="10,0,0,0" Background="{Binding Source={x:Static local:ShareResources.Instance}, Path=LOGO}" />
                 <Label Grid.Column="1" Content="{DynamicResource IndexWin_Title}" Foreground="White" FontFamily="Resources/font/#方正综艺简体" FontSize="20" HorizontalContentAlignment="Center" Height="30" FontWeight="ExtraBlack" />
                 <StackPanel Grid.Column="2">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5,0,10">
@@ -97,12 +95,12 @@
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_uiConfig}" Style="{StaticResource Top_Menu_Title}" />
                         </StackPanel>
                     </Button>
-                    <Button Width="74" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="Button_Click_3">
+                    <CheckBox Width="74" Style="{StaticResource PreviewCheckBox}" Cursor="Hand" Click="Button_Click_3">
                         <StackPanel>
                             <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/preview.png"  />
                             <Label Content="{DynamicResource IndexWin_TopMenuTitle_preview}" Style="{StaticResource Top_Menu_Title}" />
                         </StackPanel>
-                    </Button>
+                    </CheckBox>
                     <StackPanel Width="210">
                         <Grid Height="46">
                             <Grid.RowDefinitions>
@@ -114,30 +112,30 @@
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Button Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                            <RadioButton GroupName="screen" Name="ScreenOne" Style="{StaticResource Top_Menu_Btn_RadioButton}" Cursor="Hand" IsChecked="True">
                                 <StackPanel>
                                     <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/win.png"  />
                                     <Label Content="{DynamicResource IndexWin_TopMenuTitle_winOne}" Style="{StaticResource Top_Menu_Title}" />
                                 </StackPanel>
-                            </Button>
-                            <Button Grid.Column="1" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                            </RadioButton>
+                            <RadioButton GroupName="screen" Name="ScreenTwo" Grid.Column="1" Style="{StaticResource Top_Menu_Btn_RadioButton}" Cursor="Hand">
                                 <StackPanel>
                                     <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/win.png"  />
                                     <Label Content="{DynamicResource IndexWin_TopMenuTitle_winTwo}" Style="{StaticResource Top_Menu_Title}" />
                                 </StackPanel>
-                            </Button>
-                            <Button Grid.Column="2" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                            </RadioButton>
+                            <RadioButton GroupName="screen" Name="ScreenThree" Grid.Column="2" Style="{StaticResource Top_Menu_Btn_RadioButton}" Cursor="Hand">
                                 <StackPanel>
                                     <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/win.png"  />
                                     <Label Content="{DynamicResource IndexWin_TopMenuTitle_winThree}" Style="{StaticResource Top_Menu_Title}" />
                                 </StackPanel>
-                            </Button>
-                            <Button Grid.Column="3" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                            </RadioButton>
+                            <RadioButton GroupName="screen" Name="ScreenFour" Grid.Column="3" Style="{StaticResource Top_Menu_Btn_RadioButton}" Cursor="Hand">
                                 <StackPanel>
                                     <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/win.png"  />
                                     <Label Content="{DynamicResource IndexWin_TopMenuTitle_winFour}" Style="{StaticResource Top_Menu_Title}" />
                                 </StackPanel>
-                            </Button>
+                            </RadioButton>
                         </Grid>
                         <Label Height="23" Padding="2" HorizontalContentAlignment="Center" Content="{DynamicResource IndexWin_TopMenuTitle_wintoggle}" Foreground="Gray" />
                     </StackPanel>
@@ -167,18 +165,18 @@
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Button Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                        <RadioButton GroupName="ONOFF" Style="{StaticResource Top_Menu_Btn_RadioButton}" Cursor="Hand">
                             <StackPanel>
                                 <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/on.png"  />
                                 <Label Content="{DynamicResource IndexWin_TopMenuTitle_on}" Style="{StaticResource Top_Menu_Title}" />
                             </StackPanel>
-                        </Button>
-                        <Button Grid.Column="1" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand">
+                        </RadioButton>
+                        <RadioButton GroupName="ONOFF" Grid.Column="1" Style="{StaticResource Top_Menu_Btn_RadioButton}" Cursor="Hand">
                             <StackPanel>
                                 <Image Style="{StaticResource Top_Menu_ICO}" Source="Resources/img/menuICO/off.png"  />
                                 <Label Content="{DynamicResource IndexWin_TopMenuTitle_off}" Style="{StaticResource Top_Menu_Title}" />
                             </StackPanel>
-                        </Button>
+                        </RadioButton>
                     </Grid>
                     <Button Width="74" Style="{StaticResource Top_Menu_Btn_NotBackground}" Cursor="Hand" Click="OpenExtOptWindow">
                         <StackPanel>
@@ -201,183 +199,59 @@
                     </Button>
                 </StackPanel>
             </Border>
-            <DockPanel Grid.Row="2">
-                <DockPanel DockPanel.Dock="Left" Width="181" Margin="10,5">
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="181" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <DockPanel Margin="10,5">
                     <Button Style="{StaticResource ToolBtn}" DockPanel.Dock="Bottom" Content="{DynamicResource IndexWin_LeftMenuTitle_Arranged}" Click="Button_Click" />
                     <TabControl Style="{StaticResource TabControlStyle}">
                         <TabItem Header="{DynamicResource IndexWin_LeftMenuTitle_Signal}" Style="{StaticResource listTabItemStyle}">
-                            <StackPanel Background="Transparent">
-                                <StackPanel.ContextMenu>
-                                    <ContextMenu>
-                                        <MenuItem Header="新建组"/>
-                                        <MenuItem Header="新建源"/>
-                                    </ContextMenu>
-                                </StackPanel.ContextMenu>
-                                <Expander Style="{StaticResource ExpanderLeftStyle}">
-                                    <Expander.ContextMenu>
-                                        <ContextMenu>
-                                            <MenuItem Header="新建组"/>
-                                            <MenuItem Header="新建源"/>
-                                            <Separator />
-                                            <MenuItem Header="修改"/>
-                                            <Separator />
-                                            <MenuItem Header="删除"/>
-                                        </ContextMenu>
-                                    </Expander.ContextMenu>
-                                    <Expander.Header>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Image Source="Resources/img/left_ico/cvbs.png" Height="20" Width="20" />
-                                            <Label Content="CVBS信号源" />
-                                        </StackPanel>
-                                    </Expander.Header>
-                                    <Button Content="信号源1" Style="{StaticResource ExpanderLeftBtnStyle}" PreviewMouseMove="Share_PreviewMouseMove" AllowDrop="True">
-                                        <Button.ContextMenu>
-                                            <ContextMenu>
-                                                <MenuItem Header="修改"/>
-                                                <Separator />
-                                                <MenuItem Header="删除"/>
-                                            </ContextMenu>
-                                        </Button.ContextMenu>
-                                    </Button>
-                                </Expander>
-                            </StackPanel>
+                            <cts:SignalSource></cts:SignalSource>
                         </TabItem>
                         <TabItem Header="{DynamicResource IndexWin_LeftMenuTitle_Scene}" Style="{StaticResource listTabItemStyle}">
-                            <ListView Background="Transparent" Padding="0">
-                                <ListView.ItemContainerStyle>
-                                    <Style TargetType="{x:Type ListViewItem}">
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate TargetType="ListViewItem">
-                                                    <Grid Name="BD_Collector" Width="auto">
-                                                        <Grid.ColumnDefinitions>
-                                                            <ColumnDefinition Width="30" />
-                                                            <ColumnDefinition />
-                                                        </Grid.ColumnDefinitions>
-                                                        <Label Content="&#xf0ae;" FontSize="13" FontFamily="Resources/font/#FontAwesome" Padding="8,8,0,0" />
-                                                        <Label Grid.Column="1" Content="{TemplateBinding Content}" FontSize="13" />
-                                                    </Grid>
-                                                    <ControlTemplate.Triggers>
-                                                        <Trigger Property="IsMouseOver" Value="True">
-                                                            <Setter TargetName="BD_Collector" Property="Background" Value="#EDEDED" />
-
-                                                        </Trigger>
-                                                    </ControlTemplate.Triggers>
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Style>
-                                </ListView.ItemContainerStyle>
-                                <ListView.ContextMenu>
-                                    <ContextMenu>
-                                        <MenuItem Header="保存场景"/>
-                                    </ContextMenu>
-                                </ListView.ContextMenu>
-                                <ListViewItem>
-                                    <ListViewItem.ContextMenu>
-                                        <ContextMenu>
-                                            <MenuItem Header="打开"/>
-                                            <MenuItem Header="修改信息"/>
-                                            <MenuItem Header="保存到该场景"/>
-                                            <Separator />
-                                            <MenuItem Header="删除"/>
-                                        </ContextMenu>
-                                    </ListViewItem.ContextMenu>
-                                    A ListView
-                                </ListViewItem>
-                                <ListViewItem>
-                                    <ListViewItem.ContextMenu>
-                                        <ContextMenu>
-                                            <MenuItem Header="打开"/>
-                                            <MenuItem Header="修改信息"/>
-                                            <MenuItem Header="保存到该场景"/>
-                                            <Separator />
-                                            <MenuItem Header="删除"/>
-                                        </ContextMenu>
-                                    </ListViewItem.ContextMenu> A ListView
-                                </ListViewItem>
-                            </ListView>
+                            <cts:ScenarioMagmet></cts:ScenarioMagmet>
                         </TabItem>
                     </TabControl>
                 </DockPanel>
-                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="40" Margin="0,5,11,0" Background="#EBECED">
-                    <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_Signal}" Style="{StaticResource Index_Top_Menu_Buttom}" />
-                    <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_Win}" Style="{StaticResource Index_Top_Menu_Buttom}" />
-                    <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_OSD}" Style="{StaticResource Index_Top_Menu_Buttom}" />
-                    <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_Echo}" Style="{StaticResource Index_Top_Menu_Buttom}" />
-                    <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_Dan}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="Button_Click_2" />
-                    <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_Quan}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="Button_Click_1" />
-                    <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_IPC}" Style="{StaticResource Index_Top_Menu_Buttom}" />
-                    <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_Split}" Style="{StaticResource Index_Top_Menu_Buttom}" />
-                    <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_Top}" Style="{StaticResource Index_Top_Menu_Buttom}" />
-                    <Button Content="{DynamicResource IndexWin_TopWinMenuTitle_Bottom}" Style="{StaticResource Index_Top_Menu_Buttom}" />
-                </StackPanel>
-                <Image Margin="0,0,11,5" DockPanel.Dock="Bottom" Height="42" Source="Resources/img/index_bottom_ground.png" Stretch="Fill" />
-                <cts:CustomWindows Margin="0,0,11,0" x:Name="CWin"></cts:CustomWindows>
-            </DockPanel>
+                <GridSplitter Width="5" Background="Transparent" />
+                <DockPanel Grid.Column="1">
+                    <Image Margin="0,0,11,5" DockPanel.Dock="Bottom" Height="42" Source="Resources/img/index_bottom_ground.png" Stretch="Fill" />
+                    <TabControl Style="{StaticResource TabControlHiddenHeadStyle}" Background="Transparent">
+                        <TabItem IsSelected="{Binding ElementName=ScreenOne,Path=IsChecked}">
+                            <cts:CustomWindows Margin="0,0,11,0"></cts:CustomWindows>
+                        </TabItem>
+                        <TabItem IsSelected="{Binding ElementName=ScreenTwo,Path=IsChecked}">
+                            <cts:CustomWindows Margin="0,0,11,0"></cts:CustomWindows>
+                        </TabItem>
+                        <TabItem IsSelected="{Binding ElementName=ScreenThree,Path=IsChecked}">
+                            <cts:CustomWindows Margin="0,0,11,0"></cts:CustomWindows>
+                        </TabItem>
+                        <TabItem IsSelected="{Binding ElementName=ScreenFour,Path=IsChecked}">
+                            <cts:CustomWindows Margin="0,0,11,0"></cts:CustomWindows>
+                        </TabItem>
+                    </TabControl>
+                </DockPanel>
+            </Grid>
             <StackPanel Grid.Row="3" Margin="3" Background="#4C000000">
-                <StackPanel Height="43">
-                    <StackPanel.Background>
+                <DockPanel Height="43">
+                    <DockPanel.Background>
                         <ImageBrush ImageSource="Resources/img/index_bottom_bg.png"/>
-                    </StackPanel.Background>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource IndexWin_BottomMenuTitle_Setting}" Margin="20,10" Padding="20,3" HorizontalAlignment="Right"></Button>
-                        <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource IndexWin_BottomMenuTitle_Copy}" Margin="20,10" Padding="20,3" HorizontalAlignment="Right"></Button>
-                        <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource IndexWin_BottomMenuTitle_Show}" Margin="20,10" Padding="20,3" HorizontalAlignment="Right"></Button>
-                        <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource IndexWin_BottomMenuTitle_Stop}" Margin="20,10" Padding="20,3" HorizontalAlignment="Right"></Button>
-                        <Border Margin="20,10" BorderBrush="#ccc" BorderThickness="1" CornerRadius="2">
+                    </DockPanel.Background>
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                        <Border Margin="8" BorderBrush="#ccc" BorderThickness="1" CornerRadius="2">
                             <StackPanel Orientation="Horizontal" Background="#2BFFFFFF">
-                                <TextBox Width="100" Background="Transparent" Foreground="White" BorderThickness="0" VerticalContentAlignment="Center" />
-                                <Button
-                                    Style="{StaticResource SearchButton}"
-                                    Background="Transparent" Padding="5"
-                                    Foreground="White"
-                                    Cursor="Hand"
-                                    HorizontalContentAlignment="Center"
-                                    VerticalContentAlignment="Center" />
+                                <Label Content="{DynamicResource IndexWin_Search_Title}" Foreground="White" />
+                                <TextBox Name="SearchVal" Width="200" Background="Transparent" Foreground="White" BorderThickness="0" VerticalContentAlignment="Center" />
                             </StackPanel>
                         </Border>
+                        <CheckBox Name="listSHowState" Style="{StaticResource ListShowState}" Margin="5,0"></CheckBox>
                     </StackPanel>
-                </StackPanel>
+                    <Label Content="{DynamicResource IndexWin_BottomMenuTitle}" VerticalAlignment="Center" Foreground="White" Margin="10,0" FontWeight="Bold" FontSize="14"></Label>
+                </DockPanel>
                 <DockPanel Margin="5">
-                    <Button Style="{StaticResource LeftDirectionBtn}" DockPanel.Dock="Left"></Button>
-                    <Button Style="{StaticResource RightDirectionBtn}" DockPanel.Dock="Right"></Button>
-                    <Border BorderBrush="#9AA4AD" BorderThickness="1" Height="140">
-                        <Grid ShowGridLines="True">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <Grid Grid.Column="0">
-                                <Canvas></Canvas>
-                                <Label Content="测试1" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Background="#4C000000" Foreground="White" />
-                            </Grid>
-                            <Grid Grid.Column="1">
-                                <Canvas></Canvas>
-                                <Label Content="测试1" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Background="#4C000000" Foreground="White" />
-                            </Grid>
-                            <Grid Grid.Column="2">
-                                <Canvas></Canvas>
-                                <Label Content="测试1" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Background="#4C000000" Foreground="White" />
-                            </Grid>
-                            <Grid Grid.Column="3">
-                                <Canvas></Canvas>
-                                <Label Content="测试1" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Background="#4C000000" Foreground="White" />
-                            </Grid>
-                            <Grid Grid.Column="4">
-                                <Canvas></Canvas>
-                                <Label Content="测试1" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Background="#4C000000" Foreground="White" />
-                            </Grid>
-                            <Grid Grid.Column="5">
-                                <Canvas></Canvas>
-                                <Label Content="测试1" Height="25" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Background="#4C000000" Foreground="White" />
-                            </Grid>
-                        </Grid>
-                    </Border>
+                    <cts:ToolWin x:Name="toolWin" SearchVal="{Binding ElementName=SearchVal,Path=Text,Mode=TwoWay}" ShowState="{Binding ElementName=listSHowState,Path=IsChecked}"></cts:ToolWin>
                 </DockPanel>
             </StackPanel>
         </Grid>
