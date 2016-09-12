@@ -27,20 +27,56 @@ namespace MonitorWindows
     /// </summary>
     public partial class IndexWindow : Window
     {
+        private System.Windows.Forms.NotifyIcon notifyIcon = new System.Windows.Forms.NotifyIcon();
+
         public IndexWindow()
         {
             InitializeComponent();
+            InitialTray();
             // 屏幕最大化
             this.WindowState = WindowState.Maximized;
             this.MaxWidth = SystemParameters.WorkArea.Width + 13;
             this.MaxHeight = SystemParameters.WorkArea.Height + 13;
-            ((Button)Maximize_Btn).Style = this.FindResource("Narrow_Btn") as Style;
-
             // 增加预览监视
             for (int i = 0; i < 10; i++)
             {
                 toolWin.Add(new Components.ToolItem() { Title = i.ToString() });
             }
+        }
+
+        private void InitialTray()
+        {
+            Uri iconUri = new Uri("/AppIcon.ico", UriKind.Relative);
+            //设置托盘的各个属性
+            notifyIcon.Icon = new System.Drawing.Icon(Application.GetResourceStream(iconUri).Stream);
+            notifyIcon.Visible = false;
+            notifyIcon.Text = this.FindResource("MainWin_Title").ToString();
+            notifyIcon.MouseClick += (object sender, System.Windows.Forms.MouseEventArgs e) => {
+                if (e.Button == System.Windows.Forms.MouseButtons.Left)
+                {
+                    if (this.Visibility == Visibility.Visible)
+                    {
+                        this.Visibility = Visibility.Hidden;
+                        notifyIcon.Visible = true;
+                    }
+                    else
+                    {
+                        notifyIcon.Visible = false;
+                        this.Visibility = Visibility.Visible;
+                        this.Activate();
+                    }
+                }
+            };
+            //退出菜单项
+            System.Windows.Forms.MenuItem exit = new System.Windows.Forms.MenuItem(this.FindResource("MainWin_Out").ToString());
+            exit.Click += new EventHandler((object sender, EventArgs e) =>
+            {
+                this.Close();
+            });
+
+            //关联托盘控件
+            System.Windows.Forms.MenuItem[] childen = new System.Windows.Forms.MenuItem[] { exit };
+            notifyIcon.ContextMenu = new System.Windows.Forms.ContextMenu(childen);
         }
 
         private void Close_Win(object sender, RoutedEventArgs e)
@@ -50,7 +86,8 @@ namespace MonitorWindows
 
         private void Minimize_Win(object sender, RoutedEventArgs e)
         {
-            this.WindowState = System.Windows.WindowState.Minimized;
+            this.Visibility = Visibility.Hidden;
+            notifyIcon.Visible = true;
         }
 
         private void Maximize_Win(object sender, RoutedEventArgs e)
@@ -58,8 +95,6 @@ namespace MonitorWindows
             if (this.WindowState == WindowState.Normal)
             {
                 this.WindowState = WindowState.Maximized;
-                this.MaxWidth = SystemParameters.WorkArea.Width + 13;
-                this.MaxHeight = SystemParameters.WorkArea.Height + 13;
             }
             else {
                 this.WindowState = System.Windows.WindowState.Normal;
@@ -72,60 +107,91 @@ namespace MonitorWindows
             this.DragMove();
         }
 
-        private void Window_StateChanged(object sender, EventArgs e)
+        protected override void OnStateChanged(EventArgs e)
         {
+            base.OnStateChanged(e);
             if (this.WindowState == WindowState.Normal)
             {
                 ((Button)Maximize_Btn).Style = this.FindResource("Maximize_Btn") as Style;
             }
-            else
+            else if (this.WindowState == WindowState.Maximized)
             {
-                ((Button)Maximize_Btn).Style = this.FindResource("Narrow_Btn") as Style;                
+                ((Button)Maximize_Btn).Style = this.FindResource("Narrow_Btn") as Style;
             }
         }
 
         /*打开设备设置窗口*/
+        DeviceSettingWindow deviceSettingWindow;
         private void OpenDeviceSettingWindow(object sender, MouseButtonEventArgs e)
         {
-            new DeviceSettingWindow().ShowDialog();
+            if (deviceSettingWindow == null || !deviceSettingWindow.Activate())
+            {
+                deviceSettingWindow = new DeviceSettingWindow();
+                deviceSettingWindow.Show();
+                return;
+            }
         }
 
+        BgImgSettingWindow bg_setting_win;
         private void OpenBgImgSettingWindow(object sender, RoutedEventArgs e)
         {
-            BgImgSettingWindow bg_setting_win = new BgImgSettingWindow();
-            bg_setting_win.Owner = this;
-            bg_setting_win.ShowDialog();
+            if (bg_setting_win == null || !bg_setting_win.Activate())
+            {
+                bg_setting_win = new BgImgSettingWindow();
+                bg_setting_win.Show();
+                return;
+            }
         }
 
+        ExtOptWindow extOptWindow;
         private void OpenExtOptWindow(object sender, RoutedEventArgs e)
         {
-            new ExtOptWindow().ShowDialog();
+            if (extOptWindow == null || !extOptWindow.Activate())
+            {
+                extOptWindow = new ExtOptWindow();
+                extOptWindow.Show();
+                return;
+            }
         }
 
+        SysMonitorWindow sysMonitorWindow;
         private void OpenSysMonitorWindow(object sender, RoutedEventArgs e)
         {
-            new SysMonitorWindow().ShowDialog();
+            if (sysMonitorWindow == null || !sysMonitorWindow.Activate())
+            {
+                sysMonitorWindow = new SysMonitorWindow();
+                sysMonitorWindow.Show();
+            }
         }
 
+        InterfaceSettingWindow interfaceSettingWindow;
         private void OpenInterfaceSettingWindow(object sender, RoutedEventArgs e)
         {
-            new InterfaceSettingWindow().ShowDialog();
+            if (interfaceSettingWindow == null || !interfaceSettingWindow.Activate())
+            {
+                interfaceSettingWindow = new InterfaceSettingWindow();
+                interfaceSettingWindow.Show();
+            }
         }
 
+        CaptionSettingWindow captionSettingWindow;
         private void OpenCpsWindow(object sender, RoutedEventArgs e)
         {
-            new CaptionSettingWindow().ShowDialog();
+            if (captionSettingWindow == null || !captionSettingWindow.Activate())
+            {
+                captionSettingWindow = new CaptionSettingWindow();
+                captionSettingWindow.Show();
+            }
         }
 
+        UserManagementWindow userManagementWindow;
         private void OpenUserMgtWindow(object sender, RoutedEventArgs e)
         {
-            new UserManagementWindow().ShowDialog();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Windows.RoundSetting.RoundSettingWindow win = new Windows.RoundSetting.RoundSettingWindow();
-            win.ShowDialog();
+            if (userManagementWindow == null || !userManagementWindow.Activate())
+            {
+                userManagementWindow = new UserManagementWindow();
+                userManagementWindow.Show();
+            }
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)

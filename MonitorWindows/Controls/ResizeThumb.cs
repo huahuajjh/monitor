@@ -50,8 +50,12 @@ namespace MonitorWindows.Controls
                     default:
                         break;
                 }
+                designerItem.WidthProportion = designerItem.Width / designerItem.windows.WinPanelWidth;
+                designerItem.HeightProportion = designerItem.Height / designerItem.windows.WinPanelHeight;
+                designerItem.XProportion = Canvas.GetLeft(designerItem) / designerItem.windows.WinPanelWidth;
+                designerItem.YProportion = Canvas.GetTop(designerItem) / designerItem.windows.WinPanelHeight;
+                designerItem.InitProportion(); 
             }
-
             e.Handled = true;
         }
     }

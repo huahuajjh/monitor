@@ -6,7 +6,7 @@
     Width="355"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
-    AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent" Height="457">
+    AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent" Height="484">
     <Border Margin="10">
         <Border.Background>
             <ImageBrush ImageSource="../../Resources/img/bg_img_setting/bg.png"/>
@@ -52,6 +52,13 @@
                         <StackPanel Orientation="Horizontal" Margin="0,2">
                             <Label Content="{DynamicResource is_lb_Cell_FontColor}" Width="85" HorizontalContentAlignment="Right" />
                             <mytb:ColorSelector Margin="5,0" SelectColor="{Binding Source={x:Static local:ShareResources.Instance},Path=CellTextColor}" ColorChange="ColorSelector_ColorChange"></mytb:ColorSelector>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,2">
+                            <Label Content="{DynamicResource is_lb_Cell_FontStyle}" Width="85" HorizontalContentAlignment="Right" />
+                            <ComboBox Style="{StaticResource LabelComboBox}" Width="100" SelectedIndex="{Binding Source={x:Static local:ShareResources.Instance},Path=CellTextState}" SelectionChanged="ComboBox_SelectionChanged">
+                                <ComboBoxItem Content="{DynamicResource is_lb_Cell_FontStyleOne}" />
+                                <ComboBoxItem Content="{DynamicResource is_lb_Cell_FontStyleTwo}" />
+                            </ComboBox>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,2">
                             <Label Content="{DynamicResource is_lb_Cell_LinkColor}" Width="85" HorizontalContentAlignment="Right" />

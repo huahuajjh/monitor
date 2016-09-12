@@ -49,25 +49,34 @@
                                     </StackPanel>
                                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
                                         <Label Content="{DynamicResource bisw_lb_display_way}" />
-                                        <RadioButton GroupName="display_way" Content="{DynamicResource bisw_rb_single_scr}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                        <RadioButton GroupName="display_way" Content="{DynamicResource bisw_rb_double_scr}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" />
+                                        <RadioButton Name="oneDan" IsChecked="True" GroupName="display_way_one" Content="{DynamicResource bisw_rb_single_scr}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <RadioButton Name="oneDian" GroupName="display_way_one" Content="{DynamicResource bisw_rb_double_scr}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" />
                                     </StackPanel>
                                     <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
                                         <Label Content="{DynamicResource bisw_lb_bg_color}" />
                                         <mytb:ColorSelector></mytb:ColorSelector>
                                     </StackPanel>
                                 </Grid>
-                                <UniformGrid Columns="3" Rows="3">
-                                    <CheckBox Content="1" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="2" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="3" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="4" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="5" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="6" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="7" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="8" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="9" Style="{StaticResource BgImgSettingCheckBox}" />
-                                </UniformGrid>
+                                <TabControl Style="{StaticResource TabControlHiddenHeadStyle}" Background="Transparent" Margin="0,0,0,5">
+                                    <TabItem IsSelected="{Binding ElementName=oneDan,Path=IsChecked}">
+                                        <UniformGrid Columns="3" Rows="3">
+                                            <CheckBox Content="1" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="2" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="3" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="4" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="5" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="6" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="7" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="8" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="9" Style="{StaticResource BgImgSettingCheckBox}" />
+                                        </UniformGrid>
+                                    </TabItem>
+                                    <TabItem IsSelected="{Binding ElementName=oneDian,Path=IsChecked}">
+                                        <Border BorderThickness="1" BorderBrush="SkyBlue">
+                                            <Image />
+                                        </Border>
+                                    </TabItem>
+                                </TabControl>
                             </DockPanel>
                         </TabItem>
                         <TabItem IsSelected="{Binding ElementName=pqTwoDom,Path=IsChecked}">
@@ -85,25 +94,34 @@
                                     </StackPanel>
                                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
                                         <Label Content="{DynamicResource bisw_lb_display_way}" />
-                                        <RadioButton GroupName="display_way" Content="{DynamicResource bisw_rb_single_scr}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                        <RadioButton GroupName="display_way" Content="{DynamicResource bisw_rb_double_scr}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" />
+                                        <RadioButton Name="twoDan" IsChecked="True" GroupName="display_way_two" Content="{DynamicResource bisw_rb_single_scr}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <RadioButton Name="twoDian" GroupName="display_way_two" Content="{DynamicResource bisw_rb_double_scr}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" />
                                     </StackPanel>
                                     <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
                                         <Label Content="{DynamicResource bisw_lb_bg_color}" />
                                         <mytb:ColorSelector></mytb:ColorSelector>
                                     </StackPanel>
                                 </Grid>
-                                <UniformGrid Columns="3" Rows="3">
-                                    <CheckBox Content="1" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="2" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="3" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="4" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="5" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="6" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="7" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="8" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="9" Style="{StaticResource BgImgSettingCheckBox}" />
-                                </UniformGrid>
+                                <TabControl Style="{StaticResource TabControlHiddenHeadStyle}" Margin="0,0,0,5" Background="Transparent">
+                                    <TabItem IsSelected="{Binding ElementName=twoDan,Path=IsChecked}">
+                                        <UniformGrid Columns="3" Rows="3">
+                                            <CheckBox Content="1" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="2" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="3" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="4" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="5" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="6" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="7" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="8" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="9" Style="{StaticResource BgImgSettingCheckBox}" />
+                                        </UniformGrid>
+                                    </TabItem>
+                                    <TabItem  IsSelected="{Binding ElementName=twoDian,Path=IsChecked}">
+                                        <Border BorderThickness="1" BorderBrush="SkyBlue">
+                                            <Image />
+                                        </Border>
+                                    </TabItem>
+                                </TabControl>
                             </DockPanel>
                         </TabItem>
                         <TabItem IsSelected="{Binding ElementName=pqThreeDom,Path=IsChecked}">
@@ -121,25 +139,34 @@
                                     </StackPanel>
                                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
                                         <Label Content="{DynamicResource bisw_lb_display_way}" />
-                                        <RadioButton GroupName="display_way" Content="{DynamicResource bisw_rb_single_scr}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                        <RadioButton GroupName="display_way" Content="{DynamicResource bisw_rb_double_scr}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" />
+                                        <RadioButton Name="threeDan" IsChecked="True" GroupName="display_way_three" Content="{DynamicResource bisw_rb_single_scr}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <RadioButton Name="threeDian" GroupName="display_way_three" Content="{DynamicResource bisw_rb_double_scr}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" />
                                     </StackPanel>
                                     <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
                                         <Label Content="{DynamicResource bisw_lb_bg_color}" />
                                         <mytb:ColorSelector></mytb:ColorSelector>
                                     </StackPanel>
                                 </Grid>
-                                <UniformGrid Columns="3" Rows="3">
-                                    <CheckBox Content="1" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="2" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="3" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="4" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="5" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="6" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="7" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="8" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="9" Style="{StaticResource BgImgSettingCheckBox}" />
-                                </UniformGrid>
+                                <TabControl Style="{StaticResource TabControlHiddenHeadStyle}" Margin="0,0,0,5" Background="Transparent">
+                                    <TabItem IsSelected="{Binding ElementName=threeDan,Path=IsChecked}">
+                                        <UniformGrid Columns="3" Rows="3">
+                                            <CheckBox Content="1" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="2" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="3" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="4" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="5" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="6" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="7" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="8" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="9" Style="{StaticResource BgImgSettingCheckBox}" />
+                                        </UniformGrid>
+                                    </TabItem>
+                                    <TabItem IsSelected="{Binding ElementName=threeDian,Path=IsChecked}">
+                                        <Border BorderThickness="1" BorderBrush="SkyBlue">
+                                            <Image />
+                                        </Border>
+                                    </TabItem>
+                                </TabControl>
                             </DockPanel>
                         </TabItem>
                         <TabItem IsSelected="{Binding ElementName=pqFourDom,Path=IsChecked}">
@@ -157,25 +184,34 @@
                                     </StackPanel>
                                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
                                         <Label Content="{DynamicResource bisw_lb_display_way}" />
-                                        <RadioButton GroupName="display_way" Content="{DynamicResource bisw_rb_single_scr}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                        <RadioButton GroupName="display_way" Content="{DynamicResource bisw_rb_double_scr}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" />
+                                        <RadioButton Name="fourDan" IsChecked="True" GroupName="display_way_four" Content="{DynamicResource bisw_rb_single_scr}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <RadioButton Name="fourDian" GroupName="display_way_four" Content="{DynamicResource bisw_rb_double_scr}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" />
                                     </StackPanel>
                                     <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
                                         <Label Content="{DynamicResource bisw_lb_bg_color}" />
                                         <mytb:ColorSelector></mytb:ColorSelector>
                                     </StackPanel>
                                 </Grid>
-                                <UniformGrid Columns="3" Rows="3">
-                                    <CheckBox Content="1" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="2" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="3" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="4" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="5" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="6" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="7" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="8" Style="{StaticResource BgImgSettingCheckBox}" />
-                                    <CheckBox Content="9" Style="{StaticResource BgImgSettingCheckBox}" />
-                                </UniformGrid>
+                                <TabControl Style="{StaticResource TabControlHiddenHeadStyle}" Margin="0,0,0,5" Background="Transparent">
+                                    <TabItem IsSelected="{Binding ElementName=fourDan,Path=IsChecked}">
+                                        <UniformGrid Columns="3" Rows="3">
+                                            <CheckBox Content="1" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="2" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="3" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="4" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="5" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="6" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="7" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="8" Style="{StaticResource BgImgSettingCheckBox}" />
+                                            <CheckBox Content="9" Style="{StaticResource BgImgSettingCheckBox}" />
+                                        </UniformGrid>
+                                    </TabItem>
+                                    <TabItem IsSelected="{Binding ElementName=fourDian,Path=IsChecked}">
+                                        <Border BorderThickness="1" BorderBrush="SkyBlue">
+                                            <Image />
+                                        </Border>
+                                    </TabItem>
+                                </TabControl>
                             </DockPanel>
                         </TabItem>
                     </TabControl>

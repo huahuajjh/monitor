@@ -68,5 +68,25 @@ namespace MonitorWindows.Windows.UserManagement
         {
             new Windows.EditPermission.EditPermissionWin().ShowDialog();
         }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            userManageCheckDom.IsChecked =
+                yuanChengCheckDom.IsChecked =
+                yuanChengDuanKouCheckDom.IsChecked =
+                yuanCongQiCheckDom.IsChecked =
+                yuanRiZhiCheckDom.IsChecked =
+                yuanPeiZhiCheckDom.IsChecked = true;
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            userManageCheckDom.IsChecked =
+                    yuanChengCheckDom.IsChecked =
+                    yuanChengDuanKouCheckDom.IsChecked =
+                    yuanCongQiCheckDom.IsChecked =
+                    yuanRiZhiCheckDom.IsChecked =
+                    yuanPeiZhiCheckDom.IsChecked = false;
+        }
     }
 }

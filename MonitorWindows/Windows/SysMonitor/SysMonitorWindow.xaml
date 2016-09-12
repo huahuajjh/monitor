@@ -2,12 +2,13 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mytb="clr-namespace:MonitorWindows.Windows.SysMonitor"
+        MinHeight="338" MinWidth="535"
         Height="338" Width="535"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
+        AllowsTransparency="True" ResizeMode="CanResizeWithGrip" Background="Transparent">
 
-    <Border Margin="10">
+    <Border Margin="3">
         <Border.Background>
             <ImageBrush ImageSource="../../Resources/img/bg_img_setting/bg.png"/>
         </Border.Background>
@@ -21,7 +22,7 @@
                 <Button Click="CloseWindow" Style="{StaticResource share_close}" DockPanel.Dock="Right" HorizontalAlignment="Right" />
             </DockPanel>
             <Border Background="#68FFFFFF" Margin="2">
-                <Grid Margin="20" MinHeight="240" MaxHeight="240">
+                <Grid>
                     <DataGrid ItemsSource="{Binding Data}" Style="{StaticResource DataTable}">
                         <DataGrid.ColumnHeaderStyle>
                             <Style TargetType="DataGridColumnHeader">

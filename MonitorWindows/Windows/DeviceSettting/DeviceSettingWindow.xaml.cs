@@ -35,5 +35,10 @@ namespace MonitorWindows.Windows.DeviceSettting
             this.Close();
         }
 
+        private void Label_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            new Windows.SearchIP.SearchIPWin().ShowDialog();
+        }
+
     }
 }

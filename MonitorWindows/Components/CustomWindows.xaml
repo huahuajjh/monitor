@@ -5,13 +5,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="40" Background="#EBECED">
-            <Button Content="&#xf1eb;" Style="{StaticResource Index_Top_Menu_Buttom}" FontFamily="../Resources/font/#FontAwesome" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Signal}" Click="SignalAttribute_Click" />
-            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf17a;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Win}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="WinAttribute_Click" />
-            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf26a;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_OSD}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="OSDSetting_Click" />
-            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf0e2;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Echo}" Style="{StaticResource Index_Top_Menu_Buttom}" />
-            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf24d;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Dan}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="PartialFullScreenBtn_Click" />
-            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf096;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Quan}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="FullScreenBtn_Click" />
-            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf0c2;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_IPC}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="CloudControlBtn_Click" />
+            <Button Style="{StaticResource Index_Top_Menu_Buttom}" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Signal}" Click="SignalAttribute_Click">
+                <Image Source="../Resources/img/tool_ico/xinHaoShuXing.png" Height="20" />
+            </Button>
+            <Button ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Win}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="WinAttribute_Click">
+                <Image Source="../Resources/img/tool_ico/chuangKouShuXing.png" Height="20" />
+            </Button>
+            <Button ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_OSD}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="OSDSetting_Click" >
+                <Image Source="../Resources/img/tool_ico/OSD.png" Height="20" />
+            </Button>
+            <Button ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Echo}" Style="{StaticResource Index_Top_Menu_Buttom}">
+                <Image Source="../Resources/img/tool_ico/jianShi.png" Height="16" />
+            </Button>
+            <Button ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Dan}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="PartialFullScreenBtn_Click">
+                <Image Source="../Resources/img/tool_ico/danPin.png" Height="18" />
+            </Button>
+            <Button ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Quan}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="FullScreenBtn_Click">
+                <Image Source="../Resources/img/tool_ico/quanPin.png" Height="20" />
+            </Button>
+            <Button ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_IPC}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="CloudControlBtn_Click">
+                <Image Source="../Resources/img/tool_ico/yun.png" Height="20" />
+            </Button>
             <ComboBox Style="{StaticResource SplitWin}" Name="splitWin" SelectionChanged="splitWin_SelectionChanged">
                 <ComboBoxItem DataContext="2" IsSelected="True" Content="{DynamicResource IndexWin_TopWinMenuTitle_Split_Four}"/>
                 <ComboBoxItem DataContext="3" Content="{DynamicResource IndexWin_TopWinMenuTitle_Split_Nine}" />
@@ -23,35 +37,52 @@
                 <ComboBoxItem DataContext="9" Content="{DynamicResource IndexWin_TopWinMenuTitle_Split_EightyOne}" />
                 <ComboBoxItem DataContext="10" Content="{DynamicResource IndexWin_TopWinMenuTitle_Split_Hundred}" />
             </ComboBox>
-            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf0aa;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Top}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="WinTopBtn_Click" />
-            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf0ab;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Bottom}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="WinBottomBtn_Click" />
-            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf00d;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Close}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="CloseWinBtn_Click" />
-            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf014;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_CloseAll}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="CloseAllWinBtn_Click" />
-            <Button FontFamily="../Resources/font/#FontAwesome" Content="&#xf0db;" ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Montage}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="AlienSplice_Click" />
+            <Button ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Top}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="WinTopBtn_Click">
+                <Image Source="../Resources/img/tool_ico/zhuDing.png" Height="20" />
+            </Button>
+            <Button ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Bottom}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="WinBottomBtn_Click">
+                <Image Source="../Resources/img/tool_ico/zhiDi.png" Height="20" />
+            </Button>
+            <Button ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Close}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="CloseWinBtn_Click">
+                <Image Source="../Resources/img/tool_ico/guanBI.png" Height="20" />
+            </Button>
+            <Button ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_CloseAll}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="CloseAllWinBtn_Click">
+                <Image Source="../Resources/img/tool_ico/guanBiAll.png" Height="20" />
+            </Button>
+            <Button ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_Montage}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="AlienSplice_Click">
+                <Image Source="../Resources/img/tool_ico/yiXing.png" Height="20" />
+            </Button>
+            <Button ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_YinPin}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="AudioControl_Click">
+                <Image Source="../Resources/img/tool_ico/yinPin.png" Height="20" />
+            </Button>
+            <Button ToolTip="{DynamicResource IndexWin_TopWinMenuTitle_ChuanKouKongZhi}" Style="{StaticResource Index_Top_Menu_Buttom}" Click="SerialPortSetting_Click">
+                <Image Source="../Resources/img/tool_ico/chuanKou.png" Height="20" />
+            </Button>
         </StackPanel>
         <ScrollViewer Name="_SVDom" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Background="#4CFFFFFF">
-            <ScrollViewer.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="{DynamicResource IndexWin_TopWinMenuTitle_Close}" Click="CloseWinBtn_Click"/>
-                    <MenuItem Header="{DynamicResource IndexWin_TopWinMenuTitle_CloseAll}" Click="CloseAllWinBtn_Click" />
-                    <Separator />
-                    <MenuItem Header="{DynamicResource CustomWindows_RightClick_SortWin}">
-                        <MenuItem Header="{DynamicResource CustomWindows_RightClick_Four}" Click="MenuItem_FourItem_Click" />
-                        <MenuItem Header="{DynamicResource CustomWindows_RightClick_Nine}" Click="MenuItem_NineItem_Click" />
-                        <MenuItem Header="{DynamicResource CustomWindows_RightClick_Sixteen}" Click="MenuItem_SixteenItem_Click" />
-                        <Separator />
-                        <MenuItem Header="{DynamicResource CustomWindows_RightClick_DIYSplit}" Click="MenuItem_DIYSplit_Click" />
-                    </MenuItem>
-                    <MenuItem Header="{DynamicResource CustomWindows_RightClick_AutoSort}" Click="MenuItem_AutoSort_Click" />
-                </ContextMenu>
-            </ScrollViewer.ContextMenu>
             <Grid Name="WheelPanel"
                   VerticalAlignment="Center"
                   HorizontalAlignment="Center"
                   MouseWheel="StackPanel_MouseWheel"
                   MouseDown="WinPanel_MouseDown"
                   MouseMove="WinPanel_MouseMove"
-                  MouseUp="WinPanel_MouseUp">
+                  MouseUp="WinPanel_MouseUp"
+                  PreviewMouseRightButtonDown="WheelPanel_PreviewMouseRightButtonDown">
+                <Grid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="{DynamicResource IndexWin_TopWinMenuTitle_Close}" Click="CloseWinBtn_Click"/>
+                        <MenuItem Header="{DynamicResource IndexWin_TopWinMenuTitle_CloseAll}" Click="CloseAllWinBtn_Click" />
+                        <MenuItem Header="{DynamicResource CustomWindows_RightClick_SortWin}">
+                            <MenuItem Header="{DynamicResource CustomWindows_RightClick_Four}" Click="MenuItem_FourItem_Click" />
+                            <MenuItem Header="{DynamicResource CustomWindows_RightClick_Nine}" Click="MenuItem_NineItem_Click" />
+                            <MenuItem Header="{DynamicResource CustomWindows_RightClick_Sixteen}" Click="MenuItem_SixteenItem_Click" />
+                            <Separator />
+                            <MenuItem Header="{DynamicResource CustomWindows_RightClick_AutoSort}" Click="MenuItem_AutoSort_Click" />
+                            <Separator />
+                            <MenuItem Header="{DynamicResource CustomWindows_RightClick_DIYSplit}" Click="MenuItem_DIYSplit_Click" />
+                        </MenuItem>
+                    </ContextMenu>
+                </Grid.ContextMenu>
                 <Grid.LayoutTransform>
                     <ScaleTransform x:Name="sourceGridScaleTransform" />
                 </Grid.LayoutTransform>
@@ -61,9 +92,7 @@
                     ClipToBounds="True"
                     Background="Transparent"
                     Drop="WinPanel_Drop"
-                    AllowDrop="True">
-                </Canvas>
-
+                    AllowDrop="True" Margin="-3" />
             </Grid>
         </ScrollViewer>
     </DockPanel>

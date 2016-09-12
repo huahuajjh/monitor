@@ -409,4 +409,132 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <Style x:Key="MicrophoneStopBtn" TargetType="Button">
+        <Setter Property="Width" Value="24"></Setter>
+        <Setter Property="Height" Value="24"></Setter>
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="img/audio_control/microphone_stop_btn.png" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect ShadowDepth="0" Color="White" />
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect ShadowDepth="0" Color="#FFE2DEDE" />
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="AudioPlayBtn" TargetType="Button">
+        <Setter Property="Height" Value="9"></Setter>
+        <Setter Property="Width" Value="8"></Setter>
+        <Setter Property="Cursor" Value="Hand"></Setter>
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="img/audio_control/play.png" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect ShadowDepth="0" Color="White" />
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect ShadowDepth="0" Color="#FFE2DEDE" />
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="AudioRetreatBtn" TargetType="Button" BasedOn="{StaticResource AudioPlayBtn}">
+        <Setter Property="Width" Value="12"></Setter>
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="img/audio_control/retreat.png" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="AudioPauseBtn" TargetType="Button" BasedOn="{StaticResource AudioPlayBtn}">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="img/audio_control/pause.png" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="AudioStopBtn" TargetType="Button" BasedOn="{StaticResource AudioPlayBtn}">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="img/audio_control/stop.png" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="AudioForwardBtn" TargetType="Button" BasedOn="{StaticResource AudioPlayBtn}">
+        <Setter Property="Width" Value="12"></Setter>
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="img/audio_control/forward.png" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="AudioLinkBtn" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Foreground" Value="#5CABEC" />
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+        <Setter Property="BorderBrush" Value="#5CABEC" />
+        <Setter Property="Padding" Value="5,0,5,5" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        Padding="{TemplateBinding Padding}">
+                        <Label Foreground="{TemplateBinding Foreground}"  Content="{TemplateBinding Content}" Padding="0" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="#308FFC" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Margin" Value="0,1,0,0" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

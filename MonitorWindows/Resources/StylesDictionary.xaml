@@ -593,8 +593,8 @@
     </ControlTemplate>
     <!-- Designer Item Template-->
         <ControlTemplate x:Key="DesignerItemTemplate" TargetType="UserControl">
-        <Grid DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}">
-            <Control Template="{StaticResource ResizeDecoratorTemplate}"/>
+            <Grid DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}">
+                <Control Template="{StaticResource ResizeDecoratorTemplate}"/>
                 <ContentPresenter Content="{TemplateBinding ContentControl.Content}"/>
             </Grid>
         </ControlTemplate>

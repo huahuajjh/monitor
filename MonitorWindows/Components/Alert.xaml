@@ -16,7 +16,7 @@
     <Grid>
         <Label Content="&#xf071;" FontFamily="/Resources/font/#FontAwesome" Margin="12,14,247,130" Foreground="White" />
         <Label Content="{DynamicResource Alert_Title}" HorizontalAlignment="Left" Margin="36,13,0,0" VerticalAlignment="Top" FontFamily="微软雅黑" FontSize="10" FontWeight="Bold" Foreground="White"/>
-        <TextBlock Name="ShowText" Text="" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="26,55,0,0" VerticalAlignment="Top" Height="53" Width="231" FontFamily="微软雅黑" Foreground="White"/>
+        <TextBlock Name="ShowText" Text="" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="26,55,0,0" VerticalAlignment="Top" Height="53" Width="231" FontFamily="微软雅黑" Foreground="White" TextAlignment="Center" />
         <Button Name="Btn_OK" Content="{DynamicResource Alert_Btn_OK}" HorizontalAlignment="Left" Margin="49,119,0,0" VerticalAlignment="Top" Style="{StaticResource Red3DBtn}" MouseEnter="Btn_MouseEnter" Click="Btn_OK_Click" />
         <Button Name="Btn_NO" Content="{DynamicResource Alert_Btn_NO}" HorizontalAlignment="Left" Margin="158,119,0,0" VerticalAlignment="Top" Style="{StaticResource DefaultRed3DBtn}" MouseEnter="Btn_MouseEnter" Click="Btn_NO_Click" />
         <Label HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top" Width="261" MouseMove="Label_MouseMove" Height="29"  />

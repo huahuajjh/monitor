@@ -27,35 +27,35 @@
                             </Grid.ColumnDefinitions>
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                    <Button Style="{StaticResource CloudControlBtnSmall}" >
+                                    <Button Style="{StaticResource CloudControlBtnSmall}" ToolTip="{DynamicResource CloudControlWin_ToolTip_TopLeft}">
                                         <Image Source="/MonitorWindows;component/Resources/img/CloudControl/ICOTopLeft.png" Width="17" />
                                     </Button>
-                                    <Button Style="{StaticResource CloudControlBtnSmall}" >
+                                    <Button Style="{StaticResource CloudControlBtnSmall}" ToolTip="{DynamicResource CloudControlWin_ToolTip_Top}">
                                         <Image Source="/MonitorWindows;component/Resources/img/CloudControl/ICOTop.png" Width="17" />
                                     </Button>
-                                    <Button Style="{StaticResource CloudControlBtnSmall}" >
+                                    <Button Style="{StaticResource CloudControlBtnSmall}" ToolTip="{DynamicResource CloudControlWin_ToolTip_TopRight}">
                                         <Image Source="/MonitorWindows;component/Resources/img/CloudControl/ICOTopRight.png" Width="17" />
                                     </Button>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                    <Button Style="{StaticResource CloudControlBtnSmall}" >
+                                    <Button Style="{StaticResource CloudControlBtnSmall}" ToolTip="{DynamicResource CloudControlWin_ToolTip_Left}">
                                         <Image Source="/MonitorWindows;component/Resources/img/CloudControl/ICOLeft.png" Width="14" />
                                     </Button>
                                     <Button Style="{StaticResource CloudControlBtnSmall}" ToolTip="{DynamicResource CloudControlWin_ToolTip_One}">
                                         <Image Source="/MonitorWindows;component/Resources/img/CloudControl/ICOAutoRotate.png" Width="31" />
                                     </Button>
-                                    <Button Style="{StaticResource CloudControlBtnSmall}" >
+                                    <Button Style="{StaticResource CloudControlBtnSmall}" ToolTip="{DynamicResource CloudControlWin_ToolTip_Right}">
                                         <Image Source="/MonitorWindows;component/Resources/img/CloudControl/ICORight.png" Width="15" />
                                     </Button>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                    <Button Style="{StaticResource CloudControlBtnSmall}" >
+                                    <Button Style="{StaticResource CloudControlBtnSmall}" ToolTip="{DynamicResource CloudControlWin_ToolTip_BottomLeft}">
                                         <Image Source="/MonitorWindows;component/Resources/img/CloudControl/ICOBttomLeft.png" Width="17" />
                                     </Button>
-                                    <Button Style="{StaticResource CloudControlBtnSmall}" >
+                                    <Button Style="{StaticResource CloudControlBtnSmall}" ToolTip="{DynamicResource CloudControlWin_ToolTip_Bottom}">
                                         <Image Source="/MonitorWindows;component/Resources/img/CloudControl/ICOBttom.png" Width="18" />
                                     </Button>
-                                    <Button Style="{StaticResource CloudControlBtnSmall}" >
+                                    <Button Style="{StaticResource CloudControlBtnSmall}" ToolTip="{DynamicResource CloudControlWin_ToolTip_BottomRight}">
                                         <Image Source="/MonitorWindows;component/Resources/img/CloudControl/ICOBttomRight.png" Width="16" />
                                     </Button>
                                 </StackPanel>

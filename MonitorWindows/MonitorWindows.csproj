@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>AppIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -63,10 +66,13 @@
     <Compile Include="Components\CustomWindows.xaml.cs">
       <DependentUpon>CustomWindows.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Components\PlanTrainingControl.xaml.cs">
+      <DependentUpon>PlanTrainingControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Components\ScenarioMagmet.xaml.cs">
       <DependentUpon>ScenarioMagmet.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Resources\img\SignalSource.xaml.cs">
+    <Compile Include="Components\SignalSource.xaml.cs">
       <DependentUpon>SignalSource.xaml</DependentUpon>
     </Compile>
     <Compile Include="Components\Square.cs" />
@@ -82,6 +88,9 @@
       <DependentUpon>Tb.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShareResources.cs" />
+    <Compile Include="Windows\AddCaptionSetting\AddCaptionSettingWin.xaml.cs">
+      <DependentUpon>AddCaptionSettingWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AddExtOptSetting\AddExtOptSettingWin.xaml.cs">
       <DependentUpon>AddExtOptSettingWin.xaml</DependentUpon>
     </Compile>
@@ -103,6 +112,9 @@
     <Compile Include="Windows\AddPermission\AddPermissionWin.xaml.cs">
       <DependentUpon>AddPermissionWin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AddRoundSetting\AddRoundSettingWin.xaml.cs">
+      <DependentUpon>AddRoundSettingWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AddScenarioMagmet\AddScenarioMagmetWin.xaml.cs">
       <DependentUpon>AddScenarioMagmetWin.xaml</DependentUpon>
     </Compile>
@@ -111,6 +123,9 @@
     </Compile>
     <Compile Include="Windows\AlienSplice\AlienSpliceWin.xaml.cs">
       <DependentUpon>AlienSpliceWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AudioControl\AudioControlWin.xaml.cs">
+      <DependentUpon>AudioControlWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\BaseWindow.cs" />
     <Compile Include="Windows\BgImgSetting\BgImgSettingWindow.xaml.cs">
@@ -124,6 +139,9 @@
     </Compile>
     <Compile Include="Windows\DeviceSettting\DeviceSettingWindow.xaml.cs">
       <DependentUpon>DeviceSettingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditCaptionSetting\EditCaptionSettingWin.xaml.cs">
+      <DependentUpon>EditCaptionSettingWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\EditExtOptSetting\EditExtOptSettingWin.xaml.cs">
       <DependentUpon>EditExtOptSettingWin.xaml</DependentUpon>
@@ -146,8 +164,14 @@
     <Compile Include="Windows\EditPermission\EditPermissionWin.xaml.cs">
       <DependentUpon>EditPermissionWin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\EditRoundSetting\EditRoundSettingWin.xaml.cs">
+      <DependentUpon>EditRoundSettingWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\EditScenarioMagmet\EditScenarioMagmetWin.xaml.cs">
       <DependentUpon>EditScenarioMagmetWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditSourceName\EditSourceNameWin.xaml.cs">
+      <DependentUpon>EditSourceNameWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\EditUser\EditUserWin.xaml.cs">
       <DependentUpon>EditUserWin.xaml</DependentUpon>
@@ -169,6 +193,15 @@
     </Compile>
     <Compile Include="Windows\ScenarioChannel\ScenarioChannelWin.xaml.cs">
       <DependentUpon>ScenarioChannelWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SearchIP\SearchIPWin.xaml.cs">
+      <DependentUpon>SearchIPWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SerialPortSetting\SerialPortSettingWin.xaml.cs">
+      <DependentUpon>SerialPortSettingWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ShowVideo\ShowVideoWin.xaml.cs">
+      <DependentUpon>ShowVideoWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\SignalAttribute\SignalAttributeWin.xaml.cs">
       <DependentUpon>SignalAttributeWin.xaml</DependentUpon>
@@ -197,11 +230,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Components\PlanTrainingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Components\ScenarioMagmet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\img\SignalSource.xaml">
+    <Page Include="Components\SignalSource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -283,7 +320,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\StringResource.xaml">
+    <Page Include="Resources\StringResourceEn.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\StringResourceZh.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -292,6 +333,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Resources\TabControlDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddCaptionSetting\AddCaptionSettingWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -323,6 +368,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\AddRoundSetting\AddRoundSettingWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\AddScenarioMagmet\AddScenarioMagmetWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -332,6 +381,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\AlienSplice\AlienSpliceWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AudioControl\AudioControlWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -348,6 +401,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\DeviceSettting\DeviceSettingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditCaptionSetting\EditCaptionSettingWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -379,7 +436,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\EditRoundSetting\EditRoundSettingWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\EditScenarioMagmet\EditScenarioMagmetWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditSourceName\EditSourceNameWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -406,6 +471,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\ScenarioChannel\ScenarioChannelWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SearchIP\SearchIPWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SerialPortSetting\SerialPortSettingWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ShowVideo\ShowVideoWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -453,6 +530,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Resource Include="Resources\font\Let%27s go Digital.ttf" />
     <Resource Include="Resources\font\FontAwesome.ttf" />
     <Resource Include="Resources\font\方正综艺简体.TTF">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -512,9 +590,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\img\menuICO\configure.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\ico\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\img\menuICO\background.png" />
@@ -710,6 +785,112 @@
     <Resource Include="Resources\img\CloudControl\ICOTop.png" />
     <Resource Include="Resources\img\CloudControl\ICOTopLeft.png" />
     <Resource Include="Resources\img\CloudControl\ICOTopRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AppIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\serial_port_setting\LED1.png" />
+    <Resource Include="Resources\img\serial_port_setting\LED2.png" />
+    <Resource Include="Resources\img\serial_port_setting\OFF.png" />
+    <Resource Include="Resources\img\serial_port_setting\ON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\audio_control\audio_regulate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\audio_control\audio_regulate_right_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\audio_control\audio_right_graduation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\audio_control\audio_regulate_left_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\audio_control\audio_left_graduation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\audio_control\speaker_off.png" />
+    <Resource Include="Resources\img\audio_control\speaker_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\audio_control\microphone_off.png" />
+    <Resource Include="Resources\img\audio_control\microphone_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\audio_control\indicator_light_red.png" />
+    <Resource Include="Resources\img\audio_control\indicator_light_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\audio_control\bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\audio_control\microphone_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\audio_control\microphone_suspend_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\audio_control\microphone_stop_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\audio_control\slider_bule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\audio_control\stop.png" />
+    <Resource Include="Resources\img\audio_control\forward.png" />
+    <Resource Include="Resources\img\audio_control\retreat.png" />
+    <Resource Include="Resources\img\audio_control\play.png" />
+    <Resource Include="Resources\img\audio_control\pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\audio_control\record_off.png" />
+    <Resource Include="Resources\img\audio_control\record_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\tool_ico\chuangKouShuXing.png" />
+    <Resource Include="Resources\img\tool_ico\chuangKouShuXing_back.png" />
+    <Resource Include="Resources\img\tool_ico\chuanKou.png" />
+    <Resource Include="Resources\img\tool_ico\chuanKou_back.png" />
+    <Resource Include="Resources\img\tool_ico\danPin.png" />
+    <Resource Include="Resources\img\tool_ico\danPin_back.png" />
+    <Resource Include="Resources\img\tool_ico\fenPing.png" />
+    <Resource Include="Resources\img\tool_ico\fenPing_back.png" />
+    <Resource Include="Resources\img\tool_ico\guanBI.png" />
+    <Resource Include="Resources\img\tool_ico\guanBiAll.png" />
+    <Resource Include="Resources\img\tool_ico\guanBiAll_back.png" />
+    <Resource Include="Resources\img\tool_ico\guanBI_back.png" />
+    <Resource Include="Resources\img\tool_ico\jianShi.png" />
+    <Resource Include="Resources\img\tool_ico\jianShi_back.png" />
+    <Resource Include="Resources\img\tool_ico\OSD.png" />
+    <Resource Include="Resources\img\tool_ico\OSD_back.png" />
+    <Resource Include="Resources\img\tool_ico\quanPin.png" />
+    <Resource Include="Resources\img\tool_ico\quanPin_back.png" />
+    <Resource Include="Resources\img\tool_ico\xinHaoShuXing.png" />
+    <Resource Include="Resources\img\tool_ico\xinHaoShuXing_back.png" />
+    <Resource Include="Resources\img\tool_ico\yinPin.png" />
+    <Resource Include="Resources\img\tool_ico\yinPin_back.png" />
+    <Resource Include="Resources\img\tool_ico\yiXing.png" />
+    <Resource Include="Resources\img\tool_ico\yiXing_back.png" />
+    <Resource Include="Resources\img\tool_ico\yun.png" />
+    <Resource Include="Resources\img\tool_ico\yun_back.png" />
+    <Resource Include="Resources\img\tool_ico\zhiDi.png" />
+    <Resource Include="Resources\img\tool_ico\zhiDi_back.png" />
+    <Resource Include="Resources\img\tool_ico\zhuDing.png" />
+    <Resource Include="Resources\img\tool_ico\zhuDing_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\left_ico\hd_item.png" />
+    <Resource Include="Resources\img\left_ico\hd_item2X.png" />
+    <Resource Include="Resources\img\left_ico\ipc_item.png" />
+    <Resource Include="Resources\img\left_ico\ipc_item2X.png" />
+    <Resource Include="Resources\img\left_ico\cvbs_item.png" />
+    <Resource Include="Resources\img\left_ico\cvbs_item2X.png" />
+    <Resource Include="Resources\img\left_ico\media_item.png" />
+    <Resource Include="Resources\img\left_ico\media_item2X.png" />
+    <Resource Include="Resources\img\left_ico\other_item.png" />
+    <Resource Include="Resources\img\left_ico\other_item2X.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

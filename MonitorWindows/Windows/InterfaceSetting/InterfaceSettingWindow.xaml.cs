@@ -102,5 +102,10 @@ namespace MonitorWindows.Windows.InterfaceSetting
             Color color = e.Color;
             ShareResources.Instance.OtherSourceWinColor = new SolidColorBrush(new Color() { R = color.R, G = color.G, B = color.B, A = 185 });
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ShareResources.Instance.CellTextState = ((ComboBox)sender).SelectedIndex;
+        }
     }
 }

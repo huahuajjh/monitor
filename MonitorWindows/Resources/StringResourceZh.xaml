@@ -54,6 +54,8 @@
     <sys:String x:Key="IndexWin_TopWinMenuTitle_CloseAll">关闭所有</sys:String>
     <sys:String x:Key="IndexWin_TopWinMenuTitle_Montage">异形拼接</sys:String>
     <sys:String x:Key="IndexWin_TopWinMenuTitle_Bottom">窗口置底</sys:String>
+    <sys:String x:Key="IndexWin_TopWinMenuTitle_YinPin">音频</sys:String>
+    <sys:String x:Key="IndexWin_TopWinMenuTitle_ChuanKouKongZhi">串口控制</sys:String>
     <sys:String x:Key="IndexWin_LeftMenuTitle_Signal">信号源管理</sys:String>
     <sys:String x:Key="IndexWin_LeftMenuTitle_Scene">场景模式</sys:String>
     <sys:String x:Key="IndexWin_LeftMenuTitle_Arranged">预案轮巡</sys:String>
@@ -76,6 +78,11 @@
     <sys:String x:Key="CustomWindow_Text_Da">启用电子放大</sys:String>
     <sys:String x:Key="CustomWindow_Text_Xiao">关闭电子放大</sys:String>
     <sys:String x:Key="CustomWindow_Text_KVM">IP-KVM远程控制</sys:String>
+    <sys:String x:Key="CustomWindow_Text_Size">格子大小</sys:String>
+    <sys:String x:Key="CustomWindow_Text_SizeFour">4/1格子</sys:String>
+    <sys:String x:Key="CustomWindow_Text_SizeNine">9/1格子</sys:String>
+    <sys:String x:Key="CustomWindow_Text_SizeSixteen">16/1格子</sys:String>
+    <sys:String x:Key="CustomWindow_Text_SizeMax">满格</sys:String>
 
     <sys:String x:Key="RoundSettingWin_Title">轮巡设置</sys:String>
     <sys:String x:Key="RoundSettingWin_Time_Title">轮巡时间段:</sys:String>
@@ -88,7 +95,11 @@
     <sys:String x:Key="RoundSettingWin_ButtonSelect_Title">全部选</sys:String>
     <sys:String x:Key="RoundSettingWin_ButtonNotSelect_Title">全不选</sys:String>
     <sys:String x:Key="RoundSettingWin_ButtonStart_Title">开始</sys:String>
+    <sys:String x:Key="RoundSettingWin_ButtonSave_Title">保存设置</sys:String>
     <sys:String x:Key="RoundSettingWin_ButtonEnd_Title">结束</sys:String>
+    <sys:String x:Key="RoundSettingWin_Menu_Add">添加</sys:String>
+    <sys:String x:Key="RoundSettingWin_Menu_Edit">编辑</sys:String>
+    <sys:String x:Key="RoundSettingWin_Menu_Del">删除</sys:String>
 
     <sys:String x:Key="Alert_Title">提示</sys:String>
     <sys:String x:Key="Alert_Btn_OK">确定</sys:String>
@@ -111,7 +122,8 @@
     <sys:String x:Key="dsw_wall_way_row">行:</sys:String>
     <sys:String x:Key="dsw_wall_way_col">列:</sys:String>
     <sys:String x:Key="dsw_unit_resolution">单位物理分辨率：</sys:String>
-    <sys:String x:Key="dsw_cpu_ipaddr">处理器主控IP地址：</sys:String>
+    <sys:String x:Key="dsw_cpu_ipaddr">处理器IP地址：</sys:String>
+    <sys:String x:Key="dsw_cpu_auto_ipaddr">自动搜索</sys:String>
     <sys:String x:Key="dsw_display_unit_vendor">显示单元厂商：</sys:String>
     <sys:String x:Key="dsw_serialport_side">串口端：</sys:String>
     <sys:String x:Key="dsw_self_mechine">本机</sys:String>
@@ -171,6 +183,9 @@
     <sys:String x:Key="is_lb_OtherWin_title">其他应用窗口:</sys:String>
     <sys:String x:Key="is_lb_Cell_title">单元格:</sys:String>
     <sys:String x:Key="is_lb_Cell_FontColor">文字颜色:</sys:String>
+    <sys:String x:Key="is_lb_Cell_FontStyle">文字样式:</sys:String>
+    <sys:String x:Key="is_lb_Cell_FontStyleOne">数字</sys:String>
+    <sys:String x:Key="is_lb_Cell_FontStyleTwo">行列坐标</sys:String>
     <sys:String x:Key="is_lb_Cell_LinkColor">线条颜色:</sys:String>
     <sys:String x:Key="is_lb_Cell_wg">线条粗细:</sys:String>
     <sys:String x:Key="is_lb_Cell_BGColor">背景颜色:</sys:String>
@@ -214,6 +229,10 @@
     <sys:String x:Key="cps_tb_point_leftTitle">←</sys:String>
     <sys:String x:Key="cps_tb_point_rightTitle">→</sys:String>
     <sys:String x:Key="cps_tb_point_ok">OK</sys:String>
+    <sys:String x:Key="cps_tb_menu_add">新增</sys:String>
+    <sys:String x:Key="cps_tb_menu_stop">暂停</sys:String>
+    <sys:String x:Key="cps_tb_menu_del">删除</sys:String>
+    <sys:String x:Key="cps_tb_menu_edit">修改</sys:String>
     
     <!--user management-->
     <sys:String x:Key="um_title">用户管理</sys:String>
@@ -233,6 +252,7 @@
     <sys:String x:Key="um_checkBox_four">远程重启/关机</sys:String>
     <sys:String x:Key="um_checkBox_five">远程查看状态/日志</sys:String>
     <sys:String x:Key="um_checkBox_six">远程参数配置</sys:String>
+    <sys:String x:Key="um_checkBox_seven">全选</sys:String>
     <sys:String x:Key="um_menu_userAdd">创建用户</sys:String>
     <sys:String x:Key="um_menu_userEdit">修改用户</sys:String>
     <sys:String x:Key="um_menu_userDel">删除用户</sys:String>
@@ -243,6 +263,7 @@
     <sys:String x:Key="SignalSource_Menu_Edit">修改</sys:String>
     <sys:String x:Key="SignalSource_Menu_del">删除</sys:String>
     <sys:String x:Key="SignalSource_Menu_CreateItem">创建源</sys:String>
+    <sys:String x:Key="SignalSource_Menu_EditName">修改名称</sys:String>
     <sys:String x:Key="SignalSource_Menu_CreateGroup">创建组</sys:String>
     <sys:String x:Key="SignalSource_Title_GQ">高清信号源</sys:String>
     <sys:String x:Key="SignalSource_Title_ICPC">IPC信号源</sys:String>
@@ -355,8 +376,16 @@
     <sys:String x:Key="CloudControlWin_ToolTip_Ten">雨刷</sys:String>
     <sys:String x:Key="CloudControlWin_ToolTip_Eleven">辅助聚焦</sys:String>
     <sys:String x:Key="CloudControlWin_ToolTip_Twelve">镜头初始化</sys:String>
+    <sys:String x:Key="CloudControlWin_ToolTip_TopLeft">向左上</sys:String>
+    <sys:String x:Key="CloudControlWin_ToolTip_Top">向上</sys:String>
+    <sys:String x:Key="CloudControlWin_ToolTip_TopRight">向右上</sys:String>
+    <sys:String x:Key="CloudControlWin_ToolTip_Left">向左</sys:String>
+    <sys:String x:Key="CloudControlWin_ToolTip_Right">向右</sys:String>
+    <sys:String x:Key="CloudControlWin_ToolTip_BottomLeft">向下左</sys:String>
+    <sys:String x:Key="CloudControlWin_ToolTip_Bottom">向下</sys:String>
+    <sys:String x:Key="CloudControlWin_ToolTip_BottomRight">向右下</sys:String>
 
-    <sys:String x:Key="AddGQWin_Title">添加高清信号源</sys:String>
+    <sys:String x:Key="AddGQWin_Title">高清信号源添加</sys:String>
     <sys:String x:Key="AddGQWin_Txt_Name">名称:</sys:String>
     <sys:String x:Key="AddGQWin_Txt_Type">源类型:</sys:String>
     <sys:String x:Key="AddGQWin_Txt_DIV">DIV</sys:String>
@@ -368,9 +397,9 @@
     <sys:String x:Key="AddGQWin_Txt_CVBS">CVBS</sys:String>
     <sys:String x:Key="AddGQWin_Txt_OK">确定</sys:String>
 
-    <sys:String x:Key="EditGQWin_Title">编辑高清信号源</sys:String>
+    <sys:String x:Key="EditGQWin_Title">高清信号源编辑</sys:String>
 
-    <sys:String x:Key="AddICPCWin_Title">添加数字IPC信号源</sys:String>
+    <sys:String x:Key="AddICPCWin_Title">数字IPC信号源添加</sys:String>
     <sys:String x:Key="AddICPCWin_Text_Name">名称:</sys:String>
     <sys:String x:Key="AddICPCWin_Text_IP">IP地址:</sys:String>
     <sys:String x:Key="AddICPCWin_Text_Port">端口:</sys:String>
@@ -382,9 +411,9 @@
     <sys:String x:Key="AddICPCWin_Text_Password">密码:</sys:String>
     <sys:String x:Key="AddICPCWin_Text_Ok">确定</sys:String>
 
-    <sys:String x:Key="EditICPCWin_Title">编辑数字IPC信号源</sys:String>
+    <sys:String x:Key="EditICPCWin_Title">数字IPC信号源编辑</sys:String>
 
-    <sys:String x:Key="AddIPWin_Title">添加IP桌面信号源</sys:String>
+    <sys:String x:Key="AddIPWin_Title">IP桌面信号源添加</sys:String>
     <sys:String x:Key="AddIPWin_Txt_Name">名称:</sys:String>
     <sys:String x:Key="AddIPWin_Txt_IP">IP地址:</sys:String>
     <sys:String x:Key="AddIPWin_Txt_Port">端口:</sys:String>
@@ -393,9 +422,9 @@
     <sys:String x:Key="AddIPWin_Txt_TypeTwo">PC网络直播</sys:String>
     <sys:String x:Key="AddIPWin_Txt_OK">确定</sys:String>
 
-    <sys:String x:Key="EditIPWin_Title">编辑IP桌面信号源</sys:String>
+    <sys:String x:Key="EditIPWin_Title">IP桌面信号源编辑</sys:String>
 
-    <sys:String x:Key="AddIPStreamWin_Title">添加IP流媒体文件</sys:String>
+    <sys:String x:Key="AddIPStreamWin_Title">IP流媒体文件添加</sys:String>
     <sys:String x:Key="AddIPStreamWin_Txt_Name">名称:</sys:String>
     <sys:String x:Key="AddIPStreamWin_Txt_IP">IP地址:</sys:String>
     <sys:String x:Key="AddIPStreamWin_Txt_Port">端口:</sys:String>
@@ -404,9 +433,9 @@
     <sys:String x:Key="AddIPStreamWin_Txt_VedioType">视频格式:</sys:String>
     <sys:String x:Key="AddIPStreamWin_Txt_OK">确定</sys:String>
 
-    <sys:String x:Key="EditIPStreamWin_Title">编辑IP流媒体文件</sys:String>
+    <sys:String x:Key="EditIPStreamWin_Title">IP流媒体文件编辑</sys:String>
 
-    <sys:String x:Key="AddOtherWin_Title">添加其他应用信号源</sys:String>
+    <sys:String x:Key="AddOtherWin_Title">其他应用信号源添加</sys:String>
     <sys:String x:Key="AddOtherWin_Txt_Name">名称:</sys:String>
     <sys:String x:Key="AddOtherWin_Txt_IP">IP地址:</sys:String>
     <sys:String x:Key="AddOtherWin_Txt_Prot">端口:</sys:String>
@@ -414,7 +443,7 @@
     <sys:String x:Key="AddOtherWin_Txt_DIY">自定义:</sys:String>
     <sys:String x:Key="AddOtherWin_Txt_OK">确定</sys:String>
 
-    <sys:String x:Key="EditOtherWin_Title">编辑其他应用信号源</sys:String>
+    <sys:String x:Key="EditOtherWin_Title">其他应用信号源编辑</sys:String>
 
     <sys:String x:Key="PreviewSurveillanceWin_Title">预览监视详细</sys:String>
 
@@ -425,7 +454,62 @@
     <sys:String x:Key="ScenarioChannelWin_Table_DZ">地址</sys:String>
     <sys:String x:Key="ScenarioChannelWin_Table_Add">添加</sys:String>
     <sys:String x:Key="ScenarioChannelWin_Table_Del">删除</sys:String>
+    <sys:String x:Key="ScenarioChannelWin_Table_Edit">修改</sys:String>
     <sys:String x:Key="ScenarioChannelWin_Table_Name">名称</sys:String>
     <sys:String x:Key="ScenarioChannelWin_Table_TD">通道</sys:String>
     <sys:String x:Key="ScenarioChannelWin_Table_TimeJG">时间间隔</sys:String>
+
+    <sys:String x:Key="SearchIPWin_Title">搜索处理器</sys:String>
+    <sys:String x:Key="SearchIPWin_Text">本地IP:</sys:String>
+    <sys:String x:Key="SearchIPWin_Text_List">处理器列表:</sys:String>
+    <sys:String x:Key="SearchIPWin_Text_Num">编号</sys:String>
+    <sys:String x:Key="SearchIPWin_Text_IP">IP地址</sys:String>
+    <sys:String x:Key="SearchIPWin_Text_Ver">版本</sys:String>
+    <sys:String x:Key="SearchIPWin_Text_OK">确定</sys:String>
+    <sys:String x:Key="SearchIPWin_Text_AutoIP">自动搜索</sys:String>
+
+    <sys:String x:Key="AddCaptionSettingWin_Title">添加字幕</sys:String>
+    <sys:String x:Key="AddCaptionSettingWin_Text_Context">文字内容:</sys:String>
+    <sys:String x:Key="AddCaptionSettingWin_Text_OK">确定</sys:String>
+
+    <sys:String x:Key="EditCaptionSettingWin_Title">修改字幕</sys:String>
+
+    <sys:String x:Key="AddRoundSettingWin_Title">添加轮询设置</sys:String>
+    <sys:String x:Key="AddRoundSettingWin_Text_Name">名称:</sys:String>
+    <sys:String x:Key="AddRoundSettingWin_Text_Yuan">信号源:</sys:String>
+    <sys:String x:Key="AddRoundSettingWin_Text_OK">确定</sys:String>
+
+    <sys:String x:Key="EditRoundSettingWin_Title">编辑轮询设置</sys:String>
+
+    <sys:String x:Key="EditSourceNameWin_Title">修改名称</sys:String>
+    <sys:String x:Key="EditSourceNameWin_Text_Name">名称:</sys:String>
+    <sys:String x:Key="EditSourceNameWin_Text_OK">确定</sys:String>
+
+    <sys:String x:Key="SerialPortSettingWin_Title">串口控制</sys:String>
+    <sys:String x:Key="SerialPortSettingWin_Text_OFFON">开关</sys:String>
+    <sys:String x:Key="SerialPortSettingWin_Text_ONAll">全开</sys:String>
+    <sys:String x:Key="SerialPortSettingWin_Text_OFFAll">全关</sys:String>
+    <sys:String x:Key="SerialPortSettingWin_Text_CKH">串口号:</sys:String>
+    <sys:String x:Key="SerialPortSettingWin_Text_BTL">波特率:</sys:String>
+    <sys:String x:Key="SerialPortSettingWin_Text_SJW">数据位:</sys:String>
+    <sys:String x:Key="SerialPortSettingWin_Text_TZW">停止位:</sys:String>
+    <sys:String x:Key="SerialPortSettingWin_Text_JYW">校验位:</sys:String>
+    <sys:String x:Key="SerialPortSettingWin_Text_ON">打开串口</sys:String>
+    <sys:String x:Key="SerialPortSettingWin_Text_OFF">关闭串口</sys:String>
+
+    <sys:String x:Key="ShowVideoWin_Title">视频播放</sys:String>
+
+    <sys:String x:Key="AudioControlWin_Title">音频控制</sys:String>
+    <sys:String x:Key="AudioControlWin_Text_Dim">Dim</sys:String>
+    <sys:String x:Key="AudioControlWin_Text_Mute">Mute</sys:String>
+    <sys:String x:Key="AudioControlWin_Text_Mono">Mono</sys:String>
+    <sys:String x:Key="AudioControlWin_Text_Input">INPUT</sys:String>
+    <sys:String x:Key="AudioControlWin_Text_Output">OUTPUT</sys:String>
+    <sys:String x:Key="AudioControlWin_Text_HuiFang">回 放</sys:String>
+    <sys:String x:Key="AudioControlWin_Text_Save">保 存</sys:String>
+    <sys:String x:Key="AudioControlWin_Text_LuZhi">录制</sys:String>
+
+    <sys:String x:Key="PlanTrainingControl_Menu_Save">保存预案轮巡</sys:String>
+    <sys:String x:Key="PlanTrainingControl_Menu_Edit">修改</sys:String>
+    <sys:String x:Key="PlanTrainingControl_Menu_Del">删除</sys:String>
 </ResourceDictionary>

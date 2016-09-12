@@ -1,0 +1,67 @@
+﻿<Window x:Class="MonitorWindows.Windows.SerialPortSetting.SerialPortSettingWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="432" Width="310"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
+    <Border Margin="10">
+        <Border.Background>
+            <ImageBrush ImageSource="../../Resources/img/bg_img_setting/bg.png"/>
+        </Border.Background>
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0"/>
+        </Border.Effect>
+        <DockPanel>
+            <DockPanel Margin="6" DockPanel.Dock="Top">
+                <Label Content="{DynamicResource SerialPortSettingWin_Title}" DockPanel.Dock="Left" Foreground="Black" FontWeight="Bold" FontSize="15" VerticalAlignment="Center"/>
+                <Button Click="Button_Click" Style="{StaticResource share_close}" DockPanel.Dock="Right" HorizontalAlignment="Right" />
+            </DockPanel>
+            <Border Background="#68FFFFFF" Margin="2">
+                <StackPanel>
+                    <Grid Margin="0,20,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <CheckBox Style="{StaticResource LEDCheckBox}" />
+                            <CheckBox Style="{StaticResource OFFONCheckBox}" Width="80" Margin="0,10,0,10" ToolTip="{DynamicResource SerialPortSettingWin_Text_OFFON}" />
+                            <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource SerialPortSettingWin_Text_ONAll}" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <CheckBox Style="{StaticResource LEDCheckBox}" />
+                            <CheckBox Style="{StaticResource OFFONCheckBox}" Width="80" Margin="0,10,0,10" ToolTip="{DynamicResource SerialPortSettingWin_Text_OFFON}" />
+                            <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource SerialPortSettingWin_Text_OFFAll}" />
+                        </StackPanel>
+                    </Grid>
+                    <Border BorderBrush="#ccc" BorderThickness="0,0,0,1" Margin="0,10" />
+                    <DockPanel Margin="0,5,10,0">
+                        <Label Content="{DynamicResource SerialPortSettingWin_Text_CKH}" Width="70" HorizontalContentAlignment="Right" DockPanel.Dock="Left" />
+                        <ComboBox Margin="5,0" Style="{StaticResource LabelComboBox}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,5,10,0">
+                        <Label Content="{DynamicResource SerialPortSettingWin_Text_BTL}" Width="70" HorizontalContentAlignment="Right" DockPanel.Dock="Left" />
+                        <ComboBox Margin="5,0" Style="{StaticResource LabelComboBox}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,5,10,0">
+                        <Label Content="{DynamicResource SerialPortSettingWin_Text_SJW}" Width="70" HorizontalContentAlignment="Right" DockPanel.Dock="Left" />
+                        <ComboBox Margin="5,0" Style="{StaticResource LabelComboBox}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,5,10,0">
+                        <Label Content="{DynamicResource SerialPortSettingWin_Text_TZW}" Width="70" HorizontalContentAlignment="Right" DockPanel.Dock="Left" />
+                        <ComboBox Margin="5,0" Style="{StaticResource LabelComboBox}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,5,10,0">
+                        <Label Content="{DynamicResource SerialPortSettingWin_Text_JYW}" Width="70" HorizontalContentAlignment="Right" DockPanel.Dock="Left" />
+                        <ComboBox Margin="5,0" Style="{StaticResource LabelComboBox}" />
+                    </DockPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
+                        <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource SerialPortSettingWin_Text_ON}" Margin="0,0,10,0" Width="56" Height="23"></Button>
+                        <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource SerialPortSettingWin_Text_OFF}" Width="56" IsEnabled="False"></Button>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </DockPanel>
+    </Border>
+</Window>

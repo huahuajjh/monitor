@@ -6,9 +6,10 @@
         xmlns:local ="clr-namespace:MonitorWindows"
         Title="{DynamicResource IndexWin_Title}"
         WindowStyle="None"
+        Icon="AppIcon.ico"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
-        Background="Transparent" ResizeMode="CanResizeWithGrip" StateChanged="Window_StateChanged"
+        Background="Transparent" ResizeMode="CanResizeWithGrip"
         Width="1024"
         Height="700"
         MinWidth="1024"
@@ -40,11 +41,11 @@
                     <ColumnDefinition Width="200"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Border DockPanel.Dock="Left" Height="64" Margin="10,0,0,0" Background="{Binding Source={x:Static local:ShareResources.Instance}, Path=LOGO}" />
-                <Label Grid.Column="1" Content="{DynamicResource IndexWin_Title}" Foreground="White" FontFamily="Resources/font/#方正综艺简体" FontSize="20" HorizontalContentAlignment="Center" Height="30" FontWeight="ExtraBlack" />
+                <Label Grid.Column="1" Content="{DynamicResource IndexWin_Title}" Foreground="White" FontFamily="Resources/font/#方正综艺简体" FontSize="20" HorizontalContentAlignment="Center" FontWeight="ExtraBlack" VerticalAlignment="Center" />
                 <StackPanel Grid.Column="2">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5,0,10">
                         <Button Style="{StaticResource Minimize_Btn}" Margin="0,0,5,0" Click="Minimize_Win" />
-                        <Button Name="Maximize_Btn" Style="{StaticResource Maximize_Btn}" Margin="0,0,5,0" Click="Maximize_Win" />
+                        <Button Name="Maximize_Btn" Style="{StaticResource Narrow_Btn}" Margin="0,0,5,0" Click="Maximize_Win" />
                         <Button Style="{StaticResource Close_Btn}" Margin="0,0,5,0" Click="Close_Win" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
@@ -59,7 +60,7 @@
                             <Border.Background>
                                 <ImageBrush ImageSource="Resources/img/login_info.png" />
                             </Border.Background>
-                            <StackPanel>
+                            <StackPanel Margin="0,5,0,0">
                                 <Label Content="{DynamicResource IndexWin_LoginInfo_Title_IP}" FontWeight="Bold" Foreground="White" Padding="10,8,0,0" />
                                 <Label Content="192.168.1.1" Foreground="#cccccc" Padding="20,3,0,5" />
                                 <Label Content="{DynamicResource IndexWin_LoginInfo_Title_User}" FontWeight="Bold" Foreground="White" Padding="10,5,0,0" />
@@ -205,13 +206,15 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <DockPanel Margin="10,5">
-                    <Button Style="{StaticResource ToolBtn}" DockPanel.Dock="Bottom" Content="{DynamicResource IndexWin_LeftMenuTitle_Arranged}" Click="Button_Click" />
                     <TabControl Style="{StaticResource TabControlStyle}">
                         <TabItem Header="{DynamicResource IndexWin_LeftMenuTitle_Signal}" Style="{StaticResource listTabItemStyle}">
                             <cts:SignalSource></cts:SignalSource>
                         </TabItem>
                         <TabItem Header="{DynamicResource IndexWin_LeftMenuTitle_Scene}" Style="{StaticResource listTabItemStyle}">
                             <cts:ScenarioMagmet></cts:ScenarioMagmet>
+                        </TabItem>
+                        <TabItem Header="{DynamicResource IndexWin_LeftMenuTitle_Arranged}" Style="{StaticResource listTabItemStyle}">
+                            <cts:PlanTrainingControl></cts:PlanTrainingControl>
                         </TabItem>
                     </TabControl>
                 </DockPanel>

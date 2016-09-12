@@ -8,6 +8,7 @@
             <Expander Style="{StaticResource ExpanderLeftStyle}">
                 <Expander.ContextMenu>
                     <ContextMenu>
+                        <MenuItem Header="{DynamicResource SignalSource_Menu_EditName}" Click="MenuItem_Click_10" />
                         <MenuItem Header="{DynamicResource SignalSource_Menu_CreateItem}" Click="MenuItem_Click" />
                         <MenuItem Header="{DynamicResource SignalSource_Menu_Import}" />
                         <MenuItem Header="{DynamicResource SignalSource_Menu_Export}" />
@@ -20,7 +21,7 @@
                     </StackPanel>
                 </Expander.Header>
                 <StackPanel>
-                    <RadioButton Content="测试信号" Style="{StaticResource ExpanderLeftBtnStyle}" PreviewMouseMove="RadioButton_PreviewMouseMove" PreviewMouseDown="RadioButton_PreviewMouseDown">
+                    <RadioButton Content="测试信号" Style="{StaticResource HDExpanderLeftBtnStyle}" PreviewMouseMove="RadioButton_PreviewMouseMove" PreviewMouseDown="RadioButton_PreviewMouseDown">
                         <RadioButton.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Header="{DynamicResource SignalSource_Menu_Edit}" Click="MenuItem_Click_1" />
@@ -33,6 +34,7 @@
             <Expander Style="{StaticResource ExpanderLeftStyle}">
                 <Expander.ContextMenu>
                     <ContextMenu>
+                        <MenuItem Header="{DynamicResource SignalSource_Menu_EditName}" Click="MenuItem_Click_10" />
                         <MenuItem Header="{DynamicResource SignalSource_Menu_CreateItem}" Click="MenuItem_Click_3" />
                         <MenuItem Header="{DynamicResource SignalSource_Menu_Import}" />
                         <MenuItem Header="{DynamicResource SignalSource_Menu_Export}" />
@@ -45,7 +47,7 @@
                     </StackPanel>
                 </Expander.Header>
                 <StackPanel>
-                    <RadioButton Content="测试信号" Style="{StaticResource ExpanderLeftBtnStyle}" PreviewMouseMove="RadioButton_PreviewMouseMove" PreviewMouseDown="RadioButton_PreviewMouseDown">
+                    <RadioButton Content="测试信号" Style="{StaticResource IPCExpanderLeftBtnStyle}" PreviewMouseMove="RadioButton_PreviewMouseMove" PreviewMouseDown="RadioButton_PreviewMouseDown">
                         <RadioButton.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Header="{DynamicResource SignalSource_Menu_Edit}" Click="MenuItem_Click_2" />
@@ -58,6 +60,7 @@
             <Expander Style="{StaticResource ExpanderLeftStyle}">
                 <Expander.ContextMenu>
                     <ContextMenu>
+                        <MenuItem Header="{DynamicResource SignalSource_Menu_EditName}" Click="MenuItem_Click_10" />
                         <MenuItem Header="{DynamicResource SignalSource_Menu_CreateItem}" Click="MenuItem_Click_4" />
                         <MenuItem Header="{DynamicResource SignalSource_Menu_Import}" />
                         <MenuItem Header="{DynamicResource SignalSource_Menu_Export}" />
@@ -70,7 +73,7 @@
                     </StackPanel>
                 </Expander.Header>
                 <StackPanel>
-                    <RadioButton Content="测试信号" Style="{StaticResource ExpanderLeftBtnStyle}" PreviewMouseMove="RadioButton_PreviewMouseMove" PreviewMouseDown="RadioButton_PreviewMouseDown">
+                    <RadioButton Content="测试信号" Style="{StaticResource CVBSExpanderLeftBtnStyle}" PreviewMouseMove="RadioButton_PreviewMouseMove" PreviewMouseDown="RadioButton_PreviewMouseDown">
                         <RadioButton.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Header="{DynamicResource SignalSource_Menu_Edit}" Click="MenuItem_Click_5" />
@@ -83,6 +86,7 @@
             <Expander Style="{StaticResource ExpanderLeftStyle}">
                 <Expander.ContextMenu>
                     <ContextMenu>
+                        <MenuItem Header="{DynamicResource SignalSource_Menu_EditName}" Click="MenuItem_Click_10" />
                         <MenuItem Header="{DynamicResource SignalSource_Menu_CreateItem}" Click="MenuItem_Click_6" />
                         <MenuItem Header="{DynamicResource SignalSource_Menu_Import}" />
                         <MenuItem Header="{DynamicResource SignalSource_Menu_Export}" />
@@ -95,7 +99,7 @@
                     </StackPanel>
                 </Expander.Header>
                 <StackPanel>
-                    <RadioButton Content="测试信号" Style="{StaticResource ExpanderLeftBtnStyle}" PreviewMouseMove="RadioButton_PreviewMouseMove" PreviewMouseDown="RadioButton_PreviewMouseDown">
+                    <RadioButton Content="测试信号" Style="{StaticResource MediaExpanderLeftBtnStyle}" PreviewMouseMove="RadioButton_PreviewMouseMove" PreviewMouseDown="RadioButton_PreviewMouseDown">
                         <RadioButton.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Header="{DynamicResource SignalSource_Menu_Edit}" Click="MenuItem_Click_7" />
@@ -108,6 +112,7 @@
             <Expander Style="{StaticResource ExpanderLeftStyle}">
                 <Expander.ContextMenu>
                     <ContextMenu>
+                        <MenuItem Header="{DynamicResource SignalSource_Menu_EditName}" Click="MenuItem_Click_10" />
                         <MenuItem Header="{DynamicResource SignalSource_Menu_CreateItem}" Click="MenuItem_Click_8" />
                         <MenuItem Header="{DynamicResource SignalSource_Menu_Import}" />
                         <MenuItem Header="{DynamicResource SignalSource_Menu_Export}" />
@@ -120,7 +125,7 @@
                     </StackPanel>
                 </Expander.Header>
                 <StackPanel>
-                    <RadioButton Content="测试信号" Style="{StaticResource ExpanderLeftBtnStyle}" PreviewMouseMove="RadioButton_PreviewMouseMove" PreviewMouseDown="RadioButton_PreviewMouseDown">
+                    <RadioButton Content="测试信号" Style="{StaticResource OtherExpanderLeftBtnStyle}" PreviewMouseMove="RadioButton_PreviewMouseMove" PreviewMouseDown="RadioButton_PreviewMouseDown">
                         <RadioButton.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Header="{DynamicResource SignalSource_Menu_Edit}" Click="MenuItem_Click_9" />

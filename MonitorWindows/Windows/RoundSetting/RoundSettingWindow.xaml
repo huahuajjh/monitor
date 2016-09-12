@@ -20,7 +20,7 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <StackPanel Margin="40,10">
+                    <StackPanel Margin="40,0" VerticalAlignment="Center">
                         <Label Content="{DynamicResource RoundSettingWin_Time_Title}" FontSize="12" />
                         <Grid Margin="0,0,0,20">
                             <Grid.ColumnDefinitions>
@@ -48,15 +48,15 @@
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <StackPanel>
-                                <Button HorizontalAlignment="Right" Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonUp_Title}" Margin="10,5" Padding="5" FontSize="12" />
-                                <Button HorizontalAlignment="Right" Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonDown_Title}" Margin="10,5" Padding="5" FontSize="12" />
+                                <Button HorizontalAlignment="Right" Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonUp_Title}" Margin="10,5" Padding="5" FontSize="12" Click="UpData_Click" />
+                                <Button HorizontalAlignment="Right" Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonDown_Title}" Margin="10,5" Padding="5" FontSize="12" Click="DownData_Click" />
                             </StackPanel>
                             <StackPanel Grid.Column="1">
-                                <Button HorizontalAlignment="Left" Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonSelect_Title}" Margin="10,5" Padding="5" FontSize="12" />
-                                <Button HorizontalAlignment="Left" Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonNotSelect_Title}" Margin="10,5" Padding="5" FontSize="12" />
+                                <Button HorizontalAlignment="Left" Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonSelect_Title}" Margin="10,5" Padding="5" FontSize="12" Click="SelectAll_Click" Foreground="SkyBlue" />
+                                <Button HorizontalAlignment="Left" Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonNotSelect_Title}" Margin="10,5" Padding="5" FontSize="12" Click="NotSelectAll_Click" />
                             </StackPanel>
                         </Grid>
-                        <Grid Margin="20">
+                        <Grid Margin="0,10,0,10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
                                 <ColumnDefinition />
@@ -64,9 +64,17 @@
                             <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonStart_Title}" HorizontalAlignment="Right" Margin="0,0,10,0" Padding="5" FontSize="12"  />
                             <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonEnd_Title}" HorizontalAlignment="Left" Grid.Column="1" Margin="10,0,0,0"  Padding="5" FontSize="12" />
                         </Grid>
+                        <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonSave_Title}" Width="60"></Button>
                     </StackPanel>
                     <Grid Grid.Column="1">
-                        <DataGrid ItemsSource="{Binding Data}" Style="{StaticResource DataTable}">
+                        <DataGrid x:Name="dataGridDom" ItemsSource="{Binding Data}" Style="{StaticResource DataTable}" SelectionMode="Extended">
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="{DynamicResource RoundSettingWin_Menu_Add}" Click="MenuItem_Click" />
+                                    <MenuItem Header="{DynamicResource RoundSettingWin_Menu_Edit}" Click="MenuItem_Click_1" />
+                                    <MenuItem Header="{DynamicResource RoundSettingWin_Menu_Del}" />
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
                             <DataGrid.ColumnHeaderStyle>
                                 <Style TargetType="DataGridColumnHeader">
                                     <Setter Property="Background" Value="#63A3C4" />
@@ -78,8 +86,8 @@
                                 </Style>
                             </DataGrid.ColumnHeaderStyle>
                             <DataGrid.Columns>
-                                <DataGridTextColumn Width="*" Header="序号" Binding="{Binding Index}" />
-                                <DataGridTextColumn Width="*" Header="预案ID" Binding="{Binding Number}" />
+                                <DataGridTextColumn Width="60" Header="序号" Binding="{Binding Index}" />
+                                <DataGridTextColumn Width="70" Header="预案ID" Binding="{Binding Number}" />
                                 <DataGridTextColumn Width="*" Header="预案名称" Binding="{Binding Name}" />
                             </DataGrid.Columns>
                         </DataGrid>

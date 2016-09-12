@@ -21,35 +21,33 @@
             </DockPanel>
 
             <Border Background="#68FFFFFF" Margin="2">
-                <StackPanel>
-                    <Grid Margin="10" MinHeight="250" MaxHeight="250">
-                        <DataGrid ItemsSource="{Binding Data}" Style="{StaticResource DataTable}">
-                            <DataGrid.ContextMenu>
-                                <ContextMenu>
-                                    <MenuItem Header="{DynamicResource eos_btn_add}" Click="MenuItem_Click" />
-                                    <Separator />
-                                    <MenuItem Header="{DynamicResource eos_btn_edit}" Click="MenuItem_Click_1" />
-                                    <MenuItem Header="{DynamicResource eos_btn_del}" />
-                                </ContextMenu>
-                            </DataGrid.ContextMenu>
-                            <DataGrid.ColumnHeaderStyle>
-                                <Style TargetType="DataGridColumnHeader">
-                                    <Setter Property="Background" Value="#63A3C4" />
-                                    <Setter Property="Padding" Value="10"/>
-                                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
-                                    <Setter Property="BorderBrush" Value="#454545"/>
-                                    <Setter Property="Foreground" Value="White"/>
-                                    <Setter Property="FontSize" Value="12" />
-                                </Style>
-                            </DataGrid.ColumnHeaderStyle>
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Width="*" Header="{DynamicResource eos_tb_name}" Binding="{Binding Number}" />
-                                <DataGridTextColumn Width="*" Header="{DynamicResource eos_tb_path}" Binding="{Binding Name}" />
-                                <DataGridTextColumn Width="*" Header="{DynamicResource eos_tb_cli}" Binding="{Binding Name}" />
-                            </DataGrid.Columns>
-                        </DataGrid>
-                    </Grid>
-                </StackPanel>
+                <Grid>
+                    <DataGrid ItemsSource="{Binding Data}" Style="{StaticResource DataTable}">
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="{DynamicResource eos_btn_add}" Click="MenuItem_Click" />
+                                <Separator />
+                                <MenuItem Header="{DynamicResource eos_btn_edit}" Click="MenuItem_Click_1" />
+                                <MenuItem Header="{DynamicResource eos_btn_del}" />
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#63A3C4" />
+                                <Setter Property="Padding" Value="10"/>
+                                <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                                <Setter Property="BorderBrush" Value="#454545"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontSize" Value="12" />
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="*" Header="{DynamicResource eos_tb_name}" Binding="{Binding Number}" />
+                            <DataGridTextColumn Width="*" Header="{DynamicResource eos_tb_path}" Binding="{Binding Name}" />
+                            <DataGridTextColumn Width="*" Header="{DynamicResource eos_tb_cli}" Binding="{Binding Name}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
             </Border>
             
         </DockPanel>

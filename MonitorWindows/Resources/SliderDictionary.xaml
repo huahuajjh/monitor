@@ -58,4 +58,255 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="Slider_CustomStyle_left" TargetType="Slider">
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Orientation" Value="Vertical" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Slider">
+                    <DockPanel Width="60" Margin="0,0,10,0">
+                        <Image DockPanel.Dock="Left" Source="img/audio_control/audio_right_graduation.png" Height="185" VerticalAlignment="Center" />
+                        <Border Padding="5,6" Width="24" Height="192">
+                            <Border.Background>
+                                <ImageBrush ImageSource="img/audio_control/audio_regulate.png" />
+                            </Border.Background>
+                            <Grid>
+                                <Grid.Effect>
+                                    <DropShadowEffect BlurRadius="10" ShadowDepth="1" />
+                                </Grid.Effect>
+                                <Track Grid.Column="1" Name="PART_Track" Effect="{x:Null}">
+                                    <Track.DecreaseRepeatButton>
+                                        <RepeatButton Command="Slider.DecreaseLarge" Focusable="False">
+                                            <RepeatButton.Template>
+                                                <ControlTemplate TargetType="RepeatButton">
+                                                    <Border Background="Transparent" />
+                                                </ControlTemplate>
+                                            </RepeatButton.Template>
+                                        </RepeatButton>
+                                    </Track.DecreaseRepeatButton>
+                                    <Track.IncreaseRepeatButton>
+                                        <RepeatButton Command="Slider.IncreaseLarge" Focusable="False">
+                                            <RepeatButton.Template>
+                                                <ControlTemplate TargetType="RepeatButton">
+                                                    <Border Background="#99000000" />
+                                                </ControlTemplate>
+                                            </RepeatButton.Template>
+                                        </RepeatButton>
+                                    </Track.IncreaseRepeatButton>
+                                    <Track.Thumb>
+                                        <Thumb Focusable="False">
+                                            <Thumb.Template>
+                                                <ControlTemplate TargetType="Thumb">
+                                                    <Canvas Height="1">
+                                                        <Image Source="img/audio_control/audio_regulate_right_btn.png" Canvas.Top="-3" Canvas.Left="-3" Width="30" />
+                                                    </Canvas>
+                                                </ControlTemplate>
+                                            </Thumb.Template>
+                                        </Thumb>
+                                    </Track.Thumb>
+                                </Track>
+                            </Grid>
+                        </Border>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Slider_CustomStyle_right" TargetType="Slider">
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Orientation" Value="Vertical" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Slider">
+                    <DockPanel>
+                        <Image DockPanel.Dock="Right" Source="img/audio_control/audio_left_graduation.png" Height="185" VerticalAlignment="Center" />
+                        <Border Padding="5,6" Width="24" Height="192">
+                            <Border.Background>
+                                <ImageBrush ImageSource="img/audio_control/audio_regulate.png" />
+                            </Border.Background>
+                            <Grid>
+                                <Grid.Effect>
+                                    <DropShadowEffect BlurRadius="10" ShadowDepth="1" />
+                                </Grid.Effect>
+                                <Track Grid.Column="1" Name="PART_Track" Effect="{x:Null}">
+                                    <Track.DecreaseRepeatButton>
+                                        <RepeatButton Command="Slider.DecreaseLarge" Focusable="False">
+                                            <RepeatButton.Template>
+                                                <ControlTemplate TargetType="RepeatButton">
+                                                    <Border Background="Transparent" />
+                                                </ControlTemplate>
+                                            </RepeatButton.Template>
+                                        </RepeatButton>
+                                    </Track.DecreaseRepeatButton>
+                                    <Track.IncreaseRepeatButton>
+                                        <RepeatButton Command="Slider.IncreaseLarge" Focusable="False">
+                                            <RepeatButton.Template>
+                                                <ControlTemplate TargetType="RepeatButton">
+                                                    <Border Background="#99000000" />
+                                                </ControlTemplate>
+                                            </RepeatButton.Template>
+                                        </RepeatButton>
+                                    </Track.IncreaseRepeatButton>
+                                    <Track.Thumb>
+                                        <Thumb Focusable="False">
+                                            <Thumb.Template>
+                                                <ControlTemplate TargetType="Thumb">
+                                                    <Canvas Height="1">
+                                                        <Image Source="img/audio_control/audio_regulate_left_btn.png" Canvas.Top="-3" Canvas.Right="-3" Width="30" />
+                                                    </Canvas>
+                                                </ControlTemplate>
+                                            </Thumb.Template>
+                                        </Thumb>
+                                    </Track.Thumb>
+                                </Track>
+                            </Grid>
+                        </Border>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SliderBule" TargetType="Slider">
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Orientation" Value="Horizontal" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Slider">
+                    <Border Background="#202427" Height="16" Width="120">
+                        <Border Padding="5,4">
+                            <Border.Background>
+                                <ImageBrush ImageSource="img/audio_control/slider_bule.png" />
+                            </Border.Background>
+                            <Grid>
+                                <Grid.Effect>
+                                    <DropShadowEffect BlurRadius="10" ShadowDepth="1" />
+                                </Grid.Effect>
+                                <Track Grid.Column="1" Name="PART_Track" Effect="{x:Null}">
+                                    <Track.DecreaseRepeatButton>
+                                        <RepeatButton Command="Slider.DecreaseLarge" Focusable="False">
+                                            <RepeatButton.Template>
+                                                <ControlTemplate TargetType="RepeatButton">
+                                                    <DockPanel Background="Transparent">
+                                                        <Border Width="1" DockPanel.Dock="Right">
+                                                            <Border.Background>
+                                                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                                    <GradientStop Color="#00202427"/>
+                                                                    <GradientStop Color="#7F202427"/>
+                                                                </LinearGradientBrush>
+                                                            </Border.Background>
+                                                        </Border>
+                                                        <Border />
+                                                    </DockPanel>
+                                                </ControlTemplate>
+                                            </RepeatButton.Template>
+                                        </RepeatButton>
+                                    </Track.DecreaseRepeatButton>
+                                    <Track.IncreaseRepeatButton>
+                                        <RepeatButton Command="Slider.IncreaseLarge" Focusable="False">
+                                            <RepeatButton.Template>
+                                                <ControlTemplate TargetType="RepeatButton">
+                                                    <Border Background="#B2202427" />
+                                                </ControlTemplate>
+                                            </RepeatButton.Template>
+                                        </RepeatButton>
+                                    </Track.IncreaseRepeatButton>
+                                    <Track.Thumb>
+                                        <Thumb Focusable="False">
+                                            <Thumb.Template>
+                                                <ControlTemplate TargetType="Thumb">
+                                                    <Border />
+                                                </ControlTemplate>
+                                            </Thumb.Template>
+                                        </Thumb>
+                                    </Track.Thumb>
+                                </Track>
+                            </Grid>
+                        </Border>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <LinearGradientBrush x:Key="SliderBackground"  StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Offset="0" Color="#59ccfc"/>
+        <GradientStop Offset="0.5" Color="#00b3fe"/>
+        <GradientStop Offset="1" Color="#59ccfc"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="SliderThumb"  StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Offset="0" Color="#FFD9D3E8"/>
+        <!--<GradientStop Offset="1" Color="#dfdfdf"/>-->
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="SliderText"  StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Offset="0" Color="#7cce45"/>
+        <GradientStop Offset="1" Color="#4ea017"/>
+    </LinearGradientBrush>
+
+    <!--Slider模板-->
+    <Style x:Key="Slider_RepeatButton" TargetType="RepeatButton">
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Border Background="{StaticResource SliderBackground}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Slider_RepeatButton1" TargetType="RepeatButton">
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Border Background="Transparent" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Slider_CustomStyle" TargetType="Slider">
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Slider">
+                    <Grid>
+                        <Border Grid.Column="1" Background="#595959">
+                            <Track Grid.Column="1" Name="PART_Track">
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton Style="{StaticResource Slider_RepeatButton}"  
+                                Command="Slider.DecreaseLarge"/>
+                                </Track.DecreaseRepeatButton>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton Style="{StaticResource Slider_RepeatButton1}"  
+                                Command="Slider.IncreaseLarge"/>
+                                </Track.IncreaseRepeatButton>
+                                <Track.Thumb>
+                                    <Thumb Focusable="False">
+                                        <Thumb.Template>
+                                            <ControlTemplate TargetType="Thumb">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Border Background="{StaticResource SliderBackground}"/>
+                                                    <Border Grid.ColumnSpan="2" CornerRadius="4"  Background="{StaticResource SliderThumb}" Width="15">
+                                                        <!--<TextBlock Text="||" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+                                                    </Border>
+                                                </Grid>
+                                            </ControlTemplate>
+                                        </Thumb.Template>
+                                    </Thumb>
+                                </Track.Thumb>
+                            </Track>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

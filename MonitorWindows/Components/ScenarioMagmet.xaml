@@ -26,12 +26,14 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    <StackPanel Background="Transparent" Name="dataListDom">
-        <StackPanel.ContextMenu>
-            <ContextMenu>
-                <MenuItem Header="{DynamicResource ScenarioMagmet_Menu_Save}" Click="SaveBtn_Click"/>
-                <MenuItem Header="{DynamicResource ScenarioMagmet_Menu_Info}" Click="MenuItem_Click" />
-            </ContextMenu>
-        </StackPanel.ContextMenu>
-    </StackPanel>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Background="Transparent" Name="dataListDom">
+            <StackPanel.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="{DynamicResource ScenarioMagmet_Menu_Save}" Click="SaveBtn_Click"/>
+                    <MenuItem Header="{DynamicResource ScenarioMagmet_Menu_Info}" Click="MenuItem_Click" />
+                </ContextMenu>
+            </StackPanel.ContextMenu>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>

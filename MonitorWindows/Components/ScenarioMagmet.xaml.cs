@@ -104,9 +104,15 @@ namespace MonitorWindows.Components
             }).ShowDialog();
         }
 
+
+        Windows.ScenarioChannel.ScenarioChannelWin scenarioChannelWin;
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            new Windows.ScenarioChannel.ScenarioChannelWin().ShowDialog();
+            if (scenarioChannelWin == null || !scenarioChannelWin.Activate())
+            {
+                scenarioChannelWin = new Windows.ScenarioChannel.ScenarioChannelWin();
+                scenarioChannelWin.Show();
+            }
         }
     }
 }

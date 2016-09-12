@@ -48,5 +48,25 @@ namespace MonitorWindows.Windows.CaptionSetting
         {
             this.DragMove();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            new Windows.AddCaptionSetting.AddCaptionSettingWin().ShowDialog();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            new Windows.EditCaptionSetting.EditCaptionSettingWin().ShowDialog();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
+            ofd.Filter = "图片(*.jpg)|图片(*.jpeg)|图片(*.png)|*.txt|所有文件(*.*)|*.*";
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                imgVal.Text = ofd.FileName;
+            }
+        }
     }
 }

@@ -7,6 +7,7 @@
         Title="{DynamicResource MainWin_Title}"
         WindowStyle="None"
         AllowsTransparency="True"
+        Icon="AppIcon.ico"
         WindowStartupLocation="CenterScreen"
         Width="{Binding Source={x:Static SystemParameters.WorkArea},Path=Width}"
         Height="{Binding Source={x:Static SystemParameters.WorkArea},Path=Height}">

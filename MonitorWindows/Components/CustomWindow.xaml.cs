@@ -21,41 +21,38 @@ namespace MonitorWindows.Components
     /// </summary>
     public partial class CustomWindow : UserControl
     {
-        public CustomWindows windows;
 
-        private Point? point = null;
+        #region 鼠标移动窗口状态变量
+        private Point? point = null; 
+        #endregion
 
+        #region 双击状态变量
+        private DispatcherTimer timer;
+        private int i = 0;
+        private bool isDBClick = false;
+        #endregion
+
+        #region 窗口标题
         private string _Title;
-        public string Title
-        {
-            get
-            {
-                return this._Title;
-            }
-            set
-            {
-                this._Title = value;
-                this.TitleVaule.Content = value;
-            }
-        }
+        /// <summary>
+        /// 窗口标题
+        /// </summary>
+        public string Title { get { return this._Title; } set { this._Title = value; this.TitleVaule.Content = value; } } 
+        #endregion
 
+        #region 窗口顶部位置
         private int zIndex = 5;
-        public int ZIndex
-        {
-            get { return zIndex; }
-            set
-            {
-                if (value > 10) zIndex = 10;
-                else if (value < 0) zIndex = 0;
-                else zIndex = value;
-                Canvas.SetZIndex(this, zIndex);
-            }
-        }
+        /// <summary>
+        /// 窗口顶部位置
+        /// </summary>
+        public int ZIndex { get { return zIndex; } set { if (value > 10) zIndex = 10; else if (value < 0) zIndex = 0; else zIndex = value; Canvas.SetZIndex(this, zIndex); } } 
+        #endregion
 
+        #region 窗口状态
         private CustomWindowState winState = CustomWindowState.NotFullScreen;
-
-        
-
+        /// <summary>
+        /// 窗口状态
+        /// </summary>
         public CustomWindowState WinState
         {
             get { return winState; }
@@ -65,20 +62,22 @@ namespace MonitorWindows.Components
                 switch (value)
                 {
                     case CustomWindowState.FullScreen:
-                        this.FullScreen();
-                        Canvas.SetZIndex(this, 20);
                         maxMinWinBtn.Style = this.FindResource("Narrow_Btn") as Style;
                         break;
                     case CustomWindowState.NotFullScreen:
-                        this.NotFullScreen();
-                        Canvas.SetZIndex(this, ZIndex);
                         maxMinWinBtn.Style = this.FindResource("Maximize_Btn") as Style;
                         break;
                 }
+                this.InitProportion();
             }
-        }
+        } 
+        #endregion
 
+        #region 窗口类型
         private CustomWindowStateType winType;
+        /// <summary>
+        /// 窗口类型
+        /// </summary>
         public CustomWindowStateType WinType
         {
             get { return winType; }
@@ -107,35 +106,54 @@ namespace MonitorWindows.Components
                 }
                 this.bgDom.SetBinding(DockPanel.BackgroundProperty, binding);
             }
-        }
+        } 
+        #endregion
 
+        #region 窗口位置
         private double xProportion;
-        private double xProportionTemp;
+        public double XProportion
+        {
+            get { return xProportion; }
+            set { xProportion = value; }
+        }
+        private double xProportionDBClickTemp;
         private double yProportion;
-        private double yProportionTemp;
+        public double YProportion
+        {
+            get { return yProportion; }
+            set { yProportion = value; }
+        }
+        private double yProportionDBClickTemp;
         private double widthProportion;
-        private double widthProportionTemp;
+        public double WidthProportion
+        {
+            get { return widthProportion; }
+            set { widthProportion = value; }
+        }
+        private double widthProportionDBClickTemp;
         private double heightProportion;
-        private double heightProportionTemp;
+        public double HeightProportion
+        {
+            get { return heightProportion; }
+            set { heightProportion = value; }
+        }
+        private double heightProportionDBClickTemp; 
+        #endregion
 
+        #region 构造函数
+        public CustomWindows windows;
         public CustomWindow(CustomWindows windows, double width, double height, Point point, string title, CustomWindowStateType winType)
         {
             this.windows = windows;
             InitializeComponent();
             this.Title = title;
-            this.SizeChanged += CustomWindow_SizeChanged;
             this.InitProportion(width, height, point);
             this.WinType = winType;
-        }
+        } 
+        #endregion
 
-        void CustomWindow_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            this.widthProportion = this.Width / this.windows.WinPanel.ActualWidth;
-            this.heightProportion = this.Height / this.windows.WinPanel.ActualHeight;
-            this.xProportion = Canvas.GetLeft(this) / this.windows.WinPanel.ActualWidth;
-            this.yProportion = Canvas.GetTop(this) / this.windows.WinPanel.ActualHeight;
-        }
-
+        #region 触发事件
+        // 关闭窗口方法
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.windows.ReleaseWin(this);
@@ -150,94 +168,19 @@ namespace MonitorWindows.Components
 
         private void Win_MouseMove(object sender, MouseEventArgs e)
         {
-            if (point == null || WinState == CustomWindowState.FullScreen) return;
-            if (e.LeftButton == MouseButtonState.Released) return;
-            windows.ActionWin = this;
-            Point winPoint = e.GetPosition(windows.WinPanel);
-            Point inPoint = new Point();
-            inPoint.X = winPoint.X - point.Value.X;
-            inPoint.Y = winPoint.Y - point.Value.Y;
-            //Canvas.SetTop(this, inPoint.Y);
-            //Canvas.SetLeft(this, inPoint.X);
-            windows.CalculateWinPoint(this, inPoint);
+            if (e.LeftButton == MouseButtonState.Pressed && this.point != null && WinState == CustomWindowState.NotFullScreen)
+            {
+                isDBClick = false;
+                Point thisPoint = e.GetPosition(this);
+                if (this.point.Value.X == thisPoint.X && this.point.Value.Y == thisPoint.Y) return;
+                this.windows.MoveWin(this, point.Value);
+                point = null;
+            }
         }
 
         private void Win_MouseUp(object sender, MouseButtonEventArgs e)
         {
             point = null;
-        }
-
-        public void InitProportion(Point point)
-        {
-            this.xProportion = point.X / this.windows.WinPanel.ActualWidth;
-            this.yProportion = point.Y / this.windows.WinPanel.ActualHeight;
-            this.InitProportion();
-        }
-
-        public void InitProportion(double width, double height, Point point)
-        {
-            this.xProportion = point.X / this.windows.WinPanel.ActualWidth;
-            this.yProportion = point.Y / this.windows.WinPanel.ActualHeight;
-            this.widthProportion = width / this.windows.WinPanel.ActualWidth;
-            this.heightProportion = height / this.windows.WinPanel.ActualHeight;
-            this.InitProportion();
-        }
-
-        public void InitProportion()
-        {
-            double x = this.xProportion * this.windows.WinPanel.ActualWidth;
-            double y = this.yProportion * this.windows.WinPanel.ActualHeight;
-            double width = this.widthProportion * this.windows.WinPanel.ActualWidth;
-            double height = this.heightProportion * this.windows.WinPanel.ActualHeight;
-            Canvas.SetLeft(this, x);
-            Canvas.SetTop(this, y);
-            this.Width = width;
-            this.Height = height;
-        }
-
-        public void FullScreen()
-        {
-            winState = CustomWindowState.FullScreen;
-            this.xProportionTemp = this.xProportion;
-            this.yProportionTemp = this.yProportion;
-            this.widthProportionTemp = this.widthProportion;
-            this.heightProportionTemp = this.heightProportion;
-            this.InitProportion(windows.WinPanel.ActualWidth, windows.WinPanel.ActualHeight, new Point(0, 0));
-        }
-
-        public void SingleScreen()
-        {
-            Point topLeftPoint = new Point(Canvas.GetLeft(this), Canvas.GetTop(this));
-            Point topRightPoint = new Point(topLeftPoint.X + this.ActualWidth, topLeftPoint.Y);
-            Point bottomLeftPoint = new Point(topLeftPoint.X, topLeftPoint.Y + this.ActualHeight);
-            Point bottomRightPoint = new Point(topLeftPoint.X + this.ActualWidth, topLeftPoint.Y + this.ActualHeight);
-            Point? inTopLeftPoint = null;
-            Point? inTopRightPoint = null;
-            Point? inBottomLeftPoint = null;
-            Point? inBottomRightPoint = null;
-            foreach (var item in this.windows.Squares)
-            {
-                if (inTopLeftPoint == null) inTopLeftPoint = item.GetMaximum(Direction.TopLeft, topLeftPoint);
-                if (inTopRightPoint == null) inTopRightPoint = item.GetMaximum(Direction.TopRight, topRightPoint);
-                if (inBottomLeftPoint == null) inBottomLeftPoint = item.GetMaximum(Direction.BottomLeft, bottomLeftPoint);
-                if (inBottomRightPoint == null) inBottomRightPoint = item.GetMaximum(Direction.BottomRight, bottomRightPoint);
-            }
-            if (inTopLeftPoint == null || inTopRightPoint == null || inBottomLeftPoint == null || inBottomRightPoint == null) return;
-            double width = inTopRightPoint.Value.X - inTopLeftPoint.Value.X;
-            if (width > this.windows.WinPanel.ActualWidth) width = this.windows.WinPanel.ActualWidth;
-            double height = inBottomLeftPoint.Value.Y - inTopLeftPoint.Value.Y;
-            if (height > this.windows.WinPanel.ActualHeight) height = this.windows.WinPanel.ActualHeight;
-            this.InitProportion(width - 2, height - 2, new Point(inTopLeftPoint.Value.X + 1, inTopLeftPoint.Value.Y + 1));
-        }
-
-        public void NotFullScreen()
-        {
-            winState = CustomWindowState.NotFullScreen;
-            this.xProportion = this.xProportionTemp;
-            this.yProportion = this.yProportionTemp;
-            this.widthProportion = this.widthProportionTemp;
-            this.heightProportion = this.heightProportionTemp;
-            this.InitProportion();
         }
 
         private void Maximize_Click(object sender, RoutedEventArgs e)
@@ -259,13 +202,27 @@ namespace MonitorWindows.Components
             {
                 timer.IsEnabled = false;
                 i = 0;
-                this.SingleScreen();
+                if (this.WinState == CustomWindowState.FullScreen) return;
+                if (!isDBClick)
+                {
+                    isDBClick = true;
+                    this.widthProportionDBClickTemp = this.widthProportion;
+                    this.heightProportionDBClickTemp = this.heightProportion;
+                    this.xProportionDBClickTemp = this.xProportion;
+                    this.yProportionDBClickTemp = this.yProportion;
+                    this.SingleScreen();
+                }
+                else
+                {
+                    isDBClick = false;
+                    this.widthProportion = this.widthProportionDBClickTemp;
+                    this.heightProportion = this.heightProportionDBClickTemp;
+                    this.xProportion = this.xProportionDBClickTemp;
+                    this.yProportion = this.yProportionDBClickTemp;
+                    this.InitProportion();
+                }
             }
         }
-
-        private DispatcherTimer timer;
-        private int i = 0;
-
         private void Win_DblClickDown(object sender, MouseButtonEventArgs e)
         {
             i += 1;
@@ -275,20 +232,164 @@ namespace MonitorWindows.Components
             timer.Tick += (s, e1) => { timer.IsEnabled = false; i = 0; };
             timer.IsEnabled = true;
         }
+
+        private void Four_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.windows.Squares.Count <= 0) return;
+            Square square = this.windows.Squares[0];
+            double width = square.ActualWidth / 2;
+            double height = square.ActualHeight / 2;
+            this.InitProportion(width, height);
+        }
+
+        private void Nine_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.windows.Squares.Count <= 0) return;
+            Square square = this.windows.Squares[0];
+            double width = square.ActualWidth / 3;
+            double height = square.ActualHeight / 3;
+            this.InitProportion(width, height);
+        }
+
+        private void Sixteen_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.windows.Squares.Count <= 0) return;
+            Square square = this.windows.Squares[0];
+            double width = square.ActualWidth / 4;
+            double height = square.ActualHeight / 4;
+            this.InitProportion(width, height);
+        }
+
+        private void Max_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.windows.Squares.Count <= 0) return;
+            Square square = this.windows.Squares[0];
+            double width = square.ActualWidth;
+            double height = square.ActualHeight;
+            this.InitProportion(width, height);
+        }
+        #endregion
+
+        #region 设置窗口位置尺寸/刷新窗口位置尺寸
+        public void InitProportion(Point point)
+        {
+            this.xProportion = point.X / this.windows.WinPanelWidth;
+            this.yProportion = point.Y / this.windows.WinPanelHeight;
+            this.InitProportion();
+        }
+
+        public void InitProportion(double width, double height)
+        {
+            this.widthProportion = width / this.windows.WinPanelWidth;
+            this.heightProportion = height / this.windows.WinPanelHeight;
+            this.InitProportion();
+        }
+
+        public void InitProportion(double width, double height, Point point)
+        {
+            this.xProportion = point.X / this.windows.WinPanelWidth;
+            this.yProportion = point.Y / this.windows.WinPanelHeight;
+            this.widthProportion = width / this.windows.WinPanelWidth;
+            this.heightProportion = height / this.windows.WinPanelHeight;
+            this.InitProportion();
+        }
+
+        public void InitProportion()
+        {
+            if (winState == CustomWindowState.FullScreen)
+            {
+                Canvas.SetLeft(this, windows.WinPanelStartPoint.X);
+                Canvas.SetTop(this, windows.WinPanelStartPoint.Y);
+                this.Width = windows.WinPanelWidth;
+                this.Height = windows.WinPanelHeight;
+                Canvas.SetZIndex(this, 100);
+            }
+            else if (winState == CustomWindowState.NotFullScreen)
+            {
+                double x = this.xProportion * this.windows.WinPanelWidth;
+                double y = this.yProportion * this.windows.WinPanelHeight;
+                double width = this.widthProportion * this.windows.WinPanelWidth;
+                double height = this.heightProportion * this.windows.WinPanelHeight;
+                Canvas.SetLeft(this, x);
+                Canvas.SetTop(this, y);
+                this.Width = width;
+                this.Height = height;
+                Canvas.SetZIndex(this, this.zIndex);
+            }
+        } 
+        #endregion
+
+        #region 单屏
+        /// <summary>
+        /// 单屏
+        /// </summary>
+        public void SingleScreen()
+        {
+            if (this.WinState == CustomWindowState.FullScreen) return;
+            Point topLeftPoint = new Point(Canvas.GetLeft(this) + windows.WinPanel.Margin.Left + 1, Canvas.GetTop(this) + windows.WinPanel.Margin.Top + 1);
+            Point topRightPoint = new Point(topLeftPoint.X + this.ActualWidth - 2, topLeftPoint.Y);
+            Point bottomLeftPoint = new Point(topLeftPoint.X, topLeftPoint.Y + this.ActualHeight - 2);
+            Point bottomRightPoint = new Point(topLeftPoint.X + this.ActualWidth - 2, topLeftPoint.Y + this.ActualHeight - 2);
+            Point? inTopLeftPoint = null;
+            Point? inTopRightPoint = null;
+            Point? inBottomLeftPoint = null;
+            Point? inBottomRightPoint = null;
+            foreach (var item in this.windows.Squares)
+            {
+                if (inTopLeftPoint == null) inTopLeftPoint = item.GetMaximum(Direction.TopLeft, topLeftPoint);
+                if (inTopRightPoint == null) inTopRightPoint = item.GetMaximum(Direction.TopRight, topRightPoint);
+                if (inBottomLeftPoint == null) inBottomLeftPoint = item.GetMaximum(Direction.BottomLeft, bottomLeftPoint);
+                if (inBottomRightPoint == null) inBottomRightPoint = item.GetMaximum(Direction.BottomRight, bottomRightPoint);
+            }
+            if (inTopLeftPoint == null || inTopRightPoint == null || inBottomLeftPoint == null || inBottomRightPoint == null) return;
+            double width = inTopRightPoint.Value.X - inTopLeftPoint.Value.X;
+            if (width > this.windows.WinPanelWidth) width = this.windows.WinPanelWidth;
+            double height = inBottomLeftPoint.Value.Y - inTopLeftPoint.Value.Y;
+            if (height > this.windows.WinPanelHeight) height = this.windows.WinPanelHeight;
+            this.InitProportion(width, height, new Point(inTopLeftPoint.Value.X - windows.WinPanel.Margin.Left, inTopLeftPoint.Value.Y - windows.WinPanel.Margin.Top));
+        } 
+        #endregion
     }
 
+    /// <summary>
+    /// 窗口状态
+    /// </summary>
     public enum CustomWindowState
     {
+        /// <summary>
+        /// 最大化
+        /// </summary>
         FullScreen,
+        /// <summary>
+        /// 还原
+        /// </summary>
         NotFullScreen
     }
 
+    /// <summary>
+    /// 窗口类型
+    /// </summary>
     public enum CustomWindowStateType
     {
+        /// <summary>
+        /// 高清数据源
+        /// </summary>
         HDSource,
+        /// <summary>
+        /// IPC信号源
+        /// </summary>
         IPCSource,
+        /// <summary>
+        /// IP桌面信号源
+        /// </summary>
         IPDesktopSource,
+        /// <summary>
+        /// IP流媒体信号源
+        /// </summary>
         IPStreamSource,
+        /// <summary>
+        /// 其他信号源
+        /// </summary>
         OtherSource
     }
 

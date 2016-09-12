@@ -17,6 +17,8 @@ namespace MonitorWindows
         private static readonly DependencyProperty cellTextColor = DependencyProperty.Register("CellTextColor", typeof(SolidColorBrush), typeof(ShareResources),
             new PropertyMetadata(new SolidColorBrush(new System.Windows.Media.Color() { R = 135, G = 206, B = 235, A = 255 })));
 
+        private static readonly DependencyProperty cellTextState = DependencyProperty.Register("CellTextState", typeof(int), typeof(ShareResources), new PropertyMetadata(0));
+
         private static readonly DependencyProperty cellLinkColor = DependencyProperty.Register("CellLinkColor", typeof(SolidColorBrush), typeof(ShareResources),
             new PropertyMetadata(new SolidColorBrush(new System.Windows.Media.Color() { R = 135, G = 206, B = 235, A = 255 })));
 
@@ -54,6 +56,12 @@ namespace MonitorWindows
         {
             get { return (SolidColorBrush)GetValue(cellTextColor); }
             set { SetValue(cellTextColor, value); }
+        }
+
+        public int CellTextState
+        {
+            get { return (int)GetValue(cellTextState); }
+            set { SetValue(cellTextState, value); }
         }
 
         public SolidColorBrush CellLinkColor

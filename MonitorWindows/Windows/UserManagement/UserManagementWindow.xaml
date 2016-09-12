@@ -3,10 +3,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mytb="clr-namespace:MonitorWindows.Windows.UserManagement"
     Height="438" Width="748"
+    MinHeight="438" MinWidth="748"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
-    AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
-    <Border Margin="10">
+    AllowsTransparency="True" ResizeMode="CanResizeWithGrip" Background="Transparent">
+    <Border Margin="3">
         <Border.Background>
             <ImageBrush ImageSource="../../Resources/img/bg_img_setting/bg.png"/>
         </Border.Background>
@@ -19,10 +20,14 @@
                 <Button Style="{StaticResource share_close}" DockPanel.Dock="Right" HorizontalAlignment="Right" Click="CloseWindow" />
             </DockPanel>
             <Border Background="#68FFFFFF" Margin="2" Padding="10">
-                <StackPanel>
-                    <StackPanel Orientation="Vertical">
-                        <Label Content="{DynamicResource um_user_title}"/>
-                        <Grid Margin="10,5" MinHeight="140" MaxHeight="140">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <DockPanel>
+                        <Label Content="{DynamicResource um_user_title}" DockPanel.Dock="Top" />
+                        <Grid Margin="5,5">
                             <DataGrid ItemsSource="{Binding Data}" Style="{StaticResource DataTable}" IsReadOnly="False">
                                 <DataGrid.ContextMenu>
                                     <ContextMenu>
@@ -43,27 +48,29 @@
                                     </Style>
                                 </DataGrid.ColumnHeaderStyle>
                                 <DataGrid.Columns>
-                                    <DataGridCheckBoxColumn IsReadOnly="False" Width="*" Header="{DynamicResource um_tb_pick}" Binding="{Binding Index}" />
-                                    <DataGridTextColumn IsReadOnly="True" Width="*" Header="{DynamicResource um_tb_no}" Binding="{Binding Number}" />
+                                    <DataGridCheckBoxColumn IsReadOnly="False" Width="50" Header="{DynamicResource um_tb_pick}" Binding="{Binding Index}" />
+                                    <DataGridTextColumn IsReadOnly="True" Width="60" Header="{DynamicResource um_tb_no}" Binding="{Binding Number}" />
                                     <DataGridTextColumn IsReadOnly="True" Width="*" Header="{DynamicResource um_tb_uname}" Binding="{Binding Name}" />
                                 </DataGrid.Columns>
                             </DataGrid>
                         </Grid>
-                    </StackPanel>
-                    <StackPanel Orientation="Vertical">
-                        <Label Content="{DynamicResource um_lb_win_opr_permission}"/>
-                        <DockPanel Margin="10,5">
+                    </DockPanel>
+                    <DockPanel Grid.Row="1">
+                        <Label Content="{DynamicResource um_lb_win_opr_permission}" DockPanel.Dock="Top" />
+                        <DockPanel Margin="5,5">
                             <Border DockPanel.Dock="Right" Margin="10,0" Padding="10,0">
                                 <StackPanel VerticalAlignment="Center">
-                                    <CheckBox Margin="0,3" Content="{DynamicResource um_checkBox_one}" />
-                                    <CheckBox Margin="0,3" Content="{DynamicResource um_checkBox_two}" />
-                                    <CheckBox Margin="0,3" Content="{DynamicResource um_checkBox_three}" />
-                                    <CheckBox Margin="0,3" Content="{DynamicResource um_checkBox_four}" />
-                                    <CheckBox Margin="0,3" Content="{DynamicResource um_checkBox_five}" />
-                                    <CheckBox Margin="0,3" Content="{DynamicResource um_checkBox_six}" />
+                                    <CheckBox Name="userManageCheckDom" Margin="0,3" Content="{DynamicResource um_checkBox_one}" />
+                                    <CheckBox Name="yuanChengCheckDom" Margin="0,3" Content="{DynamicResource um_checkBox_two}" />
+                                    <CheckBox Name="yuanChengDuanKouCheckDom" Margin="0,3" Content="{DynamicResource um_checkBox_three}" />
+                                    <CheckBox Name="yuanCongQiCheckDom" Margin="0,3" Content="{DynamicResource um_checkBox_four}" />
+                                    <CheckBox Name="yuanRiZhiCheckDom" Margin="0,3" Content="{DynamicResource um_checkBox_five}" />
+                                    <CheckBox Name="yuanPeiZhiCheckDom" Margin="0,3" Content="{DynamicResource um_checkBox_six}" />
+                                    <Border BorderBrush="#ccc" BorderThickness="0,0,0,1"></Border>
+                                    <CheckBox Name="checkAllDom" Margin="0,3" Content="{DynamicResource um_checkBox_seven}" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
                                 </StackPanel>
                             </Border>
-                            <Grid MinHeight="140" MaxHeight="140">
+                            <Grid>
                                 <DataGrid ItemsSource="{Binding Data}" Style="{StaticResource DataTable}">
                                     <DataGrid.ContextMenu>
                                         <ContextMenu>
@@ -91,8 +98,8 @@
                                 </DataGrid>
                             </Grid>
                         </DockPanel>
-                    </StackPanel>
-                </StackPanel>
+                    </DockPanel>
+                </Grid>
             </Border>
         </DockPanel>
     </Border>

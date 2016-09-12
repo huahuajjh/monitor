@@ -1,0 +1,62 @@
+﻿<Window x:Class="MonitorWindows.Windows.SearchIP.SearchIPWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="396" Width="435"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
+    <Border Margin="10">
+        <Border.Background>
+            <ImageBrush ImageSource="../../Resources/img/bg_img_setting/bg.png"/>
+        </Border.Background>
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0"/>
+        </Border.Effect>
+        <DockPanel>
+            <DockPanel Margin="6" DockPanel.Dock="Top">
+                <Label Content="{DynamicResource SearchIPWin_Title}" DockPanel.Dock="Left" Foreground="Black" FontWeight="Bold" FontSize="15" VerticalAlignment="Center"/>
+                <Button Click="Button_Click" Style="{StaticResource share_close}" DockPanel.Dock="Right" HorizontalAlignment="Right" />
+            </DockPanel>
+            <Border Background="#68FFFFFF" Margin="2">
+                <StackPanel>
+                    <DockPanel Margin="0,20,10,0">
+                        <Label Content="{DynamicResource SearchIPWin_Text}" Width="80" HorizontalContentAlignment="Right" DockPanel.Dock="Left" />
+                        <Button DockPanel.Dock="Right" Content="{DynamicResource SearchIPWin_Text_AutoIP}" Style="{StaticResource ShareBtnSmall}" Width="60" />
+                        <TextBox Name="textBox1" LostFocus="textBox1_LostFocus" TextChanged="textBox1_TextChanged" Margin="5,0" VerticalContentAlignment="Center" Text="127.0.0.1" />
+                    </DockPanel>
+                    <Popup Name="popupContent" StaysOpen="False" Placement="Bottom" PlacementTarget="{Binding ElementName=textBox1}">
+                        <ListBox Name="contentItems" ItemsSource="{Binding Data}" Width="{Binding ElementName=textBox1,Path=ActualWidth}" MaxHeight="200" SelectionChanged="contentItems_SelectionChanged">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Margin="5,5" FontSize="10" Text="{Binding Name}" Foreground="Gray"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Popup>
+                    <GroupBox Header="{DynamicResource SearchIPWin_Text_List}" BorderBrush="SkyBlue" Margin="10,5" Padding="3">
+                        <Grid Height="200">
+                            <DataGrid ItemsSource="{Binding Data}" Style="{StaticResource DataTable}">
+                                <DataGrid.ColumnHeaderStyle>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="Background" Value="#63A3C4" />
+                                        <Setter Property="Padding" Value="10"/>
+                                        <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                                        <Setter Property="BorderBrush" Value="#454545"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="FontSize" Value="12" />
+                                    </Style>
+                                </DataGrid.ColumnHeaderStyle>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Width="60" Header="{DynamicResource SearchIPWin_Text_Num}" Binding="{Binding Index}" />
+                                    <DataGridTextColumn Width="*" Header="{DynamicResource SearchIPWin_Text_IP}" Binding="{Binding Number}" />
+                                    <DataGridTextColumn Width="*" Header="{DynamicResource SearchIPWin_Text_Ver}" Binding="{Binding Name}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                    <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource SearchIPWin_Text_OK}" Margin="0,10"></Button>
+                </StackPanel>
+            </Border>
+        </DockPanel>
+    </Border>
+</Window>

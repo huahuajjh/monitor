@@ -46,7 +46,58 @@ namespace MonitorWindows.Windows.RoundSetting
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            this.Visibility = System.Windows.Visibility.Collapsed;
+        }
+
+        private void SelectAll_Click(object sender, RoutedEventArgs e)
+        {
+            this.dataGridDom.SelectAll();
+        }
+
+        private void NotSelectAll_Click(object sender, RoutedEventArgs e)
+        {
+            this.dataGridDom.UnselectAll();
+        }
+
+        private void UpData_Click(object sender, RoutedEventArgs e)
+        {
+            var data = this.dataGridDom.SelectedItem;
+            if (data == null) return;
+            int index = Data.IndexOf(data as TempItem);
+            if (index < 1) return;
+            foreach (var item in this.dataGridDom.SelectedItems)
+            {
+                int itemIndex = Data.IndexOf(item as TempItem) - 1;
+                TempItem tempData = Data[itemIndex];
+                Data.Remove(tempData);
+                Data.Insert(itemIndex + 1, tempData);
+            }
+        }
+
+        private void DownData_Click(object sender, RoutedEventArgs e)
+        {
+            var data = this.dataGridDom.SelectedItem;
+            if (data == null) return;
+            int index = Data.IndexOf(data as TempItem) + this.dataGridDom.SelectedItems.Count - 1;
+            if (index >= Data.Count - 1) return;
+            for (int i = this.dataGridDom.SelectedItems.Count - 1; i >= 0; i--)
+            {
+                TempItem item = this.dataGridDom.SelectedItems[i] as TempItem;
+                int itemIndex = Data.IndexOf(item as TempItem) + 1;
+                TempItem tempData = Data[itemIndex];
+                Data.Remove(tempData);
+                Data.Insert(itemIndex - 1, tempData);
+            }
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            new Windows.AddRoundSetting.AddRoundSettingWin().ShowDialog();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            new Windows.EditRoundSetting.EditRoundSettingWin().ShowDialog();
         }
     }
 }

@@ -69,26 +69,142 @@
         </Setter>
     </Style>
     <Style TargetType="CheckBox" x:Key="BgImgSettingCheckBox">
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="CheckBox">
-                    <Label
+                    <Border
+                        Margin="{TemplateBinding Margin}"
+                        BorderThickness="1"
+                        BorderBrush="SkyBlue"
+                        Background="{TemplateBinding Background}">
+                        <Label
                         Content="{TemplateBinding Content}"
                         Name="txt"
                         FontSize="{TemplateBinding FontSize}"
                         Foreground="{TemplateBinding Foreground}"
                         HorizontalContentAlignment="Center"
                         VerticalContentAlignment="Center"
-                        Margin="{TemplateBinding Margin}"
-                        BorderThickness="1"
-                        BorderBrush="SkyBlue"
                         />
+                    </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" TargetName="txt" Value="#507BBAD5" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Background" TargetName="txt" Value="#7BBAD5" />
+                            <Setter Property="Background" TargetName="txt" Value="#7F7BBAD5" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="CheckBox" x:Key="LEDCheckBox">
+        <Setter Property="Width" Value="32" />
+        <Setter Property="Height" Value="32" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <Image Name="img" Source="img/serial_port_setting/LED2.png" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Source" TargetName="img" Value="img/serial_port_setting/LED1.png" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="CheckBox" x:Key="OFFONCheckBox">
+        <Setter Property="Width" Value="106" />
+        <Setter Property="Height" Value="34" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <Image Name="img" Source="img/serial_port_setting/OFF.png" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Source" TargetName="img" Value="img/serial_port_setting/ON.png" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="CheckBox" x:Key="SpeakerCheckBox">
+        <Setter Property="Width" Value="18" />
+        <Setter Property="Height" Value="17" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <Image Name="img" Source="img/audio_control/speaker_off.png" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Source" TargetName="img" Value="img/audio_control/speaker_on.png" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="CheckBox" x:Key="MicrophoneCheckBox">
+        <Setter Property="Width" Value="18" />
+        <Setter Property="Height" Value="17" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <Image Name="img" Source="img/audio_control/microphone_off.png" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Source" TargetName="img" Value="img/audio_control/microphone_on.png" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="CheckBox" x:Key="IndicatorLightCheckBox">
+        <Setter Property="Width" Value="19" />
+        <Setter Property="Height" Value="19" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <Image Name="img" Source="img/audio_control/indicator_light_red.png" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Source" TargetName="img" Value="img/audio_control/indicator_light_blue.png" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="CheckBox" x:Key="MicrophoneBtnCheckBox">
+        <Setter Property="Width" Value="39" />
+        <Setter Property="Height" Value="39" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <Image Name="img" Source="img/audio_control/microphone_btn.png" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Source" TargetName="img" Value="img/audio_control/microphone_suspend_btn.png" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="CheckBox" x:Key="RecordCheckBox">
+        <Setter Property="Width" Value="48" />
+        <Setter Property="Height" Value="14" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <Image Name="img" Source="img/audio_control/record_off.png" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Source" TargetName="img" Value="img/audio_control/record_on.png" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

@@ -25,7 +25,7 @@ namespace MonitorWindows.Windows.CloudControl
 
         private void CloseWin(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            this.Visibility = System.Windows.Visibility.Collapsed;
         }
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)

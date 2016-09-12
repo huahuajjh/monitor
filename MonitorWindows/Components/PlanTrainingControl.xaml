@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="MonitorWindows.Components.PlanTrainingControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="Label" x:Key="PlanTrainingControlItemStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Label">
+                        <Grid Width="auto" Name="BD_Collector">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="&#xf079;" FontSize="13" FontFamily="../Resources/font/#FontAwesome" Padding="8,8,0,0" />
+                            <Label Grid.Column="1" Content="{TemplateBinding Content}" FontSize="13" Background="Transparent" Name="BD_Content" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="BD_Collector" Property="Background" Value="#EDEDED" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Background="Transparent" Name="dataListDom">
+            <StackPanel.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="{DynamicResource PlanTrainingControl_Menu_Save}" Click="MenuItem_Click" />
+                </ContextMenu>
+            </StackPanel.ContextMenu>
+            <Label Style="{StaticResource PlanTrainingControlItemStyle}" Content="测试1">
+                <Label.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="{DynamicResource PlanTrainingControl_Menu_Edit}" Click="MenuItem_Click" />
+                        <MenuItem Header="{DynamicResource PlanTrainingControl_Menu_Del}" />
+                    </ContextMenu>
+                </Label.ContextMenu>
+            </Label>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

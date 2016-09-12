@@ -91,5 +91,10 @@ namespace MonitorWindows.Components
         {
             new Windows.EditOther.EditOtherWin().ShowDialog();
         }
+
+        private void MenuItem_Click_10(object sender, RoutedEventArgs e)
+        {
+            new Windows.EditSourceName.EditSourceNameWin().ShowDialog();
+        }
     }
 }
