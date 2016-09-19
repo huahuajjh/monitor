@@ -192,6 +192,7 @@
     <sys:String x:Key="is_lb_ui_BG">UI背景图:</sys:String>
     <sys:String x:Key="is_lb_logo_img">LOGO图:</sys:String>
     <sys:String x:Key="is_lb_upLoadBtn">上传</sys:String>
+    <sys:String x:Key="is_lb_defaultBtn">默认</sys:String>
     
     <!--caption setting-->
     <sys:String x:Key="cps_title">字幕设置</sys:String>
@@ -512,4 +513,6 @@
     <sys:String x:Key="PlanTrainingControl_Menu_Save">保存预案轮巡</sys:String>
     <sys:String x:Key="PlanTrainingControl_Menu_Edit">修改</sys:String>
     <sys:String x:Key="PlanTrainingControl_Menu_Del">删除</sys:String>
+
+    <sys:String x:Key="RoundSettingWin_Name_Title">轮巡名称:</sys:String>
 </ResourceDictionary>

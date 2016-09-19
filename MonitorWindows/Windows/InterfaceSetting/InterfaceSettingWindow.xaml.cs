@@ -44,6 +44,10 @@ namespace MonitorWindows.Windows.InterfaceSetting
             if (dialog.ShowDialog() == true)
             {
                 ShareResources.Instance.IndexBG = new ImageBrush() { ImageSource = new BitmapImage(new Uri(dialog.FileName, UriKind.Relative)) };
+                checkBGOne.IsChecked = false;
+                checkBGTwo.IsChecked = false;
+                checkBGThree.IsChecked = false;
+                checkBGFour.IsChecked = false;
             }
         }
 
@@ -106,6 +110,25 @@ namespace MonitorWindows.Windows.InterfaceSetting
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ShareResources.Instance.CellTextState = ((ComboBox)sender).SelectedIndex;
+        }
+
+        private void ButtonDefault_Click(object sender, RoutedEventArgs e)
+        {
+            ShareResources.Instance.IndexBG = Application.Current.Resources["Index_BG"] as ImageBrush;
+            checkBGOne.IsChecked = false;
+            checkBGTwo.IsChecked = false;
+            checkBGThree.IsChecked = false;
+            checkBGFour.IsChecked = false;
+        }
+
+        private void UploadLOGODefault_Click(object sender, RoutedEventArgs e)
+        {
+            ShareResources.Instance.LOGO = Application.Current.Resources["LOGO"] as ImageBrush;
+        }
+
+        private void CheckBG_Checked(object sender, RoutedEventArgs e)
+        {
+            ShareResources.Instance.IndexBG = ((RadioButton)sender).Background as ImageBrush;
         }
     }
 }

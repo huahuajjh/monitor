@@ -1,7 +1,7 @@
 ﻿<Window x:Class="MonitorWindows.Windows.RoundSetting.RoundSettingWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="{DynamicResource RoundSettingWin_Title}" Height="407.021" Width="724.362"
+        Title="{DynamicResource RoundSettingWin_Title}" Height="480.603" Width="724.362"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
@@ -21,6 +21,8 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <StackPanel Margin="40,0" VerticalAlignment="Center">
+                        <Label Content="{DynamicResource RoundSettingWin_Name_Title}" FontSize="12" />
+                        <TextBox VerticalContentAlignment="Center" Height="25" />
                         <Label Content="{DynamicResource RoundSettingWin_Time_Title}" FontSize="12" />
                         <Grid Margin="0,0,0,20">
                             <Grid.ColumnDefinitions>
@@ -64,7 +66,7 @@
                             <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonStart_Title}" HorizontalAlignment="Right" Margin="0,0,10,0" Padding="5" FontSize="12"  />
                             <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonEnd_Title}" HorizontalAlignment="Left" Grid.Column="1" Margin="10,0,0,0"  Padding="5" FontSize="12" />
                         </Grid>
-                        <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonSave_Title}" Width="60"></Button>
+                        <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource RoundSettingWin_ButtonSave_Title}" Width="60" Margin="0,15,0,0"></Button>
                     </StackPanel>
                     <Grid Grid.Column="1">
                         <DataGrid x:Name="dataGridDom" ItemsSource="{Binding Data}" Style="{StaticResource DataTable}" SelectionMode="Extended">

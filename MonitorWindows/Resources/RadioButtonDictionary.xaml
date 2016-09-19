@@ -250,4 +250,100 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <Style TargetType="RadioButton" x:Key="IndexBGOne">
+        <Setter Property="Width" Value="37" />
+        <Setter Property="Height" Value="23" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border Name="img" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="3">
+                        <Border.Background>
+                            <ImageBrush ImageSource="img/index_bg/1.1.png" />
+                        </Border.Background>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" TargetName="img">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="img/index_bg/1.1.1.png" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="RadioButton" x:Key="IndexBGTwo">
+        <Setter Property="Width" Value="37" />
+        <Setter Property="Height" Value="23" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border Name="img" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="3">
+                        <Border.Background>
+                            <ImageBrush ImageSource="img/index_bg/2.2.png" />
+                        </Border.Background>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" TargetName="img">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="img/index_bg/2.2.2.png" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="RadioButton" x:Key="IndexBGThree">
+        <Setter Property="Width" Value="37" />
+        <Setter Property="Height" Value="23" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border Name="img" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="3">
+                        <Border.Background>
+                            <ImageBrush ImageSource="img/index_bg/3.3.png" />
+                        </Border.Background>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" TargetName="img">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="img/index_bg/3.3.3.png" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="RadioButton" x:Key="IndexBGFour">
+        <Setter Property="Width" Value="37" />
+        <Setter Property="Height" Value="23" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border Name="img" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="3">
+                        <Border.Background>
+                            <ImageBrush ImageSource="img/index_bg/4.4.png" />
+                        </Border.Background>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" TargetName="img">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="img/index_bg/4.4.4.png" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

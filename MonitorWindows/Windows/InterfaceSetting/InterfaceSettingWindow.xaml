@@ -3,10 +3,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mytb="clr-namespace:MonitorWindows.Controls"
     xmlns:local ="clr-namespace:MonitorWindows"
-    Width="355"
+    Width="306.907"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
-    AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent" Height="484">
+    AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent" Height="513.674">
     <Border Margin="10">
         <Border.Background>
             <ImageBrush ImageSource="../../Resources/img/bg_img_setting/bg.png"/>
@@ -73,12 +73,40 @@
                 <Label Background="#ccc" Height="1" Margin="10,0" />
                 <StackPanel Margin="20,5" Orientation="Horizontal">
                     <Label Content="{DynamicResource is_lb_ui_BG}" />
-                    <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource is_lb_upLoadBtn}" Margin="20,0" Click="Button_Click" />
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource is_lb_upLoadBtn}" Margin="10,0" Click="Button_Click" />
+                            <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource is_lb_defaultBtn}" Margin="0" Click="ButtonDefault_Click" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                            <RadioButton Name="checkBGOne" Style="{StaticResource IndexBGOne}" Margin="10,0,0,0" Checked="CheckBG_Checked">
+                                <RadioButton.Background>
+                                    <ImageBrush ImageSource="../../Resources/img/index_bg/1.png" />
+                                </RadioButton.Background>
+                            </RadioButton>
+                            <RadioButton Name="checkBGTwo" Style="{StaticResource IndexBGTwo}" Margin="5,0,0,0" Checked="CheckBG_Checked">
+                                <RadioButton.Background>
+                                    <ImageBrush ImageSource="../../Resources/img/index_bg/2.png" />
+                                </RadioButton.Background>
+                            </RadioButton>
+                            <RadioButton Name="checkBGThree" Style="{StaticResource IndexBGThree}" Margin="5,0,0,0" Checked="CheckBG_Checked">
+                                <RadioButton.Background>
+                                    <ImageBrush ImageSource="../../Resources/img/index_bg/3.png" />
+                                </RadioButton.Background>
+                            </RadioButton>
+                            <RadioButton Name="checkBGFour" Style="{StaticResource IndexBGFour}" Margin="5,0,0,0" Checked="CheckBG_Checked">
+                                <RadioButton.Background>
+                                    <ImageBrush ImageSource="../../Resources/img/index_bg/4.png" />
+                                </RadioButton.Background>
+                            </RadioButton>
+                        </StackPanel>
+                    </StackPanel>
                 </StackPanel>
                 <Label Background="#ccc" Height="1" Margin="10,0" />
                 <StackPanel Margin="20,5" Orientation="Horizontal">
                     <Label Content="{DynamicResource is_lb_logo_img}" />
-                    <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource is_lb_upLoadBtn}" Margin="20,0" Click="UploadLOGO_Click" />
+                    <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource is_lb_upLoadBtn}" Margin="10,0" Click="UploadLOGO_Click" />
+                    <Button Style="{StaticResource ShareBtnSmall}" Content="{DynamicResource is_lb_defaultBtn}" Margin="0,0" Click="UploadLOGODefault_Click" />
                 </StackPanel>
             </StackPanel>
         </DockPanel>

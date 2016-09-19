@@ -29,7 +29,7 @@ namespace MonitorWindows.Components
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             Color tempColor = (value as SolidColorBrush).Color;
-            tempColor.A = 30;
+            tempColor.A = 50;
             SolidColorBrush color = new SolidColorBrush(tempColor);
             if (win.BGColor == null && win.BGImg == null) win.WheelPanel.Background = color;
             return color;
@@ -56,7 +56,7 @@ namespace MonitorWindows.Components
         #region 背景颜色
         private static DependencyProperty bgColorProperty = DependencyProperty.Register("_bgColor", typeof(SolidColorBrush), typeof(Square),
     new PropertyMetadata());
-        private SolidColorBrush _bgColor = new SolidColorBrush(new System.Windows.Media.Color() { R = 135, G = 206, B = 235, A = 30 });
+        private SolidColorBrush _bgColor = new SolidColorBrush(new System.Windows.Media.Color() { R = 135, G = 206, B = 235, A = 50 });
         private Color? bgColor;
         public Color? BGColor
         {
@@ -67,7 +67,7 @@ namespace MonitorWindows.Components
                     bgColor = value;
                 else
                 {
-                    bgColor = new Color() { R = value.Value.R, G = value.Value.G, B = value.Value.B, A = 30 };
+                    bgColor = new Color() { R = value.Value.R, G = value.Value.G, B = value.Value.B, A = 50 };
                 }
                 if(bgColor == null)
                 {

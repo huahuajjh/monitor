@@ -8,7 +8,7 @@
     <sys:String x:Key="MainWin_Login">登录</sys:String>
     <sys:String x:Key="MainWin_Out">退出</sys:String>
 
-    <sys:String x:Key="IndexWin_Title">fen bu shi ke shi hua zhong he ying yong ping tai</sys:String>
+    <sys:String x:Key="IndexWin_Title">分 布 式 可 视 化 综 合 应 用 平 台</sys:String>
     <sys:String x:Key="IndexWin_LoginState_True">在线</sys:String>
     <sys:String x:Key="IndexWin_LoginState_False">离线</sys:String>
     <sys:String x:Key="IndexWin_LoginBtn_Title">登录信息</sys:String>
@@ -85,6 +85,7 @@
     <sys:String x:Key="CustomWindow_Text_SizeMax">满格</sys:String>
 
     <sys:String x:Key="RoundSettingWin_Title">轮巡设置</sys:String>
+    <sys:String x:Key="RoundSettingWin_Name_Title">轮巡名称:</sys:String>
     <sys:String x:Key="RoundSettingWin_Time_Title">轮巡时间段:</sys:String>
     <sys:String x:Key="RoundSettingWin_TimeGap_Title">轮巡时间间隔:</sys:String>
     <sys:String x:Key="RoundSettingWin_TimeMinute_Title">分</sys:String>
@@ -95,6 +96,7 @@
     <sys:String x:Key="RoundSettingWin_ButtonSelect_Title">全部选</sys:String>
     <sys:String x:Key="RoundSettingWin_ButtonNotSelect_Title">全不选</sys:String>
     <sys:String x:Key="RoundSettingWin_ButtonStart_Title">开始</sys:String>
+    <sys:String x:Key="RoundSettingWin_ButtonSave_Title">保存设置</sys:String>
     <sys:String x:Key="RoundSettingWin_ButtonEnd_Title">结束</sys:String>
     <sys:String x:Key="RoundSettingWin_Menu_Add">添加</sys:String>
     <sys:String x:Key="RoundSettingWin_Menu_Edit">编辑</sys:String>
@@ -104,7 +106,7 @@
     <sys:String x:Key="Alert_Btn_OK">确定</sys:String>
     <sys:String x:Key="Alert_Btn_NO">取消</sys:String>
     <sys:String x:Key="Alert_Login_Hint">你登录信息错误,是否启用离线模式?</sys:String>
-    
+
     <!--Device Setting-->
     <sys:String x:Key="dsw_splice_name">拼接墙设置</sys:String>
     <sys:String x:Key="dsw_matrix_name">矩阵设置</sys:String>
@@ -153,7 +155,7 @@
     <sys:String x:Key="bisw_lb_bg_color">背景色：</sys:String>
     <sys:String x:Key="bisw_btn_pick_color">选择颜色</sys:String>
     <sys:String x:Key="bisw_alert_msg_sucess">上传成功</sys:String>
-    
+
     <!--extends option settin-->
     <sys:String x:Key="eos_lb_title">扩展工具列表</sys:String>
     <sys:String x:Key="eos_tb_name">名称</sys:String>
@@ -164,14 +166,14 @@
     <sys:String x:Key="eos_btn_edit">修改</sys:String>
     <sys:String x:Key="eos_btn_del">删除</sys:String>
     <sys:String x:Key="eos_cb_pick">选择</sys:String>
-    
+
     <!--system monitor setting-->
     <sys:String x:Key="sm_title">状态列表</sys:String>
     <sys:String x:Key="sm_tb_ip">设备IP</sys:String>
     <sys:String x:Key="sm_tb_device_type">设备类型</sys:String>
     <sys:String x:Key="sm_tb_state">状态</sys:String>
     <sys:String x:Key="sm_tb_bug_info">故障信息</sys:String>
-    
+
     <!--interface setting-->
     <sys:String x:Key="is_title">界面设置</sys:String>
     <sys:String x:Key="is_lb_window_title">信息窗口:</sys:String>
@@ -191,7 +193,8 @@
     <sys:String x:Key="is_lb_ui_BG">UI背景图:</sys:String>
     <sys:String x:Key="is_lb_logo_img">LOGO图:</sys:String>
     <sys:String x:Key="is_lb_upLoadBtn">上传</sys:String>
-    
+    <sys:String x:Key="is_lb_defaultBtn">默认</sys:String>
+
     <!--caption setting-->
     <sys:String x:Key="cps_title">字幕设置</sys:String>
     <sys:String x:Key="cps_tb_no">序号</sys:String>
@@ -232,7 +235,7 @@
     <sys:String x:Key="cps_tb_menu_stop">暂停</sys:String>
     <sys:String x:Key="cps_tb_menu_del">删除</sys:String>
     <sys:String x:Key="cps_tb_menu_edit">修改</sys:String>
-    
+
     <!--user management-->
     <sys:String x:Key="um_title">用户管理</sys:String>
     <sys:String x:Key="um_user_title">用户权限管理</sys:String>
@@ -251,6 +254,7 @@
     <sys:String x:Key="um_checkBox_four">远程重启/关机</sys:String>
     <sys:String x:Key="um_checkBox_five">远程查看状态/日志</sys:String>
     <sys:String x:Key="um_checkBox_six">远程参数配置</sys:String>
+    <sys:String x:Key="um_checkBox_seven">全选</sys:String>
     <sys:String x:Key="um_menu_userAdd">创建用户</sys:String>
     <sys:String x:Key="um_menu_userEdit">修改用户</sys:String>
     <sys:String x:Key="um_menu_userDel">删除用户</sys:String>
@@ -464,6 +468,7 @@
     <sys:String x:Key="SearchIPWin_Text_IP">IP地址</sys:String>
     <sys:String x:Key="SearchIPWin_Text_Ver">版本</sys:String>
     <sys:String x:Key="SearchIPWin_Text_OK">确定</sys:String>
+    <sys:String x:Key="SearchIPWin_Text_AutoIP">自动搜索</sys:String>
 
     <sys:String x:Key="AddCaptionSettingWin_Title">添加字幕</sys:String>
     <sys:String x:Key="AddCaptionSettingWin_Text_Context">文字内容:</sys:String>
@@ -493,5 +498,21 @@
     <sys:String x:Key="SerialPortSettingWin_Text_JYW">校验位:</sys:String>
     <sys:String x:Key="SerialPortSettingWin_Text_ON">打开串口</sys:String>
     <sys:String x:Key="SerialPortSettingWin_Text_OFF">关闭串口</sys:String>
+
+    <sys:String x:Key="ShowVideoWin_Title">视频播放</sys:String>
+
+    <sys:String x:Key="AudioControlWin_Title">音频控制</sys:String>
+    <sys:String x:Key="AudioControlWin_Text_Dim">Dim</sys:String>
+    <sys:String x:Key="AudioControlWin_Text_Mute">Mute</sys:String>
+    <sys:String x:Key="AudioControlWin_Text_Mono">Mono</sys:String>
+    <sys:String x:Key="AudioControlWin_Text_Input">INPUT</sys:String>
+    <sys:String x:Key="AudioControlWin_Text_Output">OUTPUT</sys:String>
+    <sys:String x:Key="AudioControlWin_Text_HuiFang">回 放</sys:String>
+    <sys:String x:Key="AudioControlWin_Text_Save">保 存</sys:String>
+    <sys:String x:Key="AudioControlWin_Text_LuZhi">录制</sys:String>
+
+    <sys:String x:Key="PlanTrainingControl_Menu_Save">保存预案轮巡</sys:String>
+    <sys:String x:Key="PlanTrainingControl_Menu_Edit">修改</sys:String>
+    <sys:String x:Key="PlanTrainingControl_Menu_Del">删除</sys:String>
 
 </ResourceDictionary>
